@@ -1,0 +1,26 @@
+{
+  "name": "betcub-frontend",
+  "description": "",
+  "main": "./src/index.html",
+  "authors": [
+    "Ferenc Kondasz"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bet",
+    "deal",
+    "save",
+    "offer"
+  ],
+  "homepage": "betcub.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
