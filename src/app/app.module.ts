@@ -1,7 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
+import './rxjs-operators';
+
+import { AlertModule, 
+         DatepickerModule, 
+         DropdownModule,
+         PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { routing,
          appRoutingProviders }  from './app.routing';
@@ -45,8 +51,6 @@ import { FeedbackComponent } from './feedback/feedback.component'; // MODAL COMP
 import { RegisterComponent } from './register/register.component'; // MODAL COMPONENT
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,9 +77,15 @@ import { RegisterComponent } from './register/register.component'; // MODAL COMP
     HomeLeftSideComponent
   ],
   imports: [
+    // UI COMPONENTS
+    DatepickerModule,
+    DropdownModule,
+    PaginationModule,
+
     BrowserModule,
     FormsModule,
     HttpModule,
+    JsonpModule,
     routing
   ],
   providers: [appRoutingProviders],

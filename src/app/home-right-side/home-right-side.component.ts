@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeRightSideComponent implements OnInit {
 
-  constructor() { }
+	date: Date = new Date();
+	constructor() { }
 
-  ngOnInit() {
-  }
+
+	ngOnInit() {
+	}
 
 }
