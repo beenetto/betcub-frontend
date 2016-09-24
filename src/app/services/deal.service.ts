@@ -48,7 +48,7 @@ export class DealService {
   }
 
   getDeals (): Observable<any[]> {
-    return this.http.get(this.dealsUrl, {headers: this.headers})
+    return this.http.get(this.dealsUrl)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

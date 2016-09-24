@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { DealService } from '../services/deal.service'
 
 @Component({
@@ -16,8 +16,8 @@ export class DealListComponent implements OnInit {
 	constructor (private dealService: DealService) {}
 
 	ngOnInit() { 
-		 this.login();
-		//this.getDeals(); 
+		//this.login();
+		this.getDeals(); 
 	}
 
 	login() {
@@ -34,6 +34,11 @@ export class DealListComponent implements OnInit {
 		                   deals => this.deals = deals,
 		                   error =>  this.errorMessage = <any>error);
 	}
+
+	@ViewChild('dataContainer') dataContainer: ElementRef;
+    loadData(data) {
+        this.dataContainer.nativeElement.innerHTML = data;
+    }
 
 	// addDeal (name: string) {
 	// 	if (!name) { return; }
