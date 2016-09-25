@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { DealService } from '../services/deal.service'
+import { DealComponent } from '../deal/deal.component'
 
 @Component({
   selector: 'app-deal-list',
@@ -20,10 +21,13 @@ export class DealListComponent implements OnInit {
 	}
 
 	getDeals() {
+
+		let matyi = "lolo"
+
 		this.dealService.getDeals()
-		                 .subscribe(
-		                   deals => this.deals = deals,
-		                   error =>  this.errorMessage = <any>error);
+			.subscribe(
+				deals => this.deals = deals,
+				error =>  this.errorMessage = <any>error);
 	}
 
 	@ViewChild('dataContainer') dataContainer: ElementRef;
@@ -31,12 +35,11 @@ export class DealListComponent implements OnInit {
         this.dataContainer.nativeElement.innerHTML = data;
     }
 
-	// addDeal (name: string) {
-	// 	if (!name) { return; }
-	// 	this.dealService.addDeal(name)
-	// 	                 .subscribe(
-	// 	                   deal  => this.deals.push(deal),
-	// 	                   error =>  this.errorMessage = <any>error);
-	// }
-
+	addDeal (name: string) {
+		if (!name) { return; }
+		this.dealService.addDeal(name)
+			.subscribe(
+				deal  => this.deals.push(deal),
+				error =>  this.errorMessage = <any>error);
+	}
 }

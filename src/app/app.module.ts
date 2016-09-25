@@ -48,7 +48,8 @@ import { FooterContentComponent } from './footer-content/footer-content.componen
 
 // MODAL
 import { FeedbackComponent } from './feedback/feedback.component'; // MODAL COMPONENT
-import { RegisterComponent } from './register/register.component'; // MODAL COMPONENT
+import { RegisterComponent } from './register/register.component';
+import { DealComponent } from './deal/deal.component'; // MODAL COMPONENT
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { RegisterComponent } from './register/register.component'; // MODAL COMP
     HeaderTopComponent,
     HeaderBottomComponent,
     HomeRightSideComponent,
-    HomeLeftSideComponent
+    HomeLeftSideComponent,
+    DealComponent
   ],
   imports: [
     // UI COMPONENTS
