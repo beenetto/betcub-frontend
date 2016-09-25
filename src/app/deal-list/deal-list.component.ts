@@ -16,16 +16,7 @@ export class DealListComponent implements OnInit {
 	constructor (private dealService: DealService) {}
 
 	ngOnInit() { 
-		//this.login();
 		this.getDeals(); 
-	}
-
-	login() {
-		this.dealService.login("ferenc@popo", "Szentendre_4").subscribe((result) => {
-	      if (result) {
-	        //this.router.navigate(['']);
-	      }
-	    });                 
 	}
 
 	getDeals() {
