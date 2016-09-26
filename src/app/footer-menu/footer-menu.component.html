@@ -1,7 +1,14 @@
-<ul>
-	<li><a [routerLink]="['/feedback']">Feedback</a></li>
-	<li><a [routerLink]="['/contact']">Contact</a></li>
-	<li><a [routerLink]="['/about-us']">About us</a></li>
-	<li><a [routerLink]="['/privacy-policy']">Privacy policy</a></li>
-	<li><a [routerLink]="['/terms-and-conditions']">Terms & Conditions</a></li>
-</ul>
+<div class="row">
+	<div class="col-sm-2">copyright</div>
+	<div class="col-sm-2">pictos</div>
+	<div class="col-sm-8">
+		<nav class="navbar navbar-light">
+			<ul class="nav navbar-nav">
+				<li class="nav-item"><a  class="nav-link" [routerLink]="['/feedback']">Feedback</a></li>
+				<li class="nav-item"><a  class="nav-link" [routerLink]="['/about-us']">About us</a></li>
+				<li class="nav-item"><a  class="nav-link" [routerLink]="['/privacy-policy']">Privacy policy</a></li>
+				<li class="nav-item"><a  class="nav-link" [routerLink]="['/terms-and-conditions']">Terms & Conditions</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
