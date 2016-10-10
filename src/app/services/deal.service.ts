@@ -7,8 +7,9 @@ import { Observable }     from 'rxjs/Observable';
 export class DealService {
 
 	private headers = new Headers({});
-	private dealsUrl = 'http://localhost:3000/db';  // URL to web API
-
+	//private dealsUrl = 'http://localhost:3000/db';  // URL to web API
+	private dealsUrl = 'https://betcubco20160823124853.azurewebsites.net/api/Deals/Deals';
+	
 	constructor(private http: Http) {}
 
 	getDeals (): Observable<any[]> {

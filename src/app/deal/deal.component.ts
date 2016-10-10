@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-deal',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DealComponent implements OnInit {
 
-  constructor() { }
+	@Input() dealData;
 
-  ngOnInit() {
-  }
+	constructor() {  }
+
+	ngOnInit() {
+	}
 
 }

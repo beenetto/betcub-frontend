@@ -1,6 +1,7 @@
 <h3>Deal list</h3>
 <ul>  
   <li *ngFor="let deal of deals">
+  	<app-deal ([data]) = 'deal'></app-deal>
 	{{ deal.title }} {{ deal.shortDescription }}
   </li>
 <ul>  
