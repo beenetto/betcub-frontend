@@ -7,11 +7,16 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DealComponent implements OnInit {
 
-	@Input() dealData;
+	@Input() data:Object;
 
-	constructor() {  }
+	public title:String;
+	public content:String; 
+
+	constructor() {}
 
 	ngOnInit() {
-	}
 
+		this.title = this.data['title'];
+		this.content = this.data['content'];
+	}
 }
