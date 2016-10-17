@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DealService } from './services/deal.service';
+import { DealCollection } from './model/DealCollection';
 import { LoginService } from './services/login.service'
 
 @Component({
@@ -7,12 +9,18 @@ import { LoginService } from './services/login.service'
   styleUrls: ['./app.component.css'],
   providers: [LoginService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 	title = 'app works!';
 
 	public malac: string = "malac";
+	public deals: DealCollection;
 
-	constructor (private loginService: LoginService) {}
+	errorMessage: string;
+
+	constructor (
+		private loginService: LoginService, 
+		private dealService: DealService, 
+		private collection: DealCollection) {}
 
 	login() {
 		this.loginService.login("ferenc@po.po", "Szentendre_4")
@@ -22,5 +30,17 @@ export class AppComponent {
 					//this.router.navigate(['']);
 				}
 		});                 
+	}
+
+	ngOnInit() { 
+		this.getDeals(); 
+	}
+
+	getDeals() {
+
+		this.dealService.getDeals()
+			.subscribe(
+				deals => this.collection.deals = deals,
+				error =>  this.errorMessage = <any>error);
 	}
 }

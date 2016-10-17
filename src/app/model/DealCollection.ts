@@ -1,5 +1,9 @@
-class DealCollection {
-	private deals: Deal[] = [];
+import { Injectable } from '@angular/core';
+import { Deal } from './deal';
+
+@Injectable()
+export class DealCollection {
+	public deals: Deal[] = [];
 
 	getDealById(id: string) {
 		return this.deals

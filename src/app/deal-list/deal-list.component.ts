@@ -1,45 +1,22 @@
-import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
-import { DealService } from '../services/deal.service'
+import { Component, OnInit } from '@angular/core';
+import { DealCollection } from '../model/DealCollection';
 import { DealComponent } from '../deal/deal.component'
 
 @Component({
   selector: 'app-deal-list',
   templateUrl: './deal-list.component.html',
-  styleUrls: ['./deal-list.component.css'],
-  providers: [DealService]
+  styleUrls: ['./deal-list.component.css']
 })
 export class DealListComponent implements OnInit {
+	
 	errorMessage: string;
-	deals: any[];
 	mode = 'Observable';
-	response = ''
+	response = '';
 
-	constructor (private dealService: DealService) {}
+	constructor (
+		private collection: DealCollection) {}
 
 	ngOnInit() { 
-		this.getDeals(); 
-	}
-
-	getDeals() {
-
-		let matyi = "lolo"
-
-		this.dealService.getDeals()
-			.subscribe(
-				deals => this.deals = deals,
-				error =>  this.errorMessage = <any>error);
-	}
-
-	@ViewChild('dataContainer') dataContainer: ElementRef;
-    loadData(data) {
-        this.dataContainer.nativeElement.innerHTML = data;
-    }
-
-	addDeal (name: string) {
-		if (!name) { return; }
-		this.dealService.addDeal(name)
-			.subscribe(
-				deal  => this.deals.push(deal),
-				error =>  this.errorMessage = <any>error);
+		
 	}
 }

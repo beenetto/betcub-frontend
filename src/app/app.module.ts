@@ -52,6 +52,9 @@ import { FeedbackComponent } from './feedback/feedback.component'; // MODAL COMP
 import { RegisterComponent } from './register/register.component';
 import { DealComponent } from './deal/deal.component'; // MODAL COMPONENT
 
+// Common models and collections
+import { DealService } from './services/deal.service';
+import { DealCollection } from './model/DealCollection';
 
 @NgModule({
   declarations: [
@@ -80,19 +83,20 @@ import { DealComponent } from './deal/deal.component'; // MODAL COMPONENT
     DealComponent
   ],
   imports: [
-    // UI COMPONENTS
-    DatepickerModule,
-    DropdownModule,
-    PaginationModule,
-
+    // Models
+    // Modules
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
-    routing
+    routing,
+    // UI COMPONENTS
+    DatepickerModule,
+    DropdownModule,
+    PaginationModule
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, DealService, DealCollection],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
