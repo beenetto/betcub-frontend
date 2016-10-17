@@ -10,6 +10,8 @@ import { LoginService } from './services/login.service'
 export class AppComponent {
 	title = 'app works!';
 
+	public malac: string = "malac";
+
 	constructor (private loginService: LoginService) {}
 
 	login() {

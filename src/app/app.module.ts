@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+  
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
 
@@ -86,6 +87,7 @@ import { DealComponent } from './deal/deal.component'; // MODAL COMPONENT
 
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     JsonpModule,
     routing
