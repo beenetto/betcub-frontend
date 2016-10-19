@@ -12,7 +12,6 @@ import { LoginService } from './services/login.service'
 export class AppComponent implements OnInit {
 	title = 'app works!';
 
-	public malac: string = "malac";
 	public deals: DealCollection;
 
 	errorMessage: string;
@@ -23,24 +22,21 @@ export class AppComponent implements OnInit {
 		private collection: DealCollection) {}
 
 	login() {
-		this.loginService.login("ferenc@po.po", "Szentendre_4")
-			.subscribe((result) => {
-				if (result) {
-
-					//this.router.navigate(['']);
-				}
-		});                 
+	            
 	}
 
 	ngOnInit() { 
-		this.getDeals(); 
+		this.getDeals();
 	}
 
 	getDeals() {
-
 		this.dealService.getDeals()
 			.subscribe(
-				deals => this.collection.deals = deals,
-				error =>  this.errorMessage = <any>error);
+				deals => {
+					this.collection.refresh(deals);
+				},
+				error =>  {
+					this.errorMessage = <any>error
+		});
 	}
 }

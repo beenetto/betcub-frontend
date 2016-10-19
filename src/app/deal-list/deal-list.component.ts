@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DealCollection } from '../model/DealCollection';
-import { DealComponent } from '../deal/deal.component'
+import { DealComponent } from '../deal/deal.component';
 
 @Component({
   selector: 'app-deal-list',
@@ -10,11 +10,10 @@ import { DealComponent } from '../deal/deal.component'
 export class DealListComponent implements OnInit {
 	
 	errorMessage: string;
-	mode = 'Observable';
+	// mode = 'Observable';
 	response = '';
 
-	constructor (
-		private collection: DealCollection) {}
+	constructor (private collection: DealCollection) {}
 
 	ngOnInit() { 
 		

@@ -23,6 +23,7 @@ const appRoutes: Routes = [
 
   // DEAL
   { path: 'add-deal', component: AddDealComponent },
+  { path: 'edit-deal/:id', component: AddDealComponent },
   { path: 'deal-detail/:id', component: DealDetailComponent },
 
   // USER

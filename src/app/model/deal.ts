@@ -1,7 +1,7 @@
 export class Deal{
 
 	constructor(
-		public id?: string,
+		public dealId?: string,
 		public title?: string,
 		public description?: string
 	) {}
