@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DealService } from './services/deal.service';
-import { DealCollection } from './model/DealCollection';
 import { LoginService } from './services/login.service'
 
 @Component({
@@ -10,33 +8,10 @@ import { LoginService } from './services/login.service'
   providers: [LoginService]
 })
 export class AppComponent implements OnInit {
-	title = 'app works!';
 
-	public deals: DealCollection;
+	constructor ( private loginService: LoginService ) {}
 
-	errorMessage: string;
+	public login() {}
 
-	constructor (
-		private loginService: LoginService, 
-		private dealService: DealService, 
-		private collection: DealCollection) {}
-
-	login() {
-	            
-	}
-
-	ngOnInit() { 
-		this.getDeals();
-	}
-
-	getDeals() {
-		this.dealService.getDeals()
-			.subscribe(
-				deals => {
-					this.collection.refresh(deals);
-				},
-				error =>  {
-					this.errorMessage = <any>error
-		});
-	}
+	ngOnInit() {}
 }

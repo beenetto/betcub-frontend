@@ -2,6 +2,7 @@ import { Injectable }     from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { DealComponent } from '../deal/deal.component'
 import { Observable }     from 'rxjs/Observable';
+import { Deal } from '../model/deal';
 
 @Injectable()
 export class DealService {
@@ -12,7 +13,7 @@ export class DealService {
 	
 	constructor(private http: Http) {}
 
-	getDeals (): Observable<any[]> {
+	getDeals (): Observable<Deal[]> {
 		let response = this.http.get(this.dealsUrl)
 			.map(this.extractData)
 			.catch(this.handleError);
