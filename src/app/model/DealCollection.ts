@@ -7,7 +7,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class DealCollection {
 
-    private deals: Array<Deal>;
+    private deals: Array<Deal> = [];
     public stream: Subject<Array<Deal>> = new Subject<Array<Deal>>();
     public errorMessage: String;
 
@@ -29,8 +29,10 @@ export class DealCollection {
 		});
 	}
 
-	refresh(deals: Array<Deal>): void {
-		this.deals = deals;
+	refresh(deals?: Array<Deal>): void {
+		if (deals) {
+			this.deals = deals;
+		}
 		this.stream.next(this.deals);
 	}
 

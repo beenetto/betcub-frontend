@@ -1,6 +1,6 @@
 import { Subscription } from 'rxjs';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DealCollection } from '../model/DealCollection';
 import { Deal } from '../model/deal';
 
@@ -25,6 +25,7 @@ export class AddDealComponent implements OnInit, OnDestroy {
   private linkSubscription: Subscription;
   private deal: Deal;
   private dealForm: FormGroup;
+  private isEdit: Boolean = false;
 
   startDate: Date = new Date();
   endDate: Date = new Date();
@@ -32,13 +33,20 @@ export class AddDealComponent implements OnInit, OnDestroy {
   constructor(public fb: FormBuilder, 
               private collection: DealCollection, 
               private activatedRoute: ActivatedRoute) {}
+
  
   onSubmit(value: string): void {  
     console.log('you submitted value: ', value);  
   }
 
   ngOnInit() {
-
+    this.activatedRoute.params.forEach((params: Params) => {
+        //console.log(this.collection.getDealById(params['id']));
+        
+        // this.selectedId = +params['id'];
+        // this.service.getHeroes()
+        //   .then(heroes => this.heroes = heroes);
+      });
     this.dealForm = this.fb.group({  
       'title': '',
       'description': '',
@@ -51,9 +59,7 @@ export class AddDealComponent implements OnInit, OnDestroy {
       (param: any) => {
         this.collection.stream.subscribe(
           value => {
-
             this.deal = this.collection.getDealById(param['id']);
-
             this.dealForm = this.fb.group({  
               'title': this.deal.title,
               'description': this.deal.description,
@@ -64,6 +70,9 @@ export class AddDealComponent implements OnInit, OnDestroy {
           },
           error => {console.log(error)});
       });
+    if (this.collection.getAll().length) {
+      this.collection.refresh();
+    }
   }
 
   onStartDateChange(value) {
