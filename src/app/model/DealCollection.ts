@@ -29,6 +29,29 @@ export class DealCollection {
 		});
 	}
 
+	addDeal (deal: string): void {
+		this.dealService.addDeal(deal)
+	        .subscribe(
+	          dealStream => {
+	            console.log("Added");
+	          },
+	          error =>  {
+	            this.errorMessage = <any>error;
+	      });
+	}
+
+	saveDeal (deal: string): void {
+		this.dealService.saveDeal(deal)	
+	        .subscribe(
+	          dealStream => {
+	            console.log("SAVED");
+	          },
+	          error =>  {
+	            this.errorMessage = <any>error;
+	      });
+	}
+
+
 	refresh(deals?: Array<Deal>): void {
 		if (deals) {
 			this.deals = deals;
@@ -41,10 +64,6 @@ export class DealCollection {
 		return this.deals
 			.filter(d => d.id === id)
 			.pop();
-	}
-
-	addDeal(deal: Deal): void {
-		this.deals.push(deal)
 	}
 
 	getAll(): Array<Deal> {

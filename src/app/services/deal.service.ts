@@ -20,12 +20,22 @@ export class DealService {
 		return response;
 	}
 
-	addDeal (name: string): Observable<DealComponent> {
-		let body = JSON.stringify({ name });
+	addDeal (deal: string): Observable<DealComponent> {
+		let body = JSON.stringify({ deal });
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
 
 		return this.http.post(this.dealsUrl, body, options)
+			.map(this.extractData)
+			.catch(this.handleError);
+	}
+
+	saveDeal (deal: any): Observable<DealComponent> {
+		let body = JSON.stringify({ deal });
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers });
+
+		return this.http.put(this.dealsUrl + '/' + deal.id, body, options)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
