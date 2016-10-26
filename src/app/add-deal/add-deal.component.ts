@@ -61,6 +61,10 @@ export class AddDealComponent implements OnInit, OnDestroy {
     console.log(value);
   }
 
+  remove(): void {
+    this.collection.removeDeal(this.deal.id);
+  }
+
   ngOnInit() {
     this.dealForm = this.fb.group({  
       'title': '',

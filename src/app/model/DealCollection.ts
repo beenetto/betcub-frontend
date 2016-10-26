@@ -51,6 +51,17 @@ export class DealCollection {
 	      });
 	}
 
+	removeDeal (id: String): void {
+		this.dealService.removeDeal(id)	
+	        .subscribe(
+	          dealStream => {
+	            console.log("DELETED");
+	          },
+	          error =>  {
+	            this.errorMessage = <any>error;
+	      });
+	}
+
 
 	refresh(deals?: Array<Deal>): void {
 		if (deals) {
