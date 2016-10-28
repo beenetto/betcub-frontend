@@ -31,7 +31,7 @@ export class DealService {
 	}
 
 	saveDeal (deal: any): Observable<DealComponent> {
-		let body = JSON.stringify({ deal });
+		let body = JSON.stringify({ deal });		
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
 

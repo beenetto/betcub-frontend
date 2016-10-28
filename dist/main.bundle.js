@@ -31059,6 +31059,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var DealCollection = (function () {
     function DealCollection(dealService) {
         this.dealService = dealService;
+        this.deals = [];
         this.stream = new __WEBPACK_IMPORTED_MODULE_3_rxjs_Subject__["Subject"]();
         this.getDeals();
     }
@@ -31077,8 +31078,37 @@ var DealCollection = (function () {
             _this.errorMessage = error;
         });
     };
+    DealCollection.prototype.addDeal = function (deal) {
+        var _this = this;
+        this.dealService.addDeal(deal)
+            .subscribe(function (dealStream) {
+            console.log("Added");
+        }, function (error) {
+            _this.errorMessage = error;
+        });
+    };
+    DealCollection.prototype.saveDeal = function (deal) {
+        var _this = this;
+        this.dealService.saveDeal(deal)
+            .subscribe(function (dealStream) {
+            console.log("SAVED");
+        }, function (error) {
+            _this.errorMessage = error;
+        });
+    };
+    DealCollection.prototype.removeDeal = function (id) {
+        var _this = this;
+        this.dealService.removeDeal(id)
+            .subscribe(function (dealStream) {
+            console.log("DELETED");
+        }, function (error) {
+            _this.errorMessage = error;
+        });
+    };
     DealCollection.prototype.refresh = function (deals) {
-        this.deals = deals;
+        if (deals) {
+            this.deals = deals;
+        }
         this.stream.next(this.deals);
     };
     DealCollection.prototype.getDealById = function (id) {
@@ -31086,9 +31116,6 @@ var DealCollection = (function () {
         return this.deals
             .filter(function (d) { return d.id === id; })
             .pop();
-    };
-    DealCollection.prototype.addDeal = function (deal) {
-        this.deals.push(deal);
     };
     DealCollection.prototype.getAll = function () {
         return this.deals;
@@ -47380,11 +47407,33 @@ var AddDealComponent = (function () {
         this.fb = fb;
         this.collection = collection;
         this.activatedRoute = activatedRoute;
+        this.isEdit = false;
+        this.pageTitle = "Add new deal";
+        this.submitText = "Add";
         this.startDate = new Date();
         this.endDate = new Date();
     }
     AddDealComponent.prototype.onSubmit = function (value) {
-        console.log('you submitted value: ', value);
+        value['culture'] = {
+            name: "Base language",
+            isoCode: "en",
+            self: "api/globalizations/cultures/00000000-0000-0000-0000-000000000000"
+        };
+        value['category'] = {
+            name: "Betting",
+            self: "api/deals/categories/00000000-0000-0000-0000-000000000000"
+        };
+        if (this.isEdit) {
+            value['id'] = this.deal.id;
+            this.collection.saveDeal(value);
+        }
+        else {
+            this.collection.addDeal(value);
+        }
+        console.log(value);
+    };
+    AddDealComponent.prototype.remove = function () {
+        this.collection.removeDeal(this.deal.id);
     };
     AddDealComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -47397,16 +47446,24 @@ var AddDealComponent = (function () {
         });
         this.linkSubscription = this.activatedRoute.params.subscribe(function (param) {
             _this.collection.stream.subscribe(function (value) {
-                _this.deal = _this.collection.getDealById(param['id']);
-                _this.dealForm = _this.fb.group({
-                    'title': _this.deal.title,
-                    'description': _this.deal.description,
-                    'content': _this.deal.content,
-                    'dateStart': _this.deal.dateStart,
-                    'dateEnd': _this.deal.dateEnd
-                });
+                if (param['id']) {
+                    _this.isEdit = true;
+                    _this.deal = _this.collection.getDealById(param['id']);
+                    _this.pageTitle = 'Edit ' + _this.deal.title;
+                    _this.submitText = 'Save';
+                    _this.dealForm = _this.fb.group({
+                        'title': _this.deal.title,
+                        'description': _this.deal.description,
+                        'content': _this.deal.content,
+                        'dateStart': _this.deal.dateStart,
+                        'dateEnd': _this.deal.dateEnd
+                    });
+                }
             }, function (error) { console.log(error); });
         });
+        if (this.collection.getAll().length) {
+            this.collection.refresh();
+        }
     };
     AddDealComponent.prototype.onStartDateChange = function (value) {
         console.log(value);
@@ -47709,11 +47766,26 @@ var DealService = (function () {
             .catch(this.handleError);
         return response;
     };
-    DealService.prototype.addDeal = function (name) {
-        var body = JSON.stringify({ name: name });
+    DealService.prototype.addDeal = function (deal) {
+        var body = JSON.stringify({ deal: deal });
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
         return this.http.post(this.dealsUrl, body, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    DealService.prototype.saveDeal = function (deal) {
+        var body = JSON.stringify({ deal: deal });
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        return this.http.put(this.dealsUrl + '/' + deal.id, body, options)
+            .map(this.extractData)
+            .catch(this.handleError);
+    };
+    DealService.prototype.removeDeal = function (id) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        return this.http.delete(this.dealsUrl + '/' + id)
             .map(this.extractData)
             .catch(this.handleError);
     };
@@ -64879,6 +64951,7 @@ var DealComponent = (function () {
     function DealComponent() {
     }
     DealComponent.prototype.ngOnInit = function () {
+        this.id = this.data['id'];
         this.title = this.data['title'];
         this.content = this.data['content'];
     };
@@ -74359,7 +74432,7 @@ module.exports = "<p>\n  about-us works!\n</p>\n"
 /* 759 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"ui raised segment\">  \n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"start-date\">Date start</label> \n    <datepicker \n        [(ngModel)]=\"startDate\" \n        (ngModelChange)=\"onStartDateChange($event)\"></datepicker>\n</div>\n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"end-date\" for=\"description\">Date end</label> \n    <datepicker \n        [(ngModel)]=\"endDate\" \n        (ngModelChange)=\"onEndDateChange($event)\"></datepicker>\n</div>\n<div class=\"form-group\">\n    <form [formGroup]=\"dealForm\"  \n      (ngSubmit)=\"onSubmit(dealForm.value)\"  \n      class=\"form-horizontal\">\n\n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"title\"  \n                       placeholder=\"title\"  \n                       [formControl]=\"dealForm.controls['title']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"description\"  \n                       placeholder=\"description\"  \n                       [formControl]=\"dealForm.controls['description']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"description\" class=\"col-sm-2 control-label\">Content</label> \n            <div class=\"col-sm-10\">\n                <textarea \n                    id=\"content\"\n                    class=\"form-control\" \n                    placeholder=\"content\"  \n                    [formControl]=\"dealForm.controls['content']\"></textarea>\n            </div>\n        </div>\n\n        <div class=\"col-sm-offset-2 col-sm-10\">\n            <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n        </div>  \n    </form>\n</div>\n"
+module.exports = "<h2>{{pageTitle}}</h2>\n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"start-date\">Date start</label> \n    <datepicker \n        [(ngModel)]=\"startDate\" \n        (ngModelChange)=\"onStartDateChange($event)\"></datepicker>\n</div>\n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"end-date\" for=\"description\">Date end</label> \n    <datepicker \n        [(ngModel)]=\"endDate\" \n        (ngModelChange)=\"onEndDateChange($event)\"></datepicker>\n</div>\n<div class=\"form-group\">\n    <form [formGroup]=\"dealForm\"  \n      (ngSubmit)=\"onSubmit(dealForm.value)\"  \n      class=\"form-horizontal\">\n\n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"title\"  \n                       placeholder=\"title\"  \n                       [formControl]=\"dealForm.controls['title']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"description\"  \n                       placeholder=\"description\"  \n                       [formControl]=\"dealForm.controls['description']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"description\" class=\"col-sm-2 control-label\">Content</label> \n            <div class=\"col-sm-10\">\n                <textarea \n                    id=\"content\"\n                    class=\"form-control\" \n                    placeholder=\"content\"  \n                    [formControl]=\"dealForm.controls['content']\"></textarea>\n            </div>\n        </div>\n\n        <div class=\"col-sm-offset-2 col-sm-10\">\n            <button type=\"submit\" class=\"btn btn-default\">{{submitText}}</button>\n        </div>\n        \n\n    </form>\n    <div class=\"col-sm-offset-2 col-sm-10\">\n        <button type=\"submit\" (click)=\"remove($event)\" class=\"btn btn-default\">Remove</button>\n    </div>  \n</div>\n"
 
 /***/ },
 /* 760 */
@@ -74395,7 +74468,7 @@ module.exports = "<h3>Deal list</h3>\n<deal [data]=\"deal\" *ngFor=\"let deal of
 /* 765 */
 /***/ function(module, exports) {
 
-module.exports = "<div>\n\t<h2>{{title}}</h2>\n\t<div>{{content}}</div>\n</div>\n"
+module.exports = "<div>\n\t<a [routerLink]=\"['/edit-deal/'+id]\">Edit</a>\n\t<h2>{{title}}</h2>\n\t<div>{{content}}</div>\n</div>\n"
 
 /***/ },
 /* 766 */

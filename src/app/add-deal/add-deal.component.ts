@@ -40,11 +40,11 @@ export class AddDealComponent implements OnInit, OnDestroy {
  
   onSubmit(value: string): void {
 
-    // value['culture'] = {
-    //   name: "Base language", 
-    //   isoCode: "en", 
-    //   self: "api/globalizations/cultures/00000000-0000-0000-0000-000000000000"
-    // };
+    value['culture'] = {
+      name: "Base language", 
+      isoCode: "en", 
+      self: "api/globalizations/cultures/00000000-0000-0000-0000-000000000000"
+    };
 
     value['category'] = {
       name: "Betting", 
