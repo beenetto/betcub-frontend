@@ -40,17 +40,6 @@ export class AddDealComponent implements OnInit, OnDestroy {
  
   onSubmit(value: string): void {
 
-    value['culture'] = {
-      name: "Base language", 
-      isoCode: "en", 
-      self: "api/globalizations/cultures/00000000-0000-0000-0000-000000000000"
-    };
-
-    value['category'] = {
-      name: "Betting", 
-      self: "api/deals/categories/00000000-0000-0000-0000-000000000000"
-    };
-
     if (this.isEdit) {
       value['id'] = this.deal.id;
       this.collection.saveDeal(value);
@@ -69,9 +58,10 @@ export class AddDealComponent implements OnInit, OnDestroy {
     this.dealForm = this.fb.group({  
       'title': '',
       'description': '',
-        'content': '',
-        'dateStart': '',
-        'dateEnd': ''  
+        'content': ''
+        // ,
+        // 'dateStart': '',
+        // 'dateEnd': ''  
     });  
 
     this.linkSubscription = this.activatedRoute.params.subscribe(
@@ -87,9 +77,10 @@ export class AddDealComponent implements OnInit, OnDestroy {
               this.dealForm = this.fb.group({  
                 'title': this.deal.title,
                 'description': this.deal.description,
-                'content': this.deal.content,
-                'dateStart': this.deal.dateStart,
-                'dateEnd': this.deal.dateEnd
+                'content': this.deal.content
+                // ,
+                // 'dateStart': this.deal.dateStart,
+                // 'dateEnd': this.deal.dateEnd
               });
             }
           },

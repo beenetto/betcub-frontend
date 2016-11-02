@@ -9,9 +9,13 @@ export class DealService {
 
 	private headers = new Headers({});
 	//private dealsUrl = 'http://localhost:3000/db';  // URL to web API
-	private dealsUrl = 'https://betcubco20160823124853.azurewebsites.net/api/Deals/Deals';
+	private dealsUrl = '';
+	private dealsPath = 'api/Deals/Deals';
 	
-	constructor(private http: Http) {}
+	constructor(private http: Http) {
+		var config = require('./conf.json');
+		this.dealsUrl = config.serviceRoot + this.dealsPath;
+	}
 
 	getDeals (): Observable<Deal[]> {
 		let response = this.http.get(this.dealsUrl)
