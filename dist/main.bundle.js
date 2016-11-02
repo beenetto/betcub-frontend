@@ -1013,7 +1013,7 @@ module.exports = function(it){
 "use strict";
 "use strict";
 var root_1 = __webpack_require__(53);
-var toSubscriber_1 = __webpack_require__(816);
+var toSubscriber_1 = __webpack_require__(817);
 var observable_1 = __webpack_require__(255);
 /**
  * A representation of any set of values over any amount of time. This the most basic building block
@@ -5420,7 +5420,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var isFunction_1 = __webpack_require__(427);
 var Subscription_1 = __webpack_require__(148);
-var Observer_1 = __webpack_require__(783);
+var Observer_1 = __webpack_require__(784);
 var rxSubscriber_1 = __webpack_require__(256);
 /**
  * Implements the {@link Observer} interface and extends the
@@ -7404,7 +7404,7 @@ var NavigationCancelingError = (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_concatAll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operator_concatAll__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operator_every__ = __webpack_require__(424);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operator_every___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operator_every__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operator_last__ = __webpack_require__(804);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operator_last__ = __webpack_require__(805);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operator_last___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_operator_last__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operator_map__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_operator_map__);
@@ -9362,7 +9362,7 @@ var Observable_1 = __webpack_require__(5);
 var Subscriber_1 = __webpack_require__(26);
 var Subscription_1 = __webpack_require__(148);
 var ObjectUnsubscribedError_1 = __webpack_require__(426);
-var SubjectSubscription_1 = __webpack_require__(785);
+var SubjectSubscription_1 = __webpack_require__(786);
 var rxSubscriber_1 = __webpack_require__(256);
 /**
  * @class SubjectSubscriber<T>
@@ -19970,7 +19970,7 @@ var DOCUMENT = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["OpaqueToken"]('D
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operator_mergeAll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_operator_mergeAll__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_operator_mergeMap__ = __webpack_require__(149);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_operator_mergeMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_operator_mergeMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operator_reduce__ = __webpack_require__(806);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operator_reduce__ = __webpack_require__(807);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operator_reduce___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_operator_reduce__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__apply_redirects__ = __webpack_require__(530);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__config__ = __webpack_require__(531);
@@ -21142,7 +21142,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = __webpack_require__(0);
-var date_formatter_1 = __webpack_require__(716);
+var date_formatter_1 = __webpack_require__(717);
 var FORMAT_DAY = 'DD';
 var FORMAT_MONTH = 'MMMM';
 var FORMAT_YEAR = 'YYYY';
@@ -21491,7 +21491,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = __webpack_require__(0);
-var dropdown_service_1 = __webpack_require__(721);
+var dropdown_service_1 = __webpack_require__(722);
 var DropdownDirective = (function () {
     function DropdownDirective(el, ref) {
         this.onToggle = new core_1.EventEmitter(false);
@@ -21694,11 +21694,11 @@ exports.OuterSubscriber = OuterSubscriber;
 "use strict";
 "use strict";
 var isArray_1 = __webpack_require__(259);
-var isObject_1 = __webpack_require__(814);
+var isObject_1 = __webpack_require__(815);
 var isFunction_1 = __webpack_require__(427);
 var tryCatch_1 = __webpack_require__(429);
 var errorObject_1 = __webpack_require__(258);
-var UnsubscriptionError_1 = __webpack_require__(813);
+var UnsubscriptionError_1 = __webpack_require__(814);
 /**
  * Represents a disposable resource, such as the execution of an Observable. A
  * Subscription has one important method, `unsubscribe`, that takes no argument
@@ -22024,7 +22024,7 @@ var isArray_1 = __webpack_require__(259);
 var isPromise_1 = __webpack_require__(428);
 var Observable_1 = __webpack_require__(5);
 var iterator_1 = __webpack_require__(254);
-var InnerSubscriber_1 = __webpack_require__(781);
+var InnerSubscriber_1 = __webpack_require__(782);
 var observable_1 = __webpack_require__(255);
 function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
     var destination = new InnerSubscriber_1.InnerSubscriber(outerSubscriber, outerValue, outerIndex);
@@ -31930,9 +31930,9 @@ var core_1 = __webpack_require__(0);
 var forms_1 = __webpack_require__(18);
 var datepicker_inner_component_1 = __webpack_require__(145);
 var datepicker_component_1 = __webpack_require__(401);
-var daypicker_component_1 = __webpack_require__(717);
-var monthpicker_component_1 = __webpack_require__(718);
-var yearpicker_component_1 = __webpack_require__(719);
+var daypicker_component_1 = __webpack_require__(718);
+var monthpicker_component_1 = __webpack_require__(719);
+var yearpicker_component_1 = __webpack_require__(720);
 var components_helper_service_1 = __webpack_require__(52);
 var DatepickerModule = (function () {
     function DatepickerModule() {
@@ -33416,7 +33416,7 @@ exports.EventListener = win['EventListener'];
 
 "use strict";
 "use strict";
-var FromObservable_1 = __webpack_require__(797);
+var FromObservable_1 = __webpack_require__(798);
 exports.from = FromObservable_1.FromObservable.create;
 //# sourceMappingURL=from.js.map
 
@@ -47370,8 +47370,8 @@ var AboutUsComponent = (function () {
     AboutUsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-about-us',
-            template: __webpack_require__(758),
-            styles: [__webpack_require__(735)]
+            template: __webpack_require__(759),
+            styles: [__webpack_require__(736)]
         }), 
         __metadata('design:paramtypes', [])
     ], AboutUsComponent);
@@ -47414,15 +47414,6 @@ var AddDealComponent = (function () {
         this.endDate = new Date();
     }
     AddDealComponent.prototype.onSubmit = function (value) {
-        value['culture'] = {
-            name: "Base language",
-            isoCode: "en",
-            self: "api/globalizations/cultures/00000000-0000-0000-0000-000000000000"
-        };
-        value['category'] = {
-            name: "Betting",
-            self: "api/deals/categories/00000000-0000-0000-0000-000000000000"
-        };
         if (this.isEdit) {
             value['id'] = this.deal.id;
             this.collection.saveDeal(value);
@@ -47440,9 +47431,7 @@ var AddDealComponent = (function () {
         this.dealForm = this.fb.group({
             'title': '',
             'description': '',
-            'content': '',
-            'dateStart': '',
-            'dateEnd': ''
+            'content': ''
         });
         this.linkSubscription = this.activatedRoute.params.subscribe(function (param) {
             _this.collection.stream.subscribe(function (value) {
@@ -47454,9 +47443,7 @@ var AddDealComponent = (function () {
                     _this.dealForm = _this.fb.group({
                         'title': _this.deal.title,
                         'description': _this.deal.description,
-                        'content': _this.deal.content,
-                        'dateStart': _this.deal.dateStart,
-                        'dateEnd': _this.deal.dateEnd
+                        'content': _this.deal.content
                     });
                 }
             }, function (error) { console.log(error); });
@@ -47478,8 +47465,8 @@ var AddDealComponent = (function () {
     AddDealComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-add-deal',
-            template: __webpack_require__(759),
-            styles: [__webpack_require__(736)]
+            template: __webpack_require__(760),
+            styles: [__webpack_require__(737)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormBuilder"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormBuilder"]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__model_DealCollection__["a" /* DealCollection */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__model_DealCollection__["a" /* DealCollection */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === 'function' && _c) || Object])
     ], AddDealComponent);
@@ -47516,8 +47503,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(760),
-            styles: [__webpack_require__(737)],
+            template: __webpack_require__(761),
+            styles: [__webpack_require__(738)],
             providers: [__WEBPACK_IMPORTED_MODULE_1__services_login_service__["a" /* LoginService */]]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_login_service__["a" /* LoginService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_login_service__["a" /* LoginService */]) === 'function' && _a) || Object])
@@ -47552,8 +47539,8 @@ var ContactComponent = (function () {
     ContactComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-contact',
-            template: __webpack_require__(761),
-            styles: [__webpack_require__(738)]
+            template: __webpack_require__(762),
+            styles: [__webpack_require__(739)]
         }), 
         __metadata('design:paramtypes', [])
     ], ContactComponent);
@@ -47586,8 +47573,8 @@ var DealDetailComponent = (function () {
     DealDetailComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-deal-detail',
-            template: __webpack_require__(763),
-            styles: [__webpack_require__(740)]
+            template: __webpack_require__(764),
+            styles: [__webpack_require__(741)]
         }), 
         __metadata('design:paramtypes', [])
     ], DealDetailComponent);
@@ -47620,8 +47607,8 @@ var FeedbackComponent = (function () {
     FeedbackComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-feedback',
-            template: __webpack_require__(766),
-            styles: [__webpack_require__(743)]
+            template: __webpack_require__(767),
+            styles: [__webpack_require__(744)]
         }), 
         __metadata('design:paramtypes', [])
     ], FeedbackComponent);
@@ -47654,8 +47641,8 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
-            template: __webpack_require__(775),
-            styles: [__webpack_require__(752)]
+            template: __webpack_require__(776),
+            styles: [__webpack_require__(753)]
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);
@@ -47688,8 +47675,8 @@ var PageNotFoundComponent = (function () {
     PageNotFoundComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-page-not-found',
-            template: __webpack_require__(776),
-            styles: [__webpack_require__(753)]
+            template: __webpack_require__(777),
+            styles: [__webpack_require__(754)]
         }), 
         __metadata('design:paramtypes', [])
     ], PageNotFoundComponent);
@@ -47722,8 +47709,8 @@ var PrivacyPolicyComponent = (function () {
     PrivacyPolicyComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-privacy-policy',
-            template: __webpack_require__(777),
-            styles: [__webpack_require__(754)]
+            template: __webpack_require__(778),
+            styles: [__webpack_require__(755)]
         }), 
         __metadata('design:paramtypes', [])
     ], PrivacyPolicyComponent);
@@ -47758,7 +47745,10 @@ var DealService = (function () {
         this.http = http;
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({});
         //private dealsUrl = 'http://localhost:3000/db';  // URL to web API
-        this.dealsUrl = 'https://betcubco20160823124853.azurewebsites.net/api/Deals/Deals';
+        this.dealsUrl = '';
+        this.dealsPath = 'api/Deals/Deals';
+        var config = __webpack_require__(709);
+        this.dealsUrl = config.serviceRoot + this.dealsPath;
     }
     DealService.prototype.getDeals = function () {
         var response = this.http.get(this.dealsUrl)
@@ -47833,8 +47823,8 @@ var TermsAndConditionsComponent = (function () {
     TermsAndConditionsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-terms-and-conditions',
-            template: __webpack_require__(779),
-            styles: [__webpack_require__(756)]
+            template: __webpack_require__(780),
+            styles: [__webpack_require__(757)]
         }), 
         __metadata('design:paramtypes', [])
     ], TermsAndConditionsComponent);
@@ -47867,8 +47857,8 @@ var UserSettingsComponent = (function () {
     UserSettingsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-user-settings',
-            template: __webpack_require__(780),
-            styles: [__webpack_require__(757)]
+            template: __webpack_require__(781),
+            styles: [__webpack_require__(758)]
         }), 
         __metadata('design:paramtypes', [])
     ], UserSettingsComponent);
@@ -49934,7 +49924,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = __webpack_require__(0);
 var components_helper_service_1 = __webpack_require__(52);
-var utils_class_1 = __webpack_require__(732);
+var utils_class_1 = __webpack_require__(733);
 var modal_backdrop_component_1 = __webpack_require__(232);
 var modal_options_class_1 = __webpack_require__(233);
 var browser_1 = __webpack_require__(250);
@@ -51123,7 +51113,7 @@ exports.TooltipDirective = TooltipDirective;
 
 "use strict";
 "use strict";
-var latin_map_1 = __webpack_require__(731);
+var latin_map_1 = __webpack_require__(732);
 var TypeaheadUtils = (function () {
     function TypeaheadUtils() {
     }
@@ -51206,12 +51196,12 @@ var typeahead_container_component_1 = __webpack_require__(247);
 var typeahead_options_class_1 = __webpack_require__(248);
 var typeahead_utils_1 = __webpack_require__(413);
 var Observable_1 = __webpack_require__(5);
-__webpack_require__(786);
+__webpack_require__(787);
 __webpack_require__(416);
-__webpack_require__(790);
-__webpack_require__(417);
 __webpack_require__(791);
-__webpack_require__(793);
+__webpack_require__(417);
+__webpack_require__(792);
+__webpack_require__(794);
 var components_helper_service_1 = __webpack_require__(52);
 var TypeaheadDirective = (function () {
     function TypeaheadDirective(control, viewContainerRef, element, renderer, componentsHelper) {
@@ -51592,7 +51582,7 @@ exports.BehaviorSubject = BehaviorSubject;
 "use strict";
 "use strict";
 var Observable_1 = __webpack_require__(5);
-var debounceTime_1 = __webpack_require__(800);
+var debounceTime_1 = __webpack_require__(801);
 Observable_1.Observable.prototype.debounceTime = debounceTime_1.debounceTime;
 //# sourceMappingURL=debounceTime.js.map
 
@@ -51621,7 +51611,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 var Observable_1 = __webpack_require__(5);
 var ScalarObservable_1 = __webpack_require__(421);
 var EmptyObservable_1 = __webpack_require__(419);
-var isScheduler_1 = __webpack_require__(815);
+var isScheduler_1 = __webpack_require__(816);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -63496,7 +63486,7 @@ function sanitizeStyle(value) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operator_concatAll__ = __webpack_require__(423);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_operator_concatAll___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_operator_concatAll__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operator_first__ = __webpack_require__(803);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operator_first__ = __webpack_require__(804);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_operator_first___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_operator_first__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operator_map__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_operator_map__);
@@ -64684,7 +64674,7 @@ function getResolve(route) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rxjs_operators__ = __webpack_require__(553);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_bootstrap_ng2_bootstrap__ = __webpack_require__(733);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_bootstrap_ng2_bootstrap__ = __webpack_require__(734);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ng2_bootstrap_ng2_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_ng2_bootstrap_ng2_bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing__ = __webpack_require__(538);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(347);
@@ -64881,8 +64871,8 @@ var ContentComponent = (function () {
     ContentComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-content',
-            template: __webpack_require__(762),
-            styles: [__webpack_require__(739)]
+            template: __webpack_require__(763),
+            styles: [__webpack_require__(740)]
         }), 
         __metadata('design:paramtypes', [])
     ], ContentComponent);
@@ -64920,8 +64910,8 @@ var DealListComponent = (function () {
     DealListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-deal-list',
-            template: __webpack_require__(764),
-            styles: [__webpack_require__(741)]
+            template: __webpack_require__(765),
+            styles: [__webpack_require__(742)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__model_DealCollection__["a" /* DealCollection */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__model_DealCollection__["a" /* DealCollection */]) === 'function' && _a) || Object])
     ], DealListComponent);
@@ -64962,8 +64952,8 @@ var DealComponent = (function () {
     DealComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'deal',
-            template: __webpack_require__(765),
-            styles: [__webpack_require__(742)]
+            template: __webpack_require__(766),
+            styles: [__webpack_require__(743)]
         }), 
         __metadata('design:paramtypes', [])
     ], DealComponent);
@@ -64996,8 +64986,8 @@ var FooterContentComponent = (function () {
     FooterContentComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-footer-content',
-            template: __webpack_require__(767),
-            styles: [__webpack_require__(744)]
+            template: __webpack_require__(768),
+            styles: [__webpack_require__(745)]
         }), 
         __metadata('design:paramtypes', [])
     ], FooterContentComponent);
@@ -65030,8 +65020,8 @@ var FooterMenuComponent = (function () {
     FooterMenuComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-footer-menu',
-            template: __webpack_require__(768),
-            styles: [__webpack_require__(745)]
+            template: __webpack_require__(769),
+            styles: [__webpack_require__(746)]
         }), 
         __metadata('design:paramtypes', [])
     ], FooterMenuComponent);
@@ -65064,8 +65054,8 @@ var FooterComponent = (function () {
     FooterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-footer',
-            template: __webpack_require__(769),
-            styles: [__webpack_require__(746)]
+            template: __webpack_require__(770),
+            styles: [__webpack_require__(747)]
         }), 
         __metadata('design:paramtypes', [])
     ], FooterComponent);
@@ -65098,8 +65088,8 @@ var HeaderBottomComponent = (function () {
     HeaderBottomComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-header-bottom',
-            template: __webpack_require__(770),
-            styles: [__webpack_require__(747)]
+            template: __webpack_require__(771),
+            styles: [__webpack_require__(748)]
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderBottomComponent);
@@ -65135,8 +65125,8 @@ var HeaderTopComponent = (function () {
     HeaderTopComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-header-top',
-            template: __webpack_require__(771),
-            styles: [__webpack_require__(748)]
+            template: __webpack_require__(772),
+            styles: [__webpack_require__(749)]
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderTopComponent);
@@ -65169,8 +65159,8 @@ var HeaderComponent = (function () {
     HeaderComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-header',
-            template: __webpack_require__(772),
-            styles: [__webpack_require__(749)]
+            template: __webpack_require__(773),
+            styles: [__webpack_require__(750)]
         }), 
         __metadata('design:paramtypes', [])
     ], HeaderComponent);
@@ -65217,8 +65207,8 @@ var HomeLeftSideComponent = (function () {
     HomeLeftSideComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home-left-side',
-            template: __webpack_require__(773),
-            styles: [__webpack_require__(750)]
+            template: __webpack_require__(774),
+            styles: [__webpack_require__(751)]
         }), 
         __metadata('design:paramtypes', [])
     ], HomeLeftSideComponent);
@@ -65252,8 +65242,8 @@ var HomeRightSideComponent = (function () {
     HomeRightSideComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home-right-side',
-            template: __webpack_require__(774),
-            styles: [__webpack_require__(751)]
+            template: __webpack_require__(775),
+            styles: [__webpack_require__(752)]
         }), 
         __metadata('design:paramtypes', [])
     ], HomeRightSideComponent);
@@ -65322,8 +65312,8 @@ var RegisterComponent = (function () {
     RegisterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-register',
-            template: __webpack_require__(778),
-            styles: [__webpack_require__(755)]
+            template: __webpack_require__(779),
+            styles: [__webpack_require__(756)]
         }), 
         __metadata('design:paramtypes', [])
     ], RegisterComponent);
@@ -65336,19 +65326,19 @@ var RegisterComponent = (function () {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__ = __webpack_require__(788);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_observable_throw__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(789);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__ = __webpack_require__(416);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(790);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(417);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__(792);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__(793);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(794);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__ = __webpack_require__(795);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_toPromise__);
 // import 'rxjs/Rx'; // adds ALL RxJS statics & operators to Observable
 
@@ -65466,7 +65456,7 @@ var environment = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(571);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(819);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(820);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
 
 
@@ -68300,6 +68290,14 @@ metadata.exp({metadata: function metadata(metadataKey, metadataValue){
 /* 707 */,
 /* 708 */,
 /* 709 */
+/***/ function(module, exports) {
+
+module.exports = {
+	"serviceRoot": "https://betcubco20160823124853.azurewebsites.net/"
+};
+
+/***/ },
+/* 710 */
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {//! moment.js
@@ -72536,10 +72534,10 @@ metadata.exp({metadata: function metadata(metadataKey, metadataValue){
     return _moment;
 
 }));
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(818)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(819)(module)))
 
 /***/ },
-/* 710 */
+/* 711 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72553,7 +72551,7 @@ exports.AccordionModule = accordion_module_1.AccordionModule;
 
 
 /***/ },
-/* 711 */
+/* 712 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72565,7 +72563,7 @@ exports.AlertModule = alert_module_1.AlertModule;
 
 
 /***/ },
-/* 712 */
+/* 713 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72579,7 +72577,7 @@ exports.ButtonsModule = buttons_module_1.ButtonsModule;
 
 
 /***/ },
-/* 713 */
+/* 714 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72593,7 +72591,7 @@ exports.SlideComponent = slide_component_1.SlideComponent;
 
 
 /***/ },
-/* 714 */
+/* 715 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72605,7 +72603,7 @@ exports.CollapseModule = collapse_module_1.CollapseModule;
 
 
 /***/ },
-/* 715 */
+/* 716 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72625,12 +72623,12 @@ exports.DatepickerModule = datepicker_module_1.DatepickerModule;
 
 
 /***/ },
-/* 716 */
+/* 717 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 "use strict";
-var moment = __webpack_require__(709);
+var moment = __webpack_require__(710);
 var DateFormatter = (function () {
     function DateFormatter() {
     }
@@ -72643,7 +72641,7 @@ exports.DateFormatter = DateFormatter;
 
 
 /***/ },
-/* 717 */
+/* 718 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72773,7 +72771,7 @@ var _a;
 
 
 /***/ },
-/* 718 */
+/* 719 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72841,7 +72839,7 @@ exports.MonthPickerComponent = MonthPickerComponent;
 
 
 /***/ },
-/* 719 */
+/* 720 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72912,7 +72910,7 @@ exports.YearPickerComponent = YearPickerComponent;
 
 
 /***/ },
-/* 720 */
+/* 721 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -72928,7 +72926,7 @@ exports.DropdownModule = dropdown_module_1.DropdownModule;
 
 
 /***/ },
-/* 721 */
+/* 722 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -73004,7 +73002,7 @@ exports.dropdownService = new DropdownService();
 
 
 /***/ },
-/* 722 */
+/* 723 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73057,7 +73055,7 @@ exports.Ng2BootstrapModule = Ng2BootstrapModule;
 
 
 /***/ },
-/* 723 */
+/* 724 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73073,7 +73071,7 @@ exports.ModalModule = modal_module_1.ModalModule;
 
 
 /***/ },
-/* 724 */
+/* 725 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73087,7 +73085,7 @@ exports.PaginationModule = pagination_module_1.PaginationModule;
 
 
 /***/ },
-/* 725 */
+/* 726 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73103,7 +73101,7 @@ exports.ProgressbarModule = progressbar_module_1.ProgressbarModule;
 
 
 /***/ },
-/* 726 */
+/* 727 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73115,7 +73113,7 @@ exports.RatingModule = rating_module_1.RatingModule;
 
 
 /***/ },
-/* 727 */
+/* 728 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73131,7 +73129,7 @@ exports.TabsModule = tabs_module_1.TabsModule;
 
 
 /***/ },
-/* 728 */
+/* 729 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73143,7 +73141,7 @@ exports.TimepickerModule = timepicker_module_1.TimepickerModule;
 
 
 /***/ },
-/* 729 */
+/* 730 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73157,7 +73155,7 @@ exports.TooltipModule = tooltip_module_1.TooltipModule;
 
 
 /***/ },
-/* 730 */
+/* 731 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -73173,7 +73171,7 @@ exports.TypeaheadModule = typeahead_module_1.TypeaheadModule;
 
 
 /***/ },
-/* 731 */
+/* 732 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -74007,7 +74005,7 @@ exports.latinMap = {
 
 
 /***/ },
-/* 732 */
+/* 733 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74036,7 +74034,7 @@ exports.Utils = Utils;
 
 
 /***/ },
-/* 733 */
+/* 734 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74044,21 +74042,21 @@ exports.Utils = Utils;
 function __export(m) {
     for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 }
-__export(__webpack_require__(710));
 __export(__webpack_require__(711));
 __export(__webpack_require__(712));
 __export(__webpack_require__(713));
 __export(__webpack_require__(714));
 __export(__webpack_require__(715));
-__export(__webpack_require__(723));
-__export(__webpack_require__(720));
+__export(__webpack_require__(716));
 __export(__webpack_require__(724));
+__export(__webpack_require__(721));
 __export(__webpack_require__(725));
 __export(__webpack_require__(726));
 __export(__webpack_require__(727));
 __export(__webpack_require__(728));
 __export(__webpack_require__(729));
 __export(__webpack_require__(730));
+__export(__webpack_require__(731));
 __export(__webpack_require__(237));
 __export(__webpack_require__(400));
 __export(__webpack_require__(80));
@@ -74094,12 +74092,12 @@ var typeahead_module_1 = __webpack_require__(249);
 exports.TypeaheadModule = typeahead_module_1.TypeaheadModule;
 var components_helper_service_1 = __webpack_require__(52);
 exports.ComponentsHelper = components_helper_service_1.ComponentsHelper;
-var index_1 = __webpack_require__(722);
+var index_1 = __webpack_require__(723);
 exports.Ng2BootstrapModule = index_1.Ng2BootstrapModule;
 
 
 /***/ },
-/* 734 */
+/* 735 */
 /***/ function(module, exports) {
 
 // shim for using process in browser
@@ -74285,12 +74283,6 @@ process.umask = function() { return 0; };
 
 
 /***/ },
-/* 735 */
-/***/ function(module, exports) {
-
-module.exports = ""
-
-/***/ },
 /* 736 */
 /***/ function(module, exports) {
 
@@ -74366,13 +74358,13 @@ module.exports = ""
 /* 748 */
 /***/ function(module, exports) {
 
-module.exports = ".btn-group.nav-item, .btn-group-vertical {\n\tpadding: 8px;\n\n}"
+module.exports = ""
 
 /***/ },
 /* 749 */
 /***/ function(module, exports) {
 
-module.exports = ""
+module.exports = ".btn-group.nav-item, .btn-group-vertical {\n\tpadding: 8px;\n\n}"
 
 /***/ },
 /* 750 */
@@ -74426,142 +74418,148 @@ module.exports = ""
 /* 758 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  about-us works!\n</p>\n"
+module.exports = ""
 
 /***/ },
 /* 759 */
 /***/ function(module, exports) {
 
-module.exports = "<h2>{{pageTitle}}</h2>\n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"start-date\">Date start</label> \n    <datepicker \n        [(ngModel)]=\"startDate\" \n        (ngModelChange)=\"onStartDateChange($event)\"></datepicker>\n</div>\n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"end-date\" for=\"description\">Date end</label> \n    <datepicker \n        [(ngModel)]=\"endDate\" \n        (ngModelChange)=\"onEndDateChange($event)\"></datepicker>\n</div>\n<div class=\"form-group\">\n    <form [formGroup]=\"dealForm\"  \n      (ngSubmit)=\"onSubmit(dealForm.value)\"  \n      class=\"form-horizontal\">\n\n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"title\"  \n                       placeholder=\"title\"  \n                       [formControl]=\"dealForm.controls['title']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"description\"  \n                       placeholder=\"description\"  \n                       [formControl]=\"dealForm.controls['description']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"description\" class=\"col-sm-2 control-label\">Content</label> \n            <div class=\"col-sm-10\">\n                <textarea \n                    id=\"content\"\n                    class=\"form-control\" \n                    placeholder=\"content\"  \n                    [formControl]=\"dealForm.controls['content']\"></textarea>\n            </div>\n        </div>\n\n        <div class=\"col-sm-offset-2 col-sm-10\">\n            <button type=\"submit\" class=\"btn btn-default\">{{submitText}}</button>\n        </div>\n        \n\n    </form>\n    <div class=\"col-sm-offset-2 col-sm-10\">\n        <button type=\"submit\" (click)=\"remove($event)\" class=\"btn btn-default\">Remove</button>\n    </div>  \n</div>\n"
+module.exports = "<p>\n  about-us works!\n</p>\n"
 
 /***/ },
 /* 760 */
 /***/ function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<app-content></app-content>\n<app-footer></app-footer>"
+module.exports = "<h2>{{pageTitle}}</h2>\n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"start-date\">Date start</label> \n    <datepicker \n        [(ngModel)]=\"startDate\" \n        (ngModelChange)=\"onStartDateChange($event)\"></datepicker>\n</div>\n<div id=\"start-date\" \n    style=\"display:inline-block; min-height:290px;\">\n    <label for=\"end-date\" for=\"description\">Date end</label> \n    <datepicker \n        [(ngModel)]=\"endDate\" \n        (ngModelChange)=\"onEndDateChange($event)\"></datepicker>\n</div>\n<div class=\"form-group\">\n    <form [formGroup]=\"dealForm\"  \n      (ngSubmit)=\"onSubmit(dealForm.value)\"  \n      class=\"form-horizontal\">\n\n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"title\"  \n                       placeholder=\"title\"  \n                       [formControl]=\"dealForm.controls['title']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"title\" class=\"col-sm-2 control-label\">Title</label>\n            <div class=\"col-sm-10\">  \n                <input type=\"text\"\n                       class=\"form-control\"  \n                       id=\"description\"  \n                       placeholder=\"description\"  \n                       [formControl]=\"dealForm.controls['description']\">\n            </div>\n        </div>\n        \n        <div class=\"form-group\">\n            <label for=\"description\" class=\"col-sm-2 control-label\">Content</label> \n            <div class=\"col-sm-10\">\n                <textarea \n                    id=\"content\"\n                    class=\"form-control\" \n                    placeholder=\"content\"  \n                    [formControl]=\"dealForm.controls['content']\"></textarea>\n            </div>\n        </div>\n\n        <div class=\"col-sm-offset-2 col-sm-10\">\n            <button type=\"submit\" class=\"btn btn-default\">{{submitText}}</button>\n        </div>\n        \n\n    </form>\n    <div class=\"col-sm-offset-2 col-sm-10\">\n        <button type=\"submit\" (click)=\"remove($event)\" class=\"btn btn-default\">Remove</button>\n    </div>  \n</div>\n"
 
 /***/ },
 /* 761 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  contact works!\n</p>\n"
+module.exports = "<app-header></app-header>\n<app-content></app-content>\n<app-footer></app-footer>"
 
 /***/ },
 /* 762 */
 /***/ function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n"
+module.exports = "<p>\n  contact works!\n</p>\n"
 
 /***/ },
 /* 763 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  deal-detail works!\n</p>\n"
+module.exports = "<router-outlet></router-outlet>\n"
 
 /***/ },
 /* 764 */
 /***/ function(module, exports) {
 
-module.exports = "<h3>Deal list</h3>\n<deal [data]=\"deal\" *ngFor=\"let deal of collection.deals\"></deal>\n"
+module.exports = "<p>\n  deal-detail works!\n</p>\n"
 
 /***/ },
 /* 765 */
 /***/ function(module, exports) {
 
-module.exports = "<div>\n\t<a [routerLink]=\"['/edit-deal/'+id]\">Edit</a>\n\t<h2>{{title}}</h2>\n\t<div>{{content}}</div>\n</div>\n"
+module.exports = "<h3>Deal list</h3>\n<deal [data]=\"deal\" *ngFor=\"let deal of collection.deals\"></deal>\n"
 
 /***/ },
 /* 766 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  feedback works!\n</p>\n"
+module.exports = "<div>\n\t<a [routerLink]=\"['/edit-deal/'+id]\">Edit</a>\n\t<h2>{{title}}</h2>\n\t<div>{{content}}</div>\n</div>\n"
 
 /***/ },
 /* 767 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-sm-3\"><h2>About betcub</h2></div>\n  <div class=\"col-sm-3\"><h2>Statistics</h2></div>\n  <div class=\"col-sm-3\">\n  \t<h2>Help</h2>\n\t<ul>\n\t\t<li><a [routerLink]=\"['/contact']\">Contact</a></li>\n\t\t<li><a [routerLink]=\"['/about-us']\">FAQ</a></li>\n\t</ul>\n  </div>\n  <div class=\"col-sm-3\"></div>\n</div>\n"
+module.exports = "<p>\n  feedback works!\n</p>\n"
 
 /***/ },
 /* 768 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"row\">\n\t<div class=\"col-sm-2\">copyright</div>\n\t<div class=\"col-sm-2\">pictos</div>\n\t<div class=\"col-sm-8\">\n\t\t<nav class=\"navbar navbar-light\">\n\t\t\t<ul class=\"nav navbar-nav\">\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/feedback']\">Feedback</a></li>\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/about-us']\">About us</a></li>\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/privacy-policy']\">Privacy policy</a></li>\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/terms-and-conditions']\">Terms & Conditions</a></li>\n\t\t\t</ul>\n\t\t</nav>\n\t</div>\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-sm-3\"><h2>About betcub</h2></div>\n  <div class=\"col-sm-3\"><h2>Statistics</h2></div>\n  <div class=\"col-sm-3\">\n  \t<h2>Help</h2>\n\t<ul>\n\t\t<li><a [routerLink]=\"['/contact']\">Contact</a></li>\n\t\t<li><a [routerLink]=\"['/about-us']\">FAQ</a></li>\n\t</ul>\n  </div>\n  <div class=\"col-sm-3\"></div>\n</div>\n"
 
 /***/ },
 /* 769 */
 /***/ function(module, exports) {
 
-module.exports = "<footer class=\"page-footer\">\n\t<app-footer-content></app-footer-content>\n\t<app-footer-menu></app-footer-menu>\n</footer>\n\n"
+module.exports = "<div class=\"row\">\n\t<div class=\"col-sm-2\">copyright</div>\n\t<div class=\"col-sm-2\">pictos</div>\n\t<div class=\"col-sm-8\">\n\t\t<nav class=\"navbar navbar-light\">\n\t\t\t<ul class=\"nav navbar-nav\">\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/feedback']\">Feedback</a></li>\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/about-us']\">About us</a></li>\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/privacy-policy']\">Privacy policy</a></li>\n\t\t\t\t<li class=\"nav-item\"><a  class=\"nav-link\" [routerLink]=\"['/terms-and-conditions']\">Terms & Conditions</a></li>\n\t\t\t</ul>\n\t\t</nav>\n\t</div>\n</div>"
 
 /***/ },
 /* 770 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  header-bottom works!\n</p>\n"
+module.exports = "<footer class=\"page-footer\">\n\t<app-footer-content></app-footer-content>\n\t<app-footer-menu></app-footer-menu>\n</footer>\n\n"
 
 /***/ },
 /* 771 */
 /***/ function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-light bg-faded\">\n\t<ul class=\"nav navbar-nav\">\n\t\t<li class=\"nav-item\"><a class=\"nav-item\" href=\"#\">LOGO</a></li>\n\t\t<li class=\"nav-item active\"><a [routerLink]=\"['/home']\">Home</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('all')\">All</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('betting')\">Betting</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('casino')\">Casino</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('bingo')\">Bingo</a></li>\n\t\t<li class=\"nav-item\">\n\t\t\t<div class=\"btn-group nav-item\" dropdown >\n\t\t\t\t<button id=\"single-button\" type=\"button\" class=\"btn btn-primary\" dropdownToggle>\n\t\t\t\tMore...<span class=\"caret\"></span>\n\t\t\t\t</button>\n\t\t\t\t<ul dropdownMenu role=\"menu\" aria-labelledby=\"single-button\">\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n\t\t\t\t\t<li class=\"divider dropdown-divider\"></li>\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</li>\n\t</ul>\n\n\t\n\t\n\t<ul class=\"nav navbar-nav pull-right\">\n\t\t<li class=\"nav-item\">\n\t\t\t<a class=\"nav-item btn btn-outline-success\" (click)=\"register()\">\n\t\t\t\tRegister | Login\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n\t\t\t<a class=\"nav-item btn btn-outline-success\" [routerLink]=\"['/add-deal']\">Share your deal</a>\n\t\t</li>\n\t</ul>\n\t<!-- <form class=\"form-inline pull-xs-right\">\n\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Search\">\n\t\t<button class=\"btn btn-outline-success\" type=\"submit\">Search</button>\n\t</form> -->\n</nav>"
+module.exports = "<p>\n  header-bottom works!\n</p>\n"
 
 /***/ },
 /* 772 */
 /***/ function(module, exports) {
 
-module.exports = "<header class=\"page-header\">\n\t<app-header-top></app-header-top>\n\t<app-header-bottom></app-header-bottom>\n</header>\n"
+module.exports = "<nav class=\"navbar navbar-light bg-faded\">\n\t<ul class=\"nav navbar-nav\">\n\t\t<li class=\"nav-item\"><a class=\"nav-item\" href=\"#\">LOGO</a></li>\n\t\t<li class=\"nav-item active\"><a [routerLink]=\"['/home']\">Home</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('all')\">All</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('betting')\">Betting</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('casino')\">Casino</a></li>\n\t\t<li class=\"nav-item\"><a class=\"nav-link\" (click)=\"set_filter('bingo')\">Bingo</a></li>\n\t\t<li class=\"nav-item\">\n\t\t\t<div class=\"btn-group nav-item\" dropdown >\n\t\t\t\t<button id=\"single-button\" type=\"button\" class=\"btn btn-primary\" dropdownToggle>\n\t\t\t\tMore...<span class=\"caret\"></span>\n\t\t\t\t</button>\n\t\t\t\t<ul dropdownMenu role=\"menu\" aria-labelledby=\"single-button\">\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Action</a></li>\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Another action</a></li>\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Something else here</a></li>\n\t\t\t\t\t<li class=\"divider dropdown-divider\"></li>\n\t\t\t\t\t<li role=\"menuitem\"><a class=\"dropdown-item\" href=\"#\">Separated link</a></li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</li>\n\t</ul>\n\n\t\n\t\n\t<ul class=\"nav navbar-nav pull-right\">\n\t\t<li class=\"nav-item\">\n\t\t\t<a class=\"nav-item btn btn-outline-success\" (click)=\"register()\">\n\t\t\t\tRegister | Login\n\t\t\t</a>\n\t\t</li>\n\t\t<li class=\"nav-item\">\n\t\t\t<a class=\"nav-item btn btn-outline-success\" [routerLink]=\"['/add-deal']\">Share your deal</a>\n\t\t</li>\n\t</ul>\n\t<!-- <form class=\"form-inline pull-xs-right\">\n\t\t<input class=\"form-control\" type=\"text\" placeholder=\"Search\">\n\t\t<button class=\"btn btn-outline-success\" type=\"submit\">Search</button>\n\t</form> -->\n</nav>"
 
 /***/ },
 /* 773 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  home-left-side works!\n</p>\n<app-deal-list></app-deal-list>\n<pagination \n\t[directionLinks]=\"false\" \n\t[boundaryLinks]=\"true\" \n\t[totalItems]=\"totalItems\"\n    [(ngModel)]=\"currentPage\"></pagination>\n"
+module.exports = "<header class=\"page-header\">\n\t<app-header-top></app-header-top>\n\t<app-header-bottom></app-header-bottom>\n</header>\n"
 
 /***/ },
 /* 774 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  home-right-side works!\n</p>\t"
+module.exports = "<p>\n  home-left-side works!\n</p>\n<app-deal-list></app-deal-list>\n<pagination \n\t[directionLinks]=\"false\" \n\t[boundaryLinks]=\"true\" \n\t[totalItems]=\"totalItems\"\n    [(ngModel)]=\"currentPage\"></pagination>\n"
 
 /***/ },
 /* 775 */
 /***/ function(module, exports) {
 
-module.exports = "<div class=\"row\">\n\t<div class=\"col-sm-12\">\n\t\tLevel 1 column\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t<app-home-left-side></app-home-left-side>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t<app-home-right-side></app-home-right-side>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n"
+module.exports = "<p>\n  home-right-side works!\n</p>\t"
 
 /***/ },
 /* 776 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  page-not-found works!\n</p>\n"
+module.exports = "<div class=\"row\">\n\t<div class=\"col-sm-12\">\n\t\tLevel 1 column\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t<app-home-left-side></app-home-left-side>\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t<app-home-right-side></app-home-right-side>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n"
 
 /***/ },
 /* 777 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  privacy-policy works!\n</p>\n"
+module.exports = "<p>\n  page-not-found works!\n</p>\n"
 
 /***/ },
 /* 778 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  register works!\n</p>\n"
+module.exports = "<p>\n  privacy-policy works!\n</p>\n"
 
 /***/ },
 /* 779 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  terms-and-conditions works!\n</p>\n"
+module.exports = "<p>\n  register works!\n</p>\n"
 
 /***/ },
 /* 780 */
 /***/ function(module, exports) {
 
-module.exports = "<p>\n  user-settings works!\n</p>\n"
+module.exports = "<p>\n  terms-and-conditions works!\n</p>\n"
 
 /***/ },
 /* 781 */
+/***/ function(module, exports) {
+
+module.exports = "<p>\n  user-settings works!\n</p>\n"
+
+/***/ },
+/* 782 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74603,7 +74601,7 @@ exports.InnerSubscriber = InnerSubscriber;
 //# sourceMappingURL=InnerSubscriber.js.map
 
 /***/ },
-/* 782 */
+/* 783 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74736,7 +74734,7 @@ exports.Notification = Notification;
 //# sourceMappingURL=Notification.js.map
 
 /***/ },
-/* 783 */
+/* 784 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -74750,7 +74748,7 @@ exports.empty = {
 //# sourceMappingURL=Observer.js.map
 
 /***/ },
-/* 784 */
+/* 785 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -74805,7 +74803,7 @@ exports.Scheduler = Scheduler;
 //# sourceMappingURL=Scheduler.js.map
 
 /***/ },
-/* 785 */
+/* 786 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74851,7 +74849,7 @@ exports.SubjectSubscription = SubjectSubscription;
 //# sourceMappingURL=SubjectSubscription.js.map
 
 /***/ },
-/* 786 */
+/* 787 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74862,18 +74860,18 @@ Observable_1.Observable.from = from_1.from;
 //# sourceMappingURL=from.js.map
 
 /***/ },
-/* 787 */
+/* 788 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 "use strict";
 var Observable_1 = __webpack_require__(5);
-var throw_1 = __webpack_require__(799);
+var throw_1 = __webpack_require__(800);
 Observable_1.Observable.throw = throw_1._throw;
 //# sourceMappingURL=throw.js.map
 
 /***/ },
-/* 788 */
+/* 789 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74885,29 +74883,29 @@ Observable_1.Observable.prototype._catch = catch_1._catch;
 //# sourceMappingURL=catch.js.map
 
 /***/ },
-/* 789 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-"use strict";
-var Observable_1 = __webpack_require__(5);
-var distinctUntilChanged_1 = __webpack_require__(801);
-Observable_1.Observable.prototype.distinctUntilChanged = distinctUntilChanged_1.distinctUntilChanged;
-//# sourceMappingURL=distinctUntilChanged.js.map
-
-/***/ },
 /* 790 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 "use strict";
 var Observable_1 = __webpack_require__(5);
-var filter_1 = __webpack_require__(802);
+var distinctUntilChanged_1 = __webpack_require__(802);
+Observable_1.Observable.prototype.distinctUntilChanged = distinctUntilChanged_1.distinctUntilChanged;
+//# sourceMappingURL=distinctUntilChanged.js.map
+
+/***/ },
+/* 791 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+"use strict";
+var Observable_1 = __webpack_require__(5);
+var filter_1 = __webpack_require__(803);
 Observable_1.Observable.prototype.filter = filter_1.filter;
 //# sourceMappingURL=filter.js.map
 
 /***/ },
-/* 791 */
+/* 792 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74919,29 +74917,29 @@ Observable_1.Observable.prototype.flatMap = mergeMap_1.mergeMap;
 //# sourceMappingURL=mergeMap.js.map
 
 /***/ },
-/* 792 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-"use strict";
-var Observable_1 = __webpack_require__(5);
-var switchMap_1 = __webpack_require__(807);
-Observable_1.Observable.prototype.switchMap = switchMap_1.switchMap;
-//# sourceMappingURL=switchMap.js.map
-
-/***/ },
 /* 793 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 "use strict";
 var Observable_1 = __webpack_require__(5);
-var toArray_1 = __webpack_require__(808);
+var switchMap_1 = __webpack_require__(808);
+Observable_1.Observable.prototype.switchMap = switchMap_1.switchMap;
+//# sourceMappingURL=switchMap.js.map
+
+/***/ },
+/* 794 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+"use strict";
+var Observable_1 = __webpack_require__(5);
+var toArray_1 = __webpack_require__(809);
 Observable_1.Observable.prototype.toArray = toArray_1.toArray;
 //# sourceMappingURL=toArray.js.map
 
 /***/ },
-/* 794 */
+/* 795 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -74952,7 +74950,7 @@ Observable_1.Observable.prototype.toPromise = toPromise_1.toPromise;
 //# sourceMappingURL=toPromise.js.map
 
 /***/ },
-/* 795 */
+/* 796 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75028,7 +75026,7 @@ exports.ArrayLikeObservable = ArrayLikeObservable;
 //# sourceMappingURL=ArrayLikeObservable.js.map
 
 /***/ },
-/* 796 */
+/* 797 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75116,7 +75114,7 @@ exports.ErrorObservable = ErrorObservable;
 //# sourceMappingURL=ErrorObservable.js.map
 
 /***/ },
-/* 797 */
+/* 798 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75129,12 +75127,12 @@ var __extends = (this && this.__extends) || function (d, b) {
 var isArray_1 = __webpack_require__(259);
 var isPromise_1 = __webpack_require__(428);
 var PromiseObservable_1 = __webpack_require__(420);
-var IteratorObservable_1 = __webpack_require__(798);
+var IteratorObservable_1 = __webpack_require__(799);
 var ArrayObservable_1 = __webpack_require__(418);
-var ArrayLikeObservable_1 = __webpack_require__(795);
+var ArrayLikeObservable_1 = __webpack_require__(796);
 var iterator_1 = __webpack_require__(254);
 var Observable_1 = __webpack_require__(5);
-var observeOn_1 = __webpack_require__(805);
+var observeOn_1 = __webpack_require__(806);
 var observable_1 = __webpack_require__(255);
 var isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
 /**
@@ -75238,7 +75236,7 @@ exports.FromObservable = FromObservable;
 //# sourceMappingURL=FromObservable.js.map
 
 /***/ },
-/* 798 */
+/* 799 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75401,17 +75399,17 @@ function sign(value) {
 //# sourceMappingURL=IteratorObservable.js.map
 
 /***/ },
-/* 799 */
+/* 800 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 "use strict";
-var ErrorObservable_1 = __webpack_require__(796);
+var ErrorObservable_1 = __webpack_require__(797);
 exports._throw = ErrorObservable_1.ErrorObservable.create;
 //# sourceMappingURL=throw.js.map
 
 /***/ },
-/* 800 */
+/* 801 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75422,7 +75420,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(26);
-var async_1 = __webpack_require__(812);
+var async_1 = __webpack_require__(813);
 /**
  * Emits a value from the source Observable only after a particular time span
  * has passed without another source emission.
@@ -75533,7 +75531,7 @@ function dispatchNext(subscriber) {
 //# sourceMappingURL=debounceTime.js.map
 
 /***/ },
-/* 801 */
+/* 802 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75616,7 +75614,7 @@ var DistinctUntilChangedSubscriber = (function (_super) {
 //# sourceMappingURL=distinctUntilChanged.js.map
 
 /***/ },
-/* 802 */
+/* 803 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75715,7 +75713,7 @@ var FilterSubscriber = (function (_super) {
 //# sourceMappingURL=filter.js.map
 
 /***/ },
-/* 803 */
+/* 804 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75869,7 +75867,7 @@ var FirstSubscriber = (function (_super) {
 //# sourceMappingURL=first.js.map
 
 /***/ },
-/* 804 */
+/* 805 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -75993,7 +75991,7 @@ var LastSubscriber = (function (_super) {
 //# sourceMappingURL=last.js.map
 
 /***/ },
-/* 805 */
+/* 806 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76004,7 +76002,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(26);
-var Notification_1 = __webpack_require__(782);
+var Notification_1 = __webpack_require__(783);
 /**
  * @see {@link Notification}
  *
@@ -76074,7 +76072,7 @@ exports.ObserveOnMessage = ObserveOnMessage;
 //# sourceMappingURL=observeOn.js.map
 
 /***/ },
-/* 806 */
+/* 807 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76192,7 +76190,7 @@ exports.ReduceSubscriber = ReduceSubscriber;
 //# sourceMappingURL=reduce.js.map
 
 /***/ },
-/* 807 */
+/* 808 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76337,7 +76335,7 @@ var SwitchMapSubscriber = (function (_super) {
 //# sourceMappingURL=switchMap.js.map
 
 /***/ },
-/* 808 */
+/* 809 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76388,7 +76386,7 @@ var ToArraySubscriber = (function (_super) {
 //# sourceMappingURL=toArray.js.map
 
 /***/ },
-/* 809 */
+/* 810 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76438,7 +76436,7 @@ exports.Action = Action;
 //# sourceMappingURL=Action.js.map
 
 /***/ },
-/* 810 */
+/* 811 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76449,7 +76447,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var root_1 = __webpack_require__(53);
-var Action_1 = __webpack_require__(809);
+var Action_1 = __webpack_require__(810);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @ignore
@@ -76586,7 +76584,7 @@ exports.AsyncAction = AsyncAction;
 //# sourceMappingURL=AsyncAction.js.map
 
 /***/ },
-/* 811 */
+/* 812 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76596,7 +76594,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Scheduler_1 = __webpack_require__(784);
+var Scheduler_1 = __webpack_require__(785);
 var AsyncScheduler = (function (_super) {
     __extends(AsyncScheduler, _super);
     function AsyncScheduler() {
@@ -76643,18 +76641,18 @@ exports.AsyncScheduler = AsyncScheduler;
 //# sourceMappingURL=AsyncScheduler.js.map
 
 /***/ },
-/* 812 */
+/* 813 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 "use strict";
-var AsyncAction_1 = __webpack_require__(810);
-var AsyncScheduler_1 = __webpack_require__(811);
+var AsyncAction_1 = __webpack_require__(811);
+var AsyncScheduler_1 = __webpack_require__(812);
 exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
 //# sourceMappingURL=async.js.map
 
 /***/ },
-/* 813 */
+/* 814 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -76685,7 +76683,7 @@ exports.UnsubscriptionError = UnsubscriptionError;
 //# sourceMappingURL=UnsubscriptionError.js.map
 
 /***/ },
-/* 814 */
+/* 815 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -76697,7 +76695,7 @@ exports.isObject = isObject;
 //# sourceMappingURL=isObject.js.map
 
 /***/ },
-/* 815 */
+/* 816 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -76709,7 +76707,7 @@ exports.isScheduler = isScheduler;
 //# sourceMappingURL=isScheduler.js.map
 
 /***/ },
-/* 816 */
+/* 817 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -76734,8 +76732,8 @@ exports.toSubscriber = toSubscriber;
 //# sourceMappingURL=toSubscriber.js.map
 
 /***/ },
-/* 817 */,
-/* 818 */
+/* 818 */,
+/* 819 */
 /***/ function(module, exports) {
 
 module.exports = function(module) {
@@ -76761,7 +76759,7 @@ module.exports = function(module) {
 
 
 /***/ },
-/* 819 */
+/* 820 */
 /***/ function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {/**
@@ -78092,15 +78090,15 @@ if (_global['navigator'] && _global['navigator'].geolocation) {
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54), __webpack_require__(734)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54), __webpack_require__(735)))
 
 /***/ },
-/* 820 */
+/* 821 */
 /***/ function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(431);
 
 
 /***/ }
-],[820]);
+],[821]);
 //# sourceMappingURL=main.map
