@@ -30,6 +30,7 @@ export class DealCollection {
 	}
 
 	addDeal (deal: string): void {
+		console.log(deal)
 		this.dealService.addDeal(deal)
 	        .subscribe(
 	          dealStream => {

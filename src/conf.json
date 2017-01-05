@@ -1,3 +1,4 @@
 {
-	"serviceRoot": "https://betcubco20160823124853.azurewebsites.net/"
+	"_serviceRoot": "https://betcubco20160823124853.azurewebsites.net/",
+	"serviceRoot": "http://localhost:3000/"
 }

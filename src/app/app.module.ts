@@ -5,11 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
 
+
+// UI
 import { AlertModule, 
          DatepickerModule, 
          DropdownModule,
          PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { DatepickerComponent } from './date-picker/date-picker.component';
 
+
+// ROUTING
 import { routing,
          appRoutingProviders }  from './app.routing';
 
@@ -80,7 +85,8 @@ import { DealCollection } from './model/DealCollection';
     HeaderBottomComponent,
     HomeRightSideComponent,
     HomeLeftSideComponent,
-    DealComponent
+    DealComponent,
+    DatepickerComponent
   ],
   imports: [
     // Models

@@ -58,10 +58,9 @@ export class AddDealComponent implements OnInit, OnDestroy {
     this.dealForm = this.fb.group({  
       'title': '',
       'description': '',
-        'content': ''
-        // ,
-        // 'dateStart': '',
-        // 'dateEnd': ''  
+      'content': '',
+      'dateStart': '',
+      'dateEnd': ''  
     });  
 
     this.linkSubscription = this.activatedRoute.params.subscribe(

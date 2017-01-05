@@ -14,7 +14,8 @@ export class DealService {
 	
 	constructor(private http: Http) {
 		var config = require('./conf.json');
-		this.dealsUrl = config.serviceRoot + this.dealsPath;
+		//this.dealsUrl = config.serviceRoot + this.dealsPath;
+		this.dealsUrl = 'http://localhost:3000/deals';
 	}
 
 	getDeals (): Observable<Deal[]> {
@@ -26,10 +27,12 @@ export class DealService {
 
 	addDeal (deal: string): Observable<DealComponent> {
 		let body = JSON.stringify({ deal });
+		console.log('itten')
+		console.log(deal)
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
 
-		return this.http.post(this.dealsUrl, body, options)
+		return this.http.post(this.dealsUrl, deal, options)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}

@@ -17,7 +17,7 @@ export class Deal{
 		this.dateEnd = modelObject['dateEnd'];
 		this.dateStart = modelObject['dateStart'];
 		this.description = modelObject['description'];
-		this.id = modelObject['dealId'];
+		this.id = modelObject['id'];
 		this.jRanking = modelObject['jRanking'];
 		this.pending = modelObject['pending'];
 		this.temperature = modelObject['temperature'];

@@ -11,6 +11,7 @@ export class DealComponent implements OnInit {
 
 	public id:String;
 	public title:String;
+	public description:String;
 	public content:String; 
 
 	constructor() {}
@@ -19,6 +20,7 @@ export class DealComponent implements OnInit {
 
 		this.id = this.data['id'];
 		this.title = this.data['title'];
+		this.description = this.data['description'];
 		this.content = this.data['content'];
 	}
 }
