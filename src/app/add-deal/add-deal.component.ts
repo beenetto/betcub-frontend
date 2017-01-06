@@ -74,7 +74,7 @@ export class AddDealComponent implements OnInit, OnDestroy {
     this.collection.removeDeal(this.deal.id).subscribe(
         dealStream => {
           console.log("DEAL DELETED");
-          this.deal = null;
+          this.collection.getDeals();
           this.router.navigate(["home"]);
         },
         error =>  {
@@ -92,12 +92,12 @@ export class AddDealComponent implements OnInit, OnDestroy {
     });  
 
     this.linkSubscription = this.activatedRoute.params.subscribe(
-      (param: any) => {
+      (params: any) => {
         this.collection.stream.subscribe(
           value => {
-            if (param['id']) {
+            if (params['id']) {
               this.isEdit = true;
-              this.deal = this.collection.getDealById(param['id']);
+              this.deal = this.collection.getDealById(params['id']);
               this.pageTitle = 'Edit ' + this.deal.title;
               this.submitText = 'Save';
 
@@ -110,9 +110,12 @@ export class AddDealComponent implements OnInit, OnDestroy {
               });
             }
           },
-          error => {console.log(error)});
+          error => {
+            console.log(error);
+          });
       });
-    if (this.collection.getAll().length) {
+
+    if (this.collection.deals.length) {
       this.collection.refresh();
     }
   }

@@ -1,9 +1,5 @@
 <h2>{{pageTitle}}</h2>
-<div id="start-date" 
-    style="display:inline-block; min-height:290px;">
-    <label for="start-date">Date start</label>
-    <!-- DATEPICKER -->
-</div>
+
 <div id="start-date" 
     style="display:inline-block; min-height:290px;">
     <label for="end-date" for="description">Date end</label> 
@@ -13,6 +9,12 @@
     <form [formGroup]="dealForm"  
       (ngSubmit)="onSubmit(dealForm.value)"  
       class="form-horizontal">
+
+<div id="start-date" 
+    style="display:inline-block; min-height:290px;">
+    <label for="start-date">Date start</label>
+    <!-- DATEPICKER -->
+</div>
 
         <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Title</label>

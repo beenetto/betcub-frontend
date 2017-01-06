@@ -8,7 +8,7 @@ import { Subject } from 'rxjs/Subject';
 @Injectable()
 export class DealCollection {
 
-    private deals: Array<Deal> = [];
+    public deals: Array<Deal> = [];
     public stream: Subject<Array<Deal>> = new Subject<Array<Deal>>();
     public errorMessage: String;
 

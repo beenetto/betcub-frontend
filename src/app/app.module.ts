@@ -7,11 +7,11 @@ import './rxjs-operators';
 
 
 // UI
-import { AlertModule, 
-         DatepickerModule, 
+import { AlertModule,  
          DropdownModule,
          PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
 
+import { DatePickerModule } from 'ng2-datepicker';
 
 // ROUTING
 import { routing }  from './app.routing';
@@ -95,7 +95,7 @@ import { DealCollection } from './model/DealCollection';
     JsonpModule,
     routing,
     // UI COMPONENTS
-    DatepickerModule,
+    DatePickerModule,
     DropdownModule,
     PaginationModule
   ],
