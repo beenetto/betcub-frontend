@@ -35,23 +35,51 @@ export class AddDealComponent implements OnInit, OnDestroy {
  
   constructor(public fb: FormBuilder,
               private collection: DealCollection, 
-              private activatedRoute: ActivatedRoute) {}
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {}
 
  
-  onSubmit(value: string): void {
+  onSubmit(_deal: Deal): void {
 
+    // EDIT DEAL
     if (this.isEdit) {
-      value['id'] = this.deal.id;
-      this.collection.saveDeal(value);
-    } else {
-      this.collection.addDeal(value);
+      _deal.id = this.deal.id;
+      this.collection.saveDeal(_deal).subscribe(
+          dealStream => {
+            console.log("DEAL SAVED");
+            for (let prop in _deal) {
+              this.deal[prop] = _deal[prop];
+            }
+            this.router.navigate(["home"]);
+          },
+          error =>  {
+            // this.errorMessage = <any>error;
+      });
+    } 
+    else {
+      // ADD DEAL
+      this.collection.addDeal(_deal).subscribe(
+          dealStream => {
+            console.log("DEAL ADDED");
+            this.router.navigate(["home"]);
+          },
+          error =>  {
+            //this.errorMessage = <any>error;
+      });
     }
-
-    console.log(value);
   }
 
+  // DELETE DEAL
   remove(): void {
-    this.collection.removeDeal(this.deal.id);
+    this.collection.removeDeal(this.deal.id).subscribe(
+        dealStream => {
+          console.log("DEAL DELETED");
+          this.deal = null;
+          this.router.navigate(["home"]);
+        },
+        error =>  {
+          // this.errorMessage = <any>error;
+    });
   }
 
   ngOnInit() {
@@ -76,10 +104,9 @@ export class AddDealComponent implements OnInit, OnDestroy {
               this.dealForm = this.fb.group({  
                 'title': this.deal.title,
                 'description': this.deal.description,
-                'content': this.deal.content
-                // ,
-                // 'dateStart': this.deal.dateStart,
-                // 'dateEnd': this.deal.dateEnd
+                'content': this.deal.content,
+                'dateStart': this.deal.dateStart,
+                'dateEnd': this.deal.dateEnd
               });
             }
           },

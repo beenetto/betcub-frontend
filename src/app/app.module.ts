@@ -11,12 +11,10 @@ import { AlertModule,
          DatepickerModule, 
          DropdownModule,
          PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
-import { DatepickerComponent } from './date-picker/date-picker.component';
 
 
 // ROUTING
-import { routing,
-         appRoutingProviders }  from './app.routing';
+import { routing }  from './app.routing';
 
  // APP
 import { AppComponent } from './app.component'; 
@@ -85,8 +83,7 @@ import { DealCollection } from './model/DealCollection';
     HeaderBottomComponent,
     HomeRightSideComponent,
     HomeLeftSideComponent,
-    DealComponent,
-    DatepickerComponent
+    DealComponent
   ],
   imports: [
     // Models
@@ -102,7 +99,7 @@ import { DealCollection } from './model/DealCollection';
     DropdownModule,
     PaginationModule
   ],
-  providers: [appRoutingProviders, DealService, DealCollection],
+  providers: [DealService, DealCollection],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

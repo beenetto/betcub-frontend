@@ -1,6 +1,7 @@
 import { Input, Component, Injectable, ChangeDetectionStrategy } from '@angular/core';
 import { DealService } from '../services/deal.service';
 import { Deal } from './deal';
+import { DealComponent } from '../deal/deal.component'
 import {Observable} from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -17,57 +18,26 @@ export class DealCollection {
 		this.dealService.getDeals()
 			.subscribe(
 				dealStream => {
-					let deals = [];
-					for (let d of dealStream) {
-						let deal = new Deal(d);
-						deals.push(deal);
-					}
-					this.refresh(deals);
+					this.deals = dealStream;
 				},
 				error =>  {
 					this.errorMessage = <any>error
 		});
 	}
 
-	addDeal (deal: string): void {
-		console.log(deal)
-		this.dealService.addDeal(deal)
-	        .subscribe(
-	          dealStream => {
-	            console.log("Added");
-	          },
-	          error =>  {
-	            this.errorMessage = <any>error;
-	      });
+	addDeal (deal: Deal): Observable<DealComponent>{
+		return this.dealService.addDeal(deal);
 	}
 
-	saveDeal (deal: string): void {
-		this.dealService.saveDeal(deal)	
-	        .subscribe(
-	          dealStream => {
-	            console.log("SAVED");
-	          },
-	          error =>  {
-	            this.errorMessage = <any>error;
-	      });
+	saveDeal (deal: Deal): Observable<DealComponent>{
+		return this.dealService.saveDeal(deal);	
 	}
 
-	removeDeal (id: String): void {
-		this.dealService.removeDeal(id)	
-	        .subscribe(
-	          dealStream => {
-	            console.log("DELETED");
-	          },
-	          error =>  {
-	            this.errorMessage = <any>error;
-	      });
+	removeDeal (id: String): Observable<DealComponent>{
+		return this.dealService.removeDeal(id);   
 	}
 
-
-	refresh(deals?: Array<Deal>): void {
-		if (deals) {
-			this.deals = deals;
-		}
+	refresh(): void {
 		this.stream.next(this.deals);
 	}
 

@@ -1,17 +1,14 @@
 <h2>{{pageTitle}}</h2>
 <div id="start-date" 
     style="display:inline-block; min-height:290px;">
-    <label for="start-date">Date start</label> 
-    <datepicker [(ngModel)]="dt" [minDate]="minDate" [showWeeks]="true" [dateDisabled]="dateDisabled"></datepicker>
+    <label for="start-date">Date start</label>
+    <!-- DATEPICKER -->
 </div>
-<!-- <div id="start-date" 
+<div id="start-date" 
     style="display:inline-block; min-height:290px;">
     <label for="end-date" for="description">Date end</label> 
-    <datepicker
-        [datepickerMode]="DD/MM/YYYY" 
-        [(ngModel)]="endDate" 
-        (ngModelChange)="onEndDateChange($event)"></datepicker>
-</div> -->
+    <!-- DATEPICKER -->
+</div>
 <div class="form-group">
     <form [formGroup]="dealForm"  
       (ngSubmit)="onSubmit(dealForm.value)"  

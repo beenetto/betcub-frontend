@@ -25,10 +25,7 @@ export class DealService {
 		return response;
 	}
 
-	addDeal (deal: string): Observable<DealComponent> {
-		let body = JSON.stringify({ deal });
-		console.log('itten')
-		console.log(deal)
+	addDeal (deal: Deal): Observable<DealComponent> {
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
 
@@ -37,12 +34,11 @@ export class DealService {
 			.catch(this.handleError);
 	}
 
-	saveDeal (deal: any): Observable<DealComponent> {
-		let body = JSON.stringify({ deal });		
+	saveDeal (deal: Deal): Observable<DealComponent> {		
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
 
-		return this.http.put(this.dealsUrl + '/' + deal.id, body, options)
+		return this.http.put(this.dealsUrl + '/' + deal.id, deal, options)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
