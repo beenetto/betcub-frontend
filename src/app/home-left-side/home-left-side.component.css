@@ -2,3 +2,8 @@
   display: block;
   border: 1px solid black;
 }
+
+.pagination {
+	margin-left: auto;
+	margin-right: auto;
+}

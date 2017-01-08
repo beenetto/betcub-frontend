@@ -1,4 +1,6 @@
 :host {
   display: block;
   border: 1px solid black;
+  background-color: #454745;
+  color: #F4F6F5;
 }

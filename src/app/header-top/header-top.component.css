@@ -1,4 +1,7 @@
-.btn-group.nav-item, .btn-group-vertical {
-	padding: 8px;
+:host {
+	
+}
 
+a.nav-link {
+	color: white;
 }
