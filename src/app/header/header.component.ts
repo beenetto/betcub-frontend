@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { LayoutService } from '../services/layout.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  	constructor(private elementRef:ElementRef, private layoutService:LayoutService) { }
+
+	@HostListener('window:resize', ['$event'])
+	onResize(event) {
+	  this.layoutService.headerHeight = this.elementRef.nativeElement.offsetHeight;
+	}
 
   ngOnInit() {
+  	this.layoutService.headerHeight = this.elementRef.nativeElement.offsetHeight;
   }
 
 }

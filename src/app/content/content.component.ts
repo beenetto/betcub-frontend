@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { LayoutService } from '../services/layout.service';
 
 @Component({
   selector: 'app-content',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+	marginTop = 0;
 
-  constructor() { }
+  	constructor(private elementRef:ElementRef, private layoutService:LayoutService) { }
 
-  ngOnInit() {
-  }
+  	@HostListener('window:resize', ['$event'])
+	onResize(event) {
+	 	this.marginTop = this.layoutService.headerHeight;
+	}
+
+	ngOnInit() {
+		this.marginTop = this.layoutService.headerHeight;
+	}
 
 }

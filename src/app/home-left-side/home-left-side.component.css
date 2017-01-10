@@ -1,9 +1,9 @@
 :host {
   display: block;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
 
-.pagination {
-	margin-left: auto;
-	margin-right: auto;
+.col-centered{
+    float: none;
+    margin: 0 auto;
 }

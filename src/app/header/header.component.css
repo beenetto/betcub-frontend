@@ -10,4 +10,5 @@
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
 	background-color: #7E7F80;
+	z-index: 1;
 }

@@ -1,7 +1,9 @@
 :host {
-	display: block;
-  	border: 1px solid black;
+	position: relative;
+
+  	/*border: 1px solid black;*/
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
+	
 }

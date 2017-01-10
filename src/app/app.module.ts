@@ -10,6 +10,7 @@ import './rxjs-operators';
 import { AlertModule,  
          DropdownModule,
          PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { LayoutService } from './services/layout.service';
 
 import { DatePickerModule } from 'ng2-datepicker';
 
@@ -99,7 +100,7 @@ import { DealCollection } from './model/DealCollection';
     DropdownModule,
     PaginationModule
   ],
-  providers: [DealService, DealCollection],
+  providers: [DealCollection, DealService, LayoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
