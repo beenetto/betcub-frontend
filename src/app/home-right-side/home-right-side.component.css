@@ -1,4 +1,35 @@
 :host {
   display: block;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
 }
+
+.side-element:not(:last-child) {
+	margin-bottom: 2.1em;
+}
+
+.side-element h3 {
+	padding: 0;
+	margin: 0;
+}
+
+.side-signup-container {
+	display: block;
+  	/*border: 1px solid black;*/
+  	height: 300px;
+  	background-color: #A1C94E;
+}
+
+.side-share-container {
+	display: block;
+  	/*border: 1px solid black;*/
+  	height: 45px;
+  	background-color: #59C5C7;
+}
+
+.side-carusel-container {
+	display: block;
+  	/*border: 1px solid black;*/
+  	height: 500px;
+  	background-color: #FEFFFF;
+}
+

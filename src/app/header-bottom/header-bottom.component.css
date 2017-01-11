@@ -1,3 +1,7 @@
 :host {
-	background-color: #ddd;
+	display: block;
+	background-color: white;
+	height: 35px;
+	padding-left: 5%;
+	padding-right: 5%;
 }

@@ -1,14 +1,7 @@
 :host {
-	border: 1px solid black;
 	position: fixed;
-	top: 0; /* or whatever top you need */
-	left: 50%;
-	width: 90%;
-	-webkit-transform: translateX(-50%);
-	-moz-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	-o-transform: translateX(-50%);
-	transform: translateX(-50%);
+	width: 100%;
+	top: 0;
 	background-color: #7E7F80;
 	z-index: 1;
 }

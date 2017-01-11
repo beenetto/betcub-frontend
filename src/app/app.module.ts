@@ -32,6 +32,7 @@ import { ContentComponent } from './content/content.component'; // MAIN TEMPLATE
   import { HomeComponent } from './home/home.component'; // PAGE
     import { HomeRightSideComponent } from './home-right-side/home-right-side.component'; // PAGE COMPONENT
     import { HomeLeftSideComponent } from './home-left-side/home-left-side.component'; // PAGE COMPONENT
+    import { WizardComponent } from './wizard/wizard.component'; // PAGE COMPONENT
 
   import { ContactComponent } from './contact/contact.component';  // PAGE
   import { AboutUsComponent } from './about-us/about-us.component';  // PAGE
@@ -84,7 +85,8 @@ import { DealCollection } from './model/DealCollection';
     HeaderBottomComponent,
     HomeRightSideComponent,
     HomeLeftSideComponent,
-    DealComponent
+    DealComponent,
+    WizardComponent
   ],
   imports: [
     // Models
