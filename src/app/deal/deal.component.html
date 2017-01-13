@@ -1,5 +1,26 @@
-<div>
-	<a [routerLink]="['/edit-deal/'+id]">Edit</a>
-	<h2>{{title}}</h2>
-	<div>{{description}}</div>
+<div class="rounded-5 deal-list-item-container">
+	<!-- 
+	
+	<div>{{description}}</div> -->
+	<div class="row no-margin">
+		<div class="col-sm-10 no-margin no-padding">
+			<div class="col-sm-2 no-margin no-padding"></div>
+			<div class="col-sm-10 no-margin no-padding">
+				<h2>{{title}}</h2>
+				<p>
+					{{content | truncate : 200}}
+				</p>
+				<div class="comment-button">17 comments</div>
+			</div>
+		</div>
+		<div class="col-sm-2 no-margin no-padding">
+			<img src="" class="deal-image">
+			<a class="btn btn-default get-deal" role="button">GET DEAL</a>
+		</div>
+	</div>
+	<div class="deal-footer rounded-5 rounded-no-top">
+		<img class="user-mini" src="">
+		<span class=""><a>beenetto</a> posted 3h, 25m</span>
+		<a class="pull-right" [routerLink]="['/edit-deal/'+id]">Edit</a>
+	</div>
 </div>

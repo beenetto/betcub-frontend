@@ -61,6 +61,9 @@ import { DealComponent } from './deal/deal.component'; // MODAL COMPONENT
 import { DealService } from './services/deal.service';
 import { DealCollection } from './model/DealCollection';
 
+// PIPES
+import {TruncatePipe} from './pipes/truncate.ts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +89,8 @@ import { DealCollection } from './model/DealCollection';
     HomeRightSideComponent,
     HomeLeftSideComponent,
     DealComponent,
-    WizardComponent
+    WizardComponent,
+    TruncatePipe
   ],
   imports: [
     // Models

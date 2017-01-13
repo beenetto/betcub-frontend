@@ -8,16 +8,17 @@ import { LayoutService } from '../services/layout.service';
 })
 export class ContentComponent implements OnInit {
 	marginTop = 0;
+	gap = 30;
 
   	constructor(private elementRef:ElementRef, private layoutService:LayoutService) { }
 
   	@HostListener('window:resize', ['$event'])
 	onResize(event) {
-	 	this.marginTop = this.layoutService.headerHeight;
+	 	this.marginTop = this.layoutService.headerHeight + this.gap;
 	}
 
 	ngOnInit() {
-		this.marginTop = this.layoutService.headerHeight;
+		this.marginTop = this.layoutService.headerHeight + this.gap;
 	}
 
 }
