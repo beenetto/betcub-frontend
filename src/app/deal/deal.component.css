@@ -18,14 +18,7 @@
 	/*height: 28px;*/
 	padding: 5px;
 	padding-bottom: 3px;
-}
-
-.no-margin {
-	margin: 0;
-}
-
-.no-padding {
-	padding: 0;
+	font-weight: 300;
 }
 
 img.user-mini {
@@ -59,3 +52,48 @@ img.deal-image {
  	background-color: #7F9F40;
 }
 
+.temperature {
+	margin-top: 20px;
+}
+
+.temp-val {
+	font-weight: 300;
+	font-size: 2em;
+	color: #BF2943;
+	text-align: center;
+}
+
+.temp-up {
+	
+}
+
+.temp-down {
+	
+}
+
+.tmp-btn:first-child {
+	margin-top: 10px;
+}
+
+.tmp-btn:not(:last-child) {
+margin-bottom: 10px;
+
+}
+
+.temperature  .btn {
+	margin-left: auto;
+    margin-right: auto;
+    display: block;	
+}
+
+.btn.temp-up {
+	background-color: #C12E48;
+	border: 0;
+	width: 60%;
+}
+
+.btn.temp-down {
+	background-color: #C7C8C9;
+	border: 0;
+		width: 60%;
+}

@@ -7,16 +7,21 @@ body {
 	background-color: #EAEBEC;
 }
 
+.img-circle {
+	border-radius: 50%;
+	display: inline-block;
+}
+
 .rounded-5{
-  border-radius: 5px;
+	border-radius: 5px;
 }
 
 .rounded-10{
-  border-radius: 10px;
+	border-radius: 10px;
 }
 
 .rounded-15{
-  border-radius: 15px;
+	border-radius: 15px;
 }
 
 .inner-spine {
@@ -26,4 +31,12 @@ body {
 .rounded-no-top {
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0;
 }
