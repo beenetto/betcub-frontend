@@ -3,7 +3,21 @@
   position: relative;
   border: 2px solid #D9DBDF;
   background-color: #FEFFFF;
-  min-height: 185px;
+  min-height: 175px;
+}
+
+h3 {
+	color: #272728;
+	letter-spacing: .1em;
+	font-weight: 600;
+}
+
+.row {
+	margin-bottom: .8em;
+}
+
+.content-teaser {
+	color: #6E6F71;
 }
 
 .comment-button {

@@ -98,7 +98,7 @@ export class AddDealComponent implements OnInit, OnDestroy {
             if (params['id']) {
               this.isEdit = true;
               this.deal = this.collection.getDealById(params['id']);
-              this.pageTitle = 'Edit ' + this.deal.title;
+              this.pageTitle = this.deal.title;
               this.submitText = 'Save';
 
               this.dealForm = this.fb.group({  

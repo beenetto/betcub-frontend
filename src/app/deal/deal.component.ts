@@ -9,10 +9,11 @@ export class DealComponent implements OnInit {
 
 	@Input() data:Object;
 
-	public id:String;
-	public title:String;
-	public description:String;
-	public content:String; 
+	id: string;
+	title: string;
+	description: string;
+	content: string; 
+	temperature: string;
 
 	constructor() {}
 
@@ -22,5 +23,6 @@ export class DealComponent implements OnInit {
 		this.title = this.data['title'];
 		this.description = this.data['description'];
 		this.content = this.data['content'];
+		this.temperature = this.data['temperature'];
 	}
 }

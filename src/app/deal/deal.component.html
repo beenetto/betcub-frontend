@@ -1,20 +1,17 @@
 <div class="rounded-5 deal-list-item-container">
-	<!-- 
-	
-	<div>{{description}}</div> -->
 	<div class="row no-margin">
-		<div class="temp col-sm-10 no-margin no-padding">
+		<div class="col-sm-10 no-margin no-padding">
 			<div class="col-sm-2 no-margin no-padding temperature">
-				<div class="temp-val">264</div>
+				<div class="temp-val">{{temperature}}&deg;</div>
 				<div class="btn btn-primary temp-up no-padding no-margin tmp-btn">Hot</div>
 				<div class="btn btn-primary temp-down no-padding no-margin tmp-btn">Cold</div>
 			</div>
 			<div class="col-sm-10 no-margin no-padding">
-				<h2>{{title}}</h2>
-				<p>
-					{{content | truncate : 200}}
+				<h3>{{title}}</h3>
+				<p class="content-teaser">
+					{{content | truncate : 250}}
 				</p>
-				<div class="comment-button">17 comments</div>
+				<div class="comment-button">17 comments &rarr;</div>
 			</div>
 		</div>
 		<div class="col-sm-2 no-margin no-padding">

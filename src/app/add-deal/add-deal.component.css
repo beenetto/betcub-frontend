@@ -1,0 +1,8 @@
+:host {
+
+}
+
+textarea.content {
+	height: 450px;
+	resize: none;
+}

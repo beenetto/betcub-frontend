@@ -25,6 +25,13 @@ form>input {
 
 form>button {
 	width: 20%;
+	background-color: #59C5C7;
+	color: white;
+}
+
+form>button:hover {
+	background-color: #469C9F;
+	color: white;
 }
 
 .close-min-btn {

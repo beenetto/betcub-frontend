@@ -42,7 +42,6 @@ export class DealCollection {
 	}
 
 	getDealById(id: String): Deal {
-		console.log(this.deals)
 		return this.deals
 			.filter(d => d.id === id)
 			.pop();

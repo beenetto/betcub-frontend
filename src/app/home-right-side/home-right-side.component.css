@@ -4,7 +4,7 @@
 }
 
 .side-element:not(:last-child) {
-	margin-bottom: 2.1em;
+	margin-bottom: 1.8em;
 }
 
 .side-element h3 {
@@ -32,14 +32,20 @@
 }
 
 .side-share-container span {
-	display: block;
+	display: inline-block;
 	margin-left: auto;	
   	margin-right: auto;
-  	font-size: 1.5em;
+  	font-size: 1.3em;
   	color: white;
   	text-align: center;
-  	font-weight: 300;
+  	/*font-weight: 500;
+  	letter-spacing: .1em;*/
 }
+
+.side-share-container span.glyphicon {
+	font-weight: 300;
+}
+
 
 .side-share-container h3 {
 

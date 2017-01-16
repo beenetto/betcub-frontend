@@ -8,4 +8,15 @@
 	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
+	height: 2.4em;
+	padding-top: .3em;
 }
+
+form {
+}
+
+form>input,
+form>button {
+	height: 1.8em;
+}
+
