@@ -45,6 +45,7 @@ import { ContentComponent } from './content/content.component'; // MAIN TEMPLATE
   import { DealListComponent } from './deal-list/deal-list.component'; // PAGE COMPONENT
   import { DealDetailComponent } from './deal-detail/deal-detail.component'; // PAGE
   import { AddDealComponent } from './add-deal/add-deal.component'; // PAGE
+  import { HottestDealsComponent } from './hottest-deals/hottest-deals.component';
 
 // FOOTER
 import { FooterComponent } from './footer/footer.component';  // MAIN TEMPLATE COMPONENT
@@ -90,6 +91,7 @@ import {TruncatePipe} from './pipes/truncate.ts';
     HomeLeftSideComponent,
     DealComponent,
     WizardComponent,
+    HottestDealsComponent,
     TruncatePipe
   ],
   imports: [

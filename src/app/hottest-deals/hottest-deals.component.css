@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  position: relative;
+  border: 2px solid #D9DBDF;
+  background-color: #C12E48;
+  min-height: 100px;
+  color: white;
+}
+
+h3 {
+	text-align: center;
+	margin-top: 10px;
+	font-weight: 500;
+	letter-spacing: 0.2em; 
+}
+
+form {
+	text-align: center;
+}
+
+form>input {
+	width: 60%;
+	margin-right: 0.8em;
+}
+
+form>button {
+	width: 20%;
+}
+
+.close-min-btn {
+	color: white;
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 2em;
+	float: right;
+	margin-right: .5em;
+	cursor: pointer;
+}

@@ -1,11 +1,60 @@
 :host {
 	display: block;
 	width: 90%;
-	min-height: 60px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-a.nav-link {
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.navbar { 
+	margin: 0;
+}
+
+.navbar-nav {
+	margin: 0;
+	padding: 0;
+	
+}
+
+.main-menu a.nav-link {
 	color: white;
+}
+
+a:hover {
+	background-color: #C12E48;
+}
+
+.navbar-nav.nav-item {
+	color: white;
+}
+
+.navbar-nav .nav-item:not(:first-child) {
+	margin-right: 1em;
+}
+
+a.btn {
+	color: white;
+	padding: 10px;
+	min-width: 150px;
+}
+
+a.btn.login-btn {
+	background-color: #C12E48;
+}
+
+a.btn.login-btn:hover {
+	background-color: #9F263D;
+}
+
+a.btn.share-btn {
+	background-color: #59C5C7;
+}
+
+a.btn.share-btn:hover {
+	background-color: #4CA8AD;
 }

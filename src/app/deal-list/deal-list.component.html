@@ -1,1 +1,7 @@
-<deal class="rounded-5" [data]="deal" *ngFor="let deal of collection.deals"></deal>
+<deal class="rounded-5 list-element" 
+	[data]="deal" *ngFor="let deal of collection.deals  | slice:0:signeUpElementPositionIndex">
+</deal>
+<app-hottest-deals (onClose)='removeHottestDeals($event)' class="rounded-5 list-element"></app-hottest-deals>
+<deal class="rounded-5 list-element" 
+	[data]="deal" *ngFor="let deal of collection.deals  | slice:signeUpElementPositionIndex">
+</deal>
