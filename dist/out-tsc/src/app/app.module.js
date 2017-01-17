@@ -9,9 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
-import { DropdownModule, PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { AlertModule } from 'ng2-bootstrap';
 import { LayoutService } from './services/layout.service';
-import { DatePickerModule } from 'ng2-datepicker';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -77,15 +76,13 @@ AppModule = __decorate([
             TruncatePipe
         ],
         imports: [
+            AlertModule.forRoot(),
             BrowserModule,
             FormsModule,
             ReactiveFormsModule,
             HttpModule,
             JsonpModule,
-            routing,
-            DatePickerModule,
-            DropdownModule,
-            PaginationModule
+            routing
         ],
         providers: [DealCollection, DealService, LayoutService],
         bootstrap: [AppComponent]

@@ -23,12 +23,12 @@ import {
 })
 export class AddDealComponent implements OnInit, OnDestroy {
 
-  private linkSubscription: Subscription;
-  private deal: Deal;
-  private dealForm: FormGroup;
-  private isEdit: Boolean = false;
-  private pageTitle: String = "Add new deal";
-  private submitText: String = "Add";
+  linkSubscription: Subscription;
+  deal: Deal;
+  dealForm: FormGroup;
+  isEdit: Boolean = false;
+  pageTitle: String = "Add new deal";
+  submitText: String = "Add";
 
   startDate: Date = new Date();
   endDate: Date = new Date();

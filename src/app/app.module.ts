@@ -9,10 +9,8 @@ import './rxjs-operators';
 // UI
 import { AlertModule,
          DropdownModule,
-         PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
+         PaginationModule } from 'ng2-bootstrap';
 import { LayoutService } from './services/layout.service';
-
-import { DatePickerModule } from 'ng2-datepicker';
 
 // ROUTING
 import { routing }  from './app.routing';
@@ -97,16 +95,13 @@ import {TruncatePipe} from './pipes/truncate';
   imports: [
     // Models
     // Modules
+    AlertModule.forRoot(),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
-    routing,
-    // UI COMPONENTS
-    DatePickerModule,
-    DropdownModule,
-    PaginationModule
+    routing
   ],
   providers: [DealCollection, DealService, LayoutService],
   bootstrap: [AppComponent]
