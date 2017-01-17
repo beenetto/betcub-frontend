@@ -11,8 +11,8 @@ export class DealComponent implements OnInit {
 
 	id: string;
 	title: string;
-	description: string;
-	content: string; 
+	link: string;
+	content: string;
 	temperature: string;
 
 	constructor() {}
@@ -21,7 +21,7 @@ export class DealComponent implements OnInit {
 
 		this.id = this.data['id'];
 		this.title = this.data['title'];
-		this.description = this.data['description'];
+		this.link = this.data['link'];
 		this.content = this.data['content'];
 		this.temperature = this.data['temperature'];
 	}

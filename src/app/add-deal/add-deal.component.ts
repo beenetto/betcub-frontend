@@ -10,18 +10,18 @@ import {
   FormControl,
   FormBuilder,
   FormGroup,
-  FormsModule,  
+  FormsModule,
   ReactiveFormsModule,
-  Validators  
+  Validators
 } from '@angular/forms';
- 
-@Component({  
+
+@Component({
 	selector: 'app-add-deal',
 	templateUrl: './add-deal.component.html',
 	styleUrls: ['./add-deal.component.css']
 
-})  
-export class AddDealComponent implements OnInit, OnDestroy { 
+})
+export class AddDealComponent implements OnInit, OnDestroy {
 
   private linkSubscription: Subscription;
   private deal: Deal;
@@ -32,13 +32,13 @@ export class AddDealComponent implements OnInit, OnDestroy {
 
   startDate: Date = new Date();
   endDate: Date = new Date();
- 
+
   constructor(public fb: FormBuilder,
-              private collection: DealCollection, 
+              private collection: DealCollection,
               private activatedRoute: ActivatedRoute,
               private router: Router) {}
 
- 
+
   onSubmit(_deal: Deal): void {
 
     // EDIT DEAL
@@ -55,7 +55,7 @@ export class AddDealComponent implements OnInit, OnDestroy {
           error =>  {
             // this.errorMessage = <any>error;
       });
-    } 
+    }
     else {
       // ADD DEAL
       this.collection.addDeal(_deal).subscribe(
@@ -83,13 +83,13 @@ export class AddDealComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.dealForm = this.fb.group({  
+    this.dealForm = this.fb.group({
       'title': '',
       'description': '',
       'content': '',
       'dateStart': '',
-      'dateEnd': ''  
-    });  
+      'dateEnd': ''
+    });
 
     this.linkSubscription = this.activatedRoute.params.subscribe(
       (params: any) => {
@@ -101,9 +101,9 @@ export class AddDealComponent implements OnInit, OnDestroy {
               this.pageTitle = this.deal.title;
               this.submitText = 'Save';
 
-              this.dealForm = this.fb.group({  
+              this.dealForm = this.fb.group({
                 'title': this.deal.title,
-                'description': this.deal.description,
+                'link': this.deal.link,
                 'content': this.deal.content,
                 'dateStart': this.deal.dateStart,
                 'dateEnd': this.deal.dateEnd

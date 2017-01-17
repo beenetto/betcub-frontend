@@ -1,46 +1,46 @@
 <div class="rounded-10 form-group panel panel-default">
-    
+
     <div class="panel-heading rounded-10 rounded-no-bottom">
       <h2>
         {{pageTitle}}
       </h2>
     </div>
 
-    <form [formGroup]="dealForm"  
-      (ngSubmit)="onSubmit(dealForm.value)"  
+    <form [formGroup]="dealForm"
+      (ngSubmit)="onSubmit(dealForm.value)"
       class="form-horizontal">
       <div class="panel-body ">
 
         <div class="form-group">
             <label for="title" class="col-sm-2 control-label">Title</label>
-            <div class="col-sm-10">  
+            <div class="col-sm-10">
                 <input type="text"
-                       class="form-control"  
-                       id="title"  
-                       placeholder="title"  
+                       class="form-control"
+                       id="title"
+                       placeholder="title"
                        [formControl]="dealForm.controls['title']">
             </div>
         </div>
-        
+
         <div class="form-group">
-            <label for="title" class="col-sm-2 control-label">Title</label>
-            <div class="col-sm-10">  
-                <input type="text"
-                       class="form-control"  
-                       id="description"  
-                       placeholder="description"  
-                       [formControl]="dealForm.controls['description']">
+            <label for="description" class="col-sm-2 control-label">Content</label>
+            <div class="col-sm-10">
+                <textarea
+                    id="content"
+                    class="form-control content"
+                    placeholder="content"
+                    [formControl]="dealForm.controls['content']"></textarea>
             </div>
         </div>
-        
+
         <div class="form-group">
-            <label for="description" class="col-sm-2 control-label">Content</label> 
+            <label for="link" class="col-sm-2 control-label">Link</label>
             <div class="col-sm-10">
-                <textarea 
-                    id="content"
-                    class="form-control content" 
-                    placeholder="content"  
-                    [formControl]="dealForm.controls['content']"></textarea>
+                <input type="text"
+                       class="form-control"
+                       id="link"
+                       placeholder="link"
+                       [formControl]="dealForm.controls['link']">
             </div>
         </div>
 
@@ -51,8 +51,8 @@
           <button type="submit" class="btn btn-default">
             {{submitText}}
           </button>
-          <button type="submit" 
-            [ngClass]="{'hidden': !isEdit }" (click)="remove($event)" 
+          <button type="submit"
+            [ngClass]="{'hidden': !isEdit }" (click)="remove($event)"
             class="btn btn-default">
               Remove
           </button>

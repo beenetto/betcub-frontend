@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-  
+
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
 
 
 // UI
-import { AlertModule,  
+import { AlertModule,
          DropdownModule,
          PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
 import { LayoutService } from './services/layout.service';
@@ -18,7 +18,7 @@ import { DatePickerModule } from 'ng2-datepicker';
 import { routing }  from './app.routing';
 
  // APP
-import { AppComponent } from './app.component'; 
+import { AppComponent } from './app.component';
 
 // HEADER
 import { HeaderComponent } from './header/header.component'; // MAIN TEMPLATE COMPONENT
@@ -27,7 +27,7 @@ import { HeaderComponent } from './header/header.component'; // MAIN TEMPLATE CO
 
 // CONTENT
 import { ContentComponent } from './content/content.component'; // MAIN TEMPLATE COMPONENT
-  
+
   // HOME
   import { HomeComponent } from './home/home.component'; // PAGE
     import { HomeRightSideComponent } from './home-right-side/home-right-side.component'; // PAGE COMPONENT
@@ -63,7 +63,7 @@ import { DealService } from './services/deal.service';
 import { DealCollection } from './model/DealCollection';
 
 // PIPES
-import {TruncatePipe} from './pipes/truncate.ts';
+import {TruncatePipe} from './pipes/truncate';
 
 @NgModule({
   declarations: [
@@ -112,4 +112,3 @@ import {TruncatePipe} from './pipes/truncate.ts';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
