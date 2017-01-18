@@ -8,8 +8,10 @@ import './rxjs-operators';
 
 // UI
 import { AlertModule,
+         DatepickerModule,
          DropdownModule,
          PaginationModule } from 'ng2-bootstrap';
+import { ImageUploadModule } from 'angular2-image-upload';
 import { LayoutService } from './services/layout.service';
 
 // ROUTING
@@ -95,8 +97,10 @@ import {TruncatePipe} from './pipes/truncate';
   imports: [
     // Models
     // Modules
+    ImageUploadModule.forRoot(),
     AlertModule.forRoot(),
     BrowserModule,
+    DatepickerModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

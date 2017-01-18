@@ -23,6 +23,17 @@ import {
 })
 export class AddDealComponent implements OnInit, OnDestroy {
 
+public dt: Date = new Date();
+public today: Date = new Date();
+public events: any[];
+public tomorrow: Date;
+public afterTomorrow: Date;
+public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY',
+ 'shortDate'];
+public format: string = this.formats[0];
+
+
+
   linkSubscription: Subscription;
   deal: Deal;
   dealForm: FormGroup;

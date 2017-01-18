@@ -1,8 +1,13 @@
 :host {
-
+	background-color: #333;
 }
 
 textarea.content {
 	height: 450px;
 	resize: none;
+}
+
+:host >>> .alert-warning {
+	margin-top: .8em;
+	margin-bottom: .1em;
 }

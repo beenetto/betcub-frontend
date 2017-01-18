@@ -17,6 +17,11 @@ var AddDealComponent = (function () {
         this.collection = collection;
         this.activatedRoute = activatedRoute;
         this.router = router;
+        this.dt = new Date();
+        this.today = new Date();
+        this.formats = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY',
+            'shortDate'];
+        this.format = this.formats[0];
         this.isEdit = false;
         this.pageTitle = "Add new deal";
         this.submitText = "Add";
