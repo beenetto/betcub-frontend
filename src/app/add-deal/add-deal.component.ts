@@ -42,6 +42,7 @@ public format: string = this.formats[0];
   submitText: String = "Add";
 
   startDate: Date = new Date();
+  startDateOn: Number = 0;
   endDate: Date = new Date();
 
   constructor(public fb: FormBuilder,
@@ -99,7 +100,7 @@ public format: string = this.formats[0];
       'description': '',
       'content': '',
       'dateStart': '',
-      'dateEnd': ''
+      'dateEnd': '',
     });
 
     this.linkSubscription = this.activatedRoute.params.subscribe(
@@ -117,7 +118,8 @@ public format: string = this.formats[0];
                 'link': this.deal.link,
                 'content': this.deal.content,
                 'dateStart': this.deal.dateStart,
-                'dateEnd': this.deal.dateEnd
+                'dateEnd': this.deal.dateEnd,
+                'temperature': this.deal.temperature,
               });
             }
           },

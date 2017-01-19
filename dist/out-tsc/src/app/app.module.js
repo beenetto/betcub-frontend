@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
-import { AlertModule, DatepickerModule } from 'ng2-bootstrap';
+import { AlertModule, ButtonsModule, DatepickerModule } from 'ng2-bootstrap';
 import { ImageUploadModule } from 'angular2-image-upload';
 import { LayoutService } from './services/layout.service';
 import { routing } from './app.routing';
@@ -79,6 +79,7 @@ AppModule = __decorate([
         imports: [
             ImageUploadModule.forRoot(),
             AlertModule.forRoot(),
+            ButtonsModule.forRoot(),
             BrowserModule,
             DatepickerModule.forRoot(),
             FormsModule,

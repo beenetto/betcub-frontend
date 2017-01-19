@@ -8,6 +8,7 @@ import './rxjs-operators';
 
 // UI
 import { AlertModule,
+         ButtonsModule,
          DatepickerModule,
          DropdownModule,
          PaginationModule } from 'ng2-bootstrap';
@@ -99,6 +100,7 @@ import {TruncatePipe} from './pipes/truncate';
     // Modules
     ImageUploadModule.forRoot(),
     AlertModule.forRoot(),
+    ButtonsModule.forRoot(),
     BrowserModule,
     DatepickerModule.forRoot(),
     FormsModule,

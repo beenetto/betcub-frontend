@@ -26,6 +26,7 @@ var AddDealComponent = (function () {
         this.pageTitle = "Add new deal";
         this.submitText = "Add";
         this.startDate = new Date();
+        this.startDateOn = 0;
         this.endDate = new Date();
     }
     AddDealComponent.prototype.onSubmit = function (_deal) {
@@ -65,7 +66,7 @@ var AddDealComponent = (function () {
             'description': '',
             'content': '',
             'dateStart': '',
-            'dateEnd': ''
+            'dateEnd': '',
         });
         this.linkSubscription = this.activatedRoute.params.subscribe(function (params) {
             _this.collection.stream.subscribe(function (value) {
@@ -79,7 +80,8 @@ var AddDealComponent = (function () {
                         'link': _this.deal.link,
                         'content': _this.deal.content,
                         'dateStart': _this.deal.dateStart,
-                        'dateEnd': _this.deal.dateEnd
+                        'dateEnd': _this.deal.dateEnd,
+                        'temperature': _this.deal.temperature,
                     });
                 }
             }, function (error) {
