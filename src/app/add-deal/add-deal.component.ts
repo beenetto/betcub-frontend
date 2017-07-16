@@ -7,12 +7,12 @@ import { DealService } from '../services/deal.service';
 
 
 import {
-  FormControl,
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators
+    FormControl,
+    FormBuilder,
+    FormGroup,
+    FormsModule,
+    ReactiveFormsModule,
+    Validators
 } from '@angular/forms';
 
 @Component({
@@ -23,126 +23,129 @@ import {
 })
 export class AddDealComponent implements OnInit, OnDestroy {
 
-public dt: Date = new Date();
-public today: Date = new Date();
-public events: any[];
-public tomorrow: Date;
-public afterTomorrow: Date;
-public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY',
- 'shortDate'];
-public format: string = this.formats[0];
+    public dt: Date = new Date();
+    public today: Date = new Date();
+    public events: any[];
+    public tomorrow: Date;
+    public afterTomorrow: Date;
+    public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY',
+     'shortDate'];
+    public format: string = this.formats[0];
 
 
 
-  linkSubscription: Subscription;
-  deal: Deal;
-  dealForm: FormGroup;
-  isEdit: Boolean = false;
-  pageTitle: String = "Add new deal";
-  submitText: String = "Add";
+    linkSubscription: Subscription;
+    deal: Deal;
+    dealForm: FormGroup;
+    isEdit: Boolean = false;
+    pageTitle: String = "Add new deal";
+    submitText: String = "Add";
 
-  startDate: Date = new Date();
-  startDateOn: Number = 0;
-  endDate: Date = new Date();
+    startDate: Date = new Date();
+    startDateOn: Number = 0;
+    endDate: Date = new Date();
 
-  constructor(public fb: FormBuilder,
-              private collection: DealCollection,
-              private activatedRoute: ActivatedRoute,
-              private router: Router) {}
+    constructor(
+        public fb: FormBuilder,
+        private collection: DealCollection,
+        private activatedRoute: ActivatedRoute,
+        private router: Router) {}
 
+    onSubmit(_deal: Deal): void {
+        // EDIT DEAL
+        if (this.isEdit) {
+            _deal.id = this.deal.id;
+            this.collection.saveDeal(_deal).subscribe(
+                dealStream => {
+                    console.log("DEAL SAVED");
+                    for (let prop in _deal) {
+                        this.deal[prop] = _deal[prop];
+                    }
+                    this.router.navigate(["home"]);
+                },
+                error =>  {
+                // this.errorMessage = <any>error;
+            });
+        } else {
+          // ADD DEAL
+            this.collection.addDeal(_deal).subscribe(
+                dealStream => {
+                    console.log("DEAL ADDED");
+                    this.router.navigate(["home"]);
+                },
+                error =>  {
+                    //this.errorMessage = <any>error;
+                }
+            );
+        }
+    }
 
-  onSubmit(_deal: Deal): void {
-
-    // EDIT DEAL
-    if (this.isEdit) {
-      _deal.id = this.deal.id;
-      this.collection.saveDeal(_deal).subscribe(
-          dealStream => {
-            console.log("DEAL SAVED");
-            for (let prop in _deal) {
-              this.deal[prop] = _deal[prop];
+    // DELETE DEAL
+    remove(): void {
+        this.collection.removeDeal(this.deal.id).subscribe(
+            dealStream => {
+                console.log("DEAL DELETED");
+                this.collection.getDeals();
+                this.router.navigate(["home"]);
+            },
+            error =>  {
+                // this.errorMessage = <any>error;
             }
-            this.router.navigate(["home"]);
-          },
-          error =>  {
-            // this.errorMessage = <any>error;
-      });
+        );
     }
-    else {
-      // ADD DEAL
-      this.collection.addDeal(_deal).subscribe(
-          dealStream => {
-            console.log("DEAL ADDED");
-            this.router.navigate(["home"]);
-          },
-          error =>  {
-            //this.errorMessage = <any>error;
-      });
-    }
-  }
 
-  // DELETE DEAL
-  remove(): void {
-    this.collection.removeDeal(this.deal.id).subscribe(
-        dealStream => {
-          console.log("DEAL DELETED");
-          this.collection.getDeals();
-          this.router.navigate(["home"]);
-        },
-        error =>  {
-          // this.errorMessage = <any>error;
-    });
-  }
+    ngOnInit() {
+        this.dealForm = this.fb.group({
+            'content': '',
+            'dateStart': '',
+            'dateEnd': '',
+            'description': '',
+            'link': '',
+            'title': '',
+        });
 
-  ngOnInit() {
-    this.dealForm = this.fb.group({
-      'title': '',
-      'description': '',
-      'content': '',
-      'dateStart': '',
-      'dateEnd': '',
-    });
+        this.linkSubscription = this.activatedRoute.params.subscribe(
+            (params: any) => {
+                console.log(params)
+                this.collection.stream.subscribe(
+                    value => {
+                    if (params['id']) {
+                        this.isEdit = true;
+                        this.deal = this.collection.getDealById(params['id']);
+                        this.pageTitle = this.deal.title;
+                        this.submitText = 'Save';
 
-    this.linkSubscription = this.activatedRoute.params.subscribe(
-      (params: any) => {
-        this.collection.stream.subscribe(
-          value => {
-            if (params['id']) {
-              this.isEdit = true;
-              this.deal = this.collection.getDealById(params['id']);
-              this.pageTitle = this.deal.title;
-              this.submitText = 'Save';
-
-              this.dealForm = this.fb.group({
-                'title': this.deal.title,
-                'link': this.deal.link,
-                'content': this.deal.content,
-                'dateStart': this.deal.dateStart,
-                'dateEnd': this.deal.dateEnd,
-                'temperature': this.deal.temperature,
+                        this.dealForm = this.fb.group({
+                            'title': this.deal.title,
+                            'link': this.deal.link,
+                            'content': this.deal.content,
+                            'dateStart': this.deal.dateStart,
+                            'dateEnd': this.deal.dateEnd,
+                            'temperature': this.deal.temperature,
+                        });
+                    }
+              },
+              error => {
+                  console.log(error);
               });
             }
-          },
-          error => {
-            console.log(error);
-          });
-      });
+        );
 
-    if (this.collection.deals.length) {
-      this.collection.refresh();
+        if (this.collection.deals.length) {
+            this.collection.refresh();
+        }
     }
-  }
 
-  onStartDateChange(value) {
-    console.log(value);
-  }
+    onStartDateChange(value) {
+        console.log(value);
+    }
 
-  onEndDateChange(value) {
-    console.log(value);
-  }
+    onEndDateChange(value) {
+        console.log(value);
+    }
 
-  ngOnDestroy() {
+    ngOnDestroy() {
     // prevent memory leak by unsubscribing
-    this.linkSubscription.unsubscribe();
-  }
+        this.linkSubscription.unsubscribe();
+    }
 }

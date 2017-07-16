@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
 
-
 // UI
 import { AlertModule,
          ButtonsModule,
@@ -35,10 +34,9 @@ import { ContentComponent } from './content/content.component'; // MAIN TEMPLATE
     import { HomeLeftSideComponent } from './home-left-side/home-left-side.component'; // PAGE COMPONENT
     import { WizardComponent } from './wizard/wizard.component'; // PAGE COMPONENT
 
+  import { BasicPageComponent } from './basic-page/basic-page.component' // BASIC PAGE FOR SEMI STATIC CONTENT
   import { ContactComponent } from './contact/contact.component';  // PAGE
-  import { AboutUsComponent } from './about-us/about-us.component';  // PAGE
-  import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component'; // PAGE
-  import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component'; // PAGE
+
   import { UserSettingsComponent } from './user-settings/user-settings.component'; // PAGE
   import { PageNotFoundComponent } from './page-not-found/page-not-found.component'; // PAGE
 
@@ -68,32 +66,30 @@ import {TruncatePipe} from './pipes/truncate';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PageNotFoundComponent,
-    HomeComponent,
-    HeaderComponent,
-    FooterComponent,
-    ContentComponent,
-    FeedbackComponent,
-    ContactComponent,
-    AboutUsComponent,
-    PrivacyPolicyComponent,
-    TermsAndConditionsComponent,
     AddDealComponent,
-    RegisterComponent,
-    UserSettingsComponent,
+    AppComponent,
+    BasicPageComponent,
+    ContactComponent,
+    ContentComponent,
     DealListComponent,
     DealDetailComponent,
+    DealComponent,
     FooterMenuComponent,
     FooterContentComponent,
+    FooterComponent,
+    FeedbackComponent,
     HeaderTopComponent,
+    HeaderComponent,
     HeaderBottomComponent,
     HomeRightSideComponent,
     HomeLeftSideComponent,
-    DealComponent,
-    WizardComponent,
+    HomeComponent,
     HottestDealsComponent,
-    TruncatePipe
+    PageNotFoundComponent,
+    RegisterComponent,
+    UserSettingsComponent,
+    TruncatePipe,
+    WizardComponent
   ],
   imports: [
     // Models

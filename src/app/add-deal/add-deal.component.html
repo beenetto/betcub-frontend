@@ -16,7 +16,8 @@
                        class="form-control"
                        id="title"
                        placeholder="title"
-                       [formControl]="dealForm.controls['title']">
+                       [formControl]="dealForm.controls['title']"
+                       formControlName="title">
             <alert type="warning" dismissOnTimeout="55000">validator</alert>
             </div>
         </div>
@@ -28,7 +29,8 @@
                     id="content"
                     class="form-control content"
                     placeholder="content"
-                    [formControl]="dealForm.controls['content']"></textarea>
+                    [formControl]="dealForm.controls['content']"
+                    formControlName="content"></textarea>
                 <alert type="warning" dismissOnTimeout="55000">validator</alert>
             </div>
         </div>
@@ -40,7 +42,8 @@
                        class="form-control"
                        id="link"
                        placeholder="link"
-                       [formControl]="dealForm.controls['link']">
+                       [formControl]="dealForm.controls['link']"
+                       formControlName="link">
                 <alert type="warning" dismissOnTimeout="55000">validator</alert>
             </div>
         </div>
