@@ -9,13 +9,16 @@ export class DealService {
 
 	private headers = new Headers({});
 	//private dealsUrl = 'http://localhost:3000/db';  // URL to web API
-	private dealsUrl = '';
+	private dealsUrl = 'http://localhost:3000/deals';
 	private dealsPath = 'api/Deals/Deals';
-	
-	constructor(private http: Http) {
-		var config = require('./conf.json');
-		//this.dealsUrl = config.serviceRoot + this.dealsPath;
-		this.dealsUrl = 'http://localhost:3000/deals';
+
+	constructor(private http: Http) {}
+
+	getRequestData () {
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers });
+
+		return { headers: headers, options: options	}
 	}
 
 	getDeals (): Observable<Deal[]> {
@@ -26,26 +29,24 @@ export class DealService {
 	}
 
 	addDeal (deal: Deal): Observable<DealComponent> {
-		let headers = new Headers({ 'Content-Type': 'application/json' });
-		let options = new RequestOptions({ headers: headers });
 
-		return this.http.post(this.dealsUrl, deal, options)
+		return this.http
+			.post(this.dealsUrl, deal, this.getRequestData().options)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
 
-	saveDeal (deal: Deal): Observable<DealComponent> {		
-		let headers = new Headers({ 'Content-Type': 'application/json' });
-		let options = new RequestOptions({ headers: headers });
+	saveDeal (deal: Deal): Observable<DealComponent> {
 
-		return this.http.put(this.dealsUrl + '/' + deal.id, deal, options)
+		return this.http
+			.put(this.dealsUrl + '/' + deal.id,
+				 deal,
+				 this.getRequestData().options)
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
 
 	removeDeal (id: String): Observable<DealComponent> {
-		let headers = new Headers({ 'Content-Type': 'application/json' });
-		let options = new RequestOptions({ headers: headers });
 
 		return this.http.delete(this.dealsUrl + '/' + id,)
 			.map(this.extractData)
@@ -66,5 +67,3 @@ export class DealService {
 		return Observable.throw(errMsg);
 	}
 }
-
- 
