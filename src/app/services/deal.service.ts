@@ -1,16 +1,15 @@
+import { Deal } from '../model/deal';
+import { DealComponent } from '../deal/deal.component'
 import { Injectable }     from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
-import { DealComponent } from '../deal/deal.component'
 import { Observable }     from 'rxjs/Observable';
-import { Deal } from '../model/deal';
+import { SharedService } from '../services/shared.service';
+
 
 @Injectable()
 export class DealService {
 
-	private headers = new Headers({});
-	//private dealsUrl = 'http://localhost:3000/db';  // URL to web API
-	private dealsUrl = 'http://localhost:3000/deals';
-	private dealsPath = 'api/Deals/Deals';
+	private dealsUrl: string = SharedService.SERVICE_ROOT + "deals";
 
 	constructor(private http: Http) {}
 

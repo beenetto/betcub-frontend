@@ -59,6 +59,7 @@ import { DealComponent } from './deal/deal.component'; // MODAL COMPONENT
 
 // Common models and collections
 import { DealService } from './services/deal.service';
+import { SharedService } from './services/shared.service';
 import { DealCollection } from './model/DealCollection';
 
 // PIPES
@@ -105,7 +106,7 @@ import {TruncatePipe} from './pipes/truncate';
     JsonpModule,
     routing
   ],
-  providers: [DealCollection, DealService, LayoutService],
+  providers: [DealCollection, DealService, LayoutService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

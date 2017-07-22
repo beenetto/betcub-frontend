@@ -3,8 +3,6 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { DealCollection } from '../model/DealCollection';
 import { Deal } from '../model/deal';
-import { DealService } from '../services/deal.service';
-
 
 import {
     FormControl,
@@ -18,19 +16,18 @@ import {
 @Component({
 	selector: 'app-add-deal',
 	templateUrl: './add-deal.component.html',
-	styleUrls: ['./add-deal.component.css']
+	styleUrls: ['./add-deal.component.css'] })
 
-})
 export class AddDealComponent implements OnInit, OnDestroy {
 
-    public dt: Date = new Date();
-    public today: Date = new Date();
-    public events: any[];
-    public tomorrow: Date;
     public afterTomorrow: Date;
-    public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY',
-     'shortDate'];
+    public dt: Date = new Date();
+    public events: any[];
+    public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD',
+                                'DD.MM.YYYY', 'shortDate'];
     public format: string = this.formats[0];
+    public today: Date = new Date();
+    public tomorrow: Date;
 
 
 

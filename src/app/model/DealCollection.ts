@@ -2,7 +2,7 @@ import { Input, Component, Injectable, ChangeDetectionStrategy } from '@angular/
 import { DealService } from '../services/deal.service';
 import { Deal } from './deal';
 import { DealComponent } from '../deal/deal.component'
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
@@ -30,11 +30,11 @@ export class DealCollection {
 	}
 
 	saveDeal (deal: Deal): Observable<DealComponent>{
-		return this.dealService.saveDeal(deal);	
+		return this.dealService.saveDeal(deal);
 	}
 
 	removeDeal (id: String): Observable<DealComponent>{
-		return this.dealService.removeDeal(id);   
+		return this.dealService.removeDeal(id);
 	}
 
 	refresh(): void {
