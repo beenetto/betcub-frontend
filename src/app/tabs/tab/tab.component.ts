@@ -9,14 +9,13 @@ export interface Tab {
 
 @Component({
   selector: 'tab-comp',
-  // templateUrl: './tab.component.html',
-  template: '<div>YOYOYOYO</div>',
+  templateUrl: './tab.component.html',
   styleUrls: ['./tab.component.css']
 })
 export class TabComponent implements OnInit, Tab {
 
     @Input() tabText;
-    selected = false;
+    @Input() selected = false;
 
     constructor(private tabsComponent: TabsComponent) {}
 

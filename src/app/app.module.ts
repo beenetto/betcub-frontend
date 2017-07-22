@@ -1,7 +1,7 @@
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
 
@@ -53,9 +53,15 @@ import { FooterContentComponent } from './footer-content/footer-content.componen
 
 
 // MODAL
+import { LoginComponent } from './modal/login/login.component'
+import { DealComponent } from './deal/deal.component';
+
 import { FeedbackComponent } from './feedback/feedback.component'; // MODAL COMPONENT
 import { RegisterComponent } from './register/register.component';
-import { DealComponent } from './deal/deal.component'; // MODAL COMPONENT
+
+// TabsComponent
+import { TabsComponent } from './tabs/tabs/tabs.component'
+import { TabComponent } from './tabs/tab/tab.component'
 
 // Common models and collections
 import { DealService } from './services/deal.service';
@@ -66,47 +72,58 @@ import { DealCollection } from './model/DealCollection';
 import {TruncatePipe} from './pipes/truncate';
 
 @NgModule({
-  declarations: [
-    AddDealComponent,
-    AppComponent,
-    BasicPageComponent,
-    ContactComponent,
-    ContentComponent,
-    DealListComponent,
-    DealDetailComponent,
-    DealComponent,
-    FooterMenuComponent,
-    FooterContentComponent,
-    FooterComponent,
-    FeedbackComponent,
-    HeaderTopComponent,
-    HeaderComponent,
-    HeaderBottomComponent,
-    HomeRightSideComponent,
-    HomeLeftSideComponent,
-    HomeComponent,
-    HottestDealsComponent,
-    PageNotFoundComponent,
-    RegisterComponent,
-    UserSettingsComponent,
-    TruncatePipe,
-    WizardComponent
-  ],
-  imports: [
-    // Models
-    // Modules
-    // ImageUploadModule.forRoot(),
-    AlertModule.forRoot(),
-    ButtonsModule.forRoot(),
-    BrowserModule,
-    DatepickerModule.forRoot(),
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    JsonpModule,
-    routing
-  ],
-  providers: [DealCollection, DealService, LayoutService, SharedService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AddDealComponent,
+        AppComponent,
+        BasicPageComponent,
+        ContactComponent,
+        ContentComponent,
+        DealListComponent,
+        DealDetailComponent,
+        DealComponent,
+        FeedbackComponent,
+        FooterMenuComponent,
+        FooterContentComponent,
+        FooterComponent,
+        HeaderTopComponent,
+        HeaderComponent,
+        HeaderBottomComponent,
+        HomeRightSideComponent,
+        HomeLeftSideComponent,
+        HomeComponent,
+        HottestDealsComponent,
+        LoginComponent,
+        PageNotFoundComponent,
+        RegisterComponent,
+        UserSettingsComponent,
+        TabComponent,
+        TabsComponent,
+        TruncatePipe,
+        WizardComponent
+    ],
+    imports: [
+        AlertModule.forRoot(),
+        BootstrapModalModule.forRoot({container:document.body}),
+        ButtonsModule.forRoot(),
+        BrowserModule,
+        DatepickerModule.forRoot(),
+        FormsModule,
+        ReactiveFormsModule,
+        HttpModule,
+        JsonpModule,
+        routing
+    ],
+    entryComponents: [
+        LoginComponent
+    ],
+    providers: [
+          DealCollection,
+          DealService,
+          LayoutService,
+          SharedService
+    ],
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule { }

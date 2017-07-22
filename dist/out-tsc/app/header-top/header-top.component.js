@@ -18,8 +18,8 @@ var HeaderTopComponent = (function () {
     HeaderTopComponent.prototype.show_login = function () {
         var disposable = this.dialogService
             .addDialog(LoginComponent, {
-            title: 'Confirm title',
-            message: 'Confirm message'
+            title: 'Login or register',
+            message: ''
         })
             .subscribe(function (isConfirmed) {
             if (isConfirmed) {

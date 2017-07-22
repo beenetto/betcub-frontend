@@ -5,13 +5,12 @@
             <h4 class="modal-title">{{title || 'Confirm'}}</h4>
         </div>
         <div class="modal-body">
-            <p>{{message || 'Are you sure?'}}</p>
             <p>
                 <tabs-comp (selected)="switchContent($event.selectedTab)">
-                    <tab-comp [tabText]="'Tab Component Title 1'">
+                    <tab-comp tabText="Login" selected="true">
                         <div tab-content>LOGIN</div>
                     </tab-comp>
-                    <tab-comp tabText="Tab Component Title 2">
+                    <tab-comp tabText="Register">
                         <div tab-content>REGISTER</div>
                     </tab-comp>
                 </tabs-comp>
