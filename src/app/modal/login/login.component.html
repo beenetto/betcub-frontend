@@ -1,0 +1,25 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" (click)="close()" >&times;</button>
+            <h4 class="modal-title">{{title || 'Confirm'}}</h4>
+        </div>
+        <div class="modal-body">
+            <p>{{message || 'Are you sure?'}}</p>
+            <p>
+                <tabs-comp (selected)="switchContent($event.selectedTab)">
+                    <tab-comp [tabText]="'Tab Component Title 1'">
+                        <div tab-content>LOGIN</div>
+                    </tab-comp>
+                    <tab-comp tabText="Tab Component Title 2">
+                        <div tab-content>REGISTER</div>
+                    </tab-comp>
+                </tabs-comp>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="login()">OK</button>
+            <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
+        </div>
+    </div>
+</div>
