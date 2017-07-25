@@ -1,8 +1,11 @@
-import { Subscription } from 'rxjs';
+
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { DealCollection } from '../model/DealCollection';
 import { Deal } from '../model/deal';
+import { DealCollection } from '../model/DealCollection';
+import { TabsComponent } from '../tabs/tabs/tabs.component'
+import { TabComponent } from '../tabs/tab/tab.component'
+import { Subscription } from 'rxjs';
 
 import {
     FormControl,
@@ -29,8 +32,6 @@ export class AddDealComponent implements OnInit, OnDestroy {
     public today: Date = new Date();
     public tomorrow: Date;
 
-
-
     linkSubscription: Subscription;
     deal: Deal;
     dealForm: FormGroup;
@@ -47,6 +48,11 @@ export class AddDealComponent implements OnInit, OnDestroy {
         private collection: DealCollection,
         private activatedRoute: ActivatedRoute,
         private router: Router) {}
+
+
+    setPage(page: string): void{
+
+    }
 
     onSubmit(_deal: Deal): void {
         // EDIT DEAL

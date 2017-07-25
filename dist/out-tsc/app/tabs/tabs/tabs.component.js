@@ -26,6 +26,8 @@ var TabsComponent = (function () {
         tab.selected = true;
         this.selected.emit({ selectedTab: tab });
     };
+    TabsComponent.prototype.ngOnInit = function () {
+    };
     return TabsComponent;
 }());
 __decorate([

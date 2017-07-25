@@ -29,6 +29,8 @@ var AddDealComponent = (function () {
         this.startDateOn = 0;
         this.endDate = new Date();
     }
+    AddDealComponent.prototype.setPage = function (page) {
+    };
     AddDealComponent.prototype.onSubmit = function (_deal) {
         var _this = this;
         if (this.isEdit) {

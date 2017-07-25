@@ -86,9 +86,9 @@ AppModule = __decorate([
             BrowserModule,
             DatepickerModule.forRoot(),
             FormsModule,
-            ReactiveFormsModule,
             HttpModule,
             JsonpModule,
+            ReactiveFormsModule,
             routing
         ],
         entryComponents: [

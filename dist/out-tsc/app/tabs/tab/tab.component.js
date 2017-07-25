@@ -23,10 +23,6 @@ __decorate([
     Input(),
     __metadata("design:type", Object)
 ], TabComponent.prototype, "tabText", void 0);
-__decorate([
-    Input(),
-    __metadata("design:type", Object)
-], TabComponent.prototype, "selected", void 0);
 TabComponent = __decorate([
     Component({
         selector: 'tab-comp',

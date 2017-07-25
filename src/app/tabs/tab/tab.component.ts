@@ -15,7 +15,7 @@ export interface Tab {
 export class TabComponent implements OnInit, Tab {
 
     @Input() tabText;
-    @Input() selected = false;
+    selected: boolean = false;
 
     constructor(private tabsComponent: TabsComponent) {}
 

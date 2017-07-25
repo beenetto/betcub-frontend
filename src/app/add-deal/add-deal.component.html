@@ -5,113 +5,126 @@
         {{pageTitle}}
       </h2>
     </div>
-    <div class="panel-body ">
-      <form [formGroup]="dealForm"
-            (ngSubmit)="onSubmit(dealForm.value)"
-            class="form-horizontal">
-        <div class="form-group">
-            <label for="title" class="col-sm-2 control-label">Title</label>
-            <div class="col-sm-10">
-                <input type="text"
-                       class="form-control"
-                       id="title"
-                       placeholder="title"
-                       [formControl]="dealForm.controls['title']"
-                       formControlName="title">
-            <alert type="warning" dismissOnTimeout="55000">validator</alert>
-            </div>
-        </div>
+    <tabs-comp (selected)="setPage($event.selectedTab)">
+        <div class="panel-body ">
+          <form [formGroup]="dealForm"
+                (ngSubmit)="onSubmit(dealForm.value)"
+                class="form-horizontal">
+            <!-- STEP 1     -->
+            <tab-comp tabText="Step 1" selected="true">
+                <div tab-content>
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                   class="form-control"
+                                   id="title"
+                                   placeholder="title"
+                                   [formControl]="dealForm.controls['title']"
+                                   formControlName="title">
+                        <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <label for="description" class="col-sm-2 control-label">Content</label>
-            <div class="col-sm-10">
-                <textarea
-                    id="content"
-                    class="form-control content"
-                    placeholder="content"
-                    [formControl]="dealForm.controls['content']"
-                    formControlName="content"></textarea>
-                <alert type="warning" dismissOnTimeout="55000">validator</alert>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="link" class="col-sm-2 control-label">Link</label>
-            <div class="col-sm-10">
-                <input type="text"
-                       class="form-control"
-                       id="link"
-                       placeholder="link"
-                       [formControl]="dealForm.controls['link']"
-                       formControlName="link">
-                <alert type="warning" dismissOnTimeout="55000">validator</alert>
-            </div>
-        </div>
-      </form>
-      <div>
-        <div class="col-sm-12">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <div class="">
-                <div class="form-group">
-                  <label for="date-start" class="col-sm-4 control-label">Start date</label>
-                  <div class="col-sm-8">
-                    <input type="text"
-                           id="date-start"
-                           class="form-control"
-                           placeholder="YYYY-DD-MM"
-                           [formControl]="dealForm.controls['dateStart']">
-                           <button type="button" class="btn btn-primary"
-                                   [(ngModel)]="startDateOn" btnCheckbox
-                                   btnCheckboxTrue="1" btnCheckboxFalse="0">
-                             Single Toggle
-                           </button>
-                    <alert type="warning" dismissOnTimeout="55000">validator</alert>
-                    <div style="display:inline-block; min-height:290px;" [ngClass]="{'hidden': !startDateOn }">
-                      <datepicker
-                        [(ngModel)]="dt"
-                        [minDate]="today"
-                        [showWeeks]="true">
-                      </datepicker>
+                    <div class="form-group">
+                        <label for="description" class="col-sm-2 control-label">Content</label>
+                        <div class="col-sm-10">
+                            <textarea
+                                id="content"
+                                class="form-control content"
+                                placeholder="content"
+                                [formControl]="dealForm.controls['content']"
+                                formControlName="content"></textarea>
+                            <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                        </div>
+                    </div>
+                </div>
+            </tab-comp>
+            <!-- STEP 2 -->
+            <tab-comp tabText="Step 2" selected="true">
+                <div tab-content>
+                    <div class="form-group">
+                        <label for="link" class="col-sm-2 control-label">Link</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                   class="form-control"
+                                   id="link"
+                                   placeholder="link"
+                                   [formControl]="dealForm.controls['link']"
+                                   formControlName="link">
+                            <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                        </div>
+                    </div>
+                </div>
+            </tab-comp>
+          </form>
+          <!-- STEP 3 -->
+          <tab-comp tabText="Step 3" selected="true">
+              <div tab-content>
+                <div class="col-sm-12">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <div class="">
+                        <div class="form-group">
+                          <label for="date-start" class="col-sm-4 control-label">Start date</label>
+                          <div class="col-sm-8">
+                            <input type="text"
+                                   id="date-start"
+                                   class="form-control"
+                                   placeholder="YYYY-DD-MM"
+                                   [formControl]="dealForm.controls['dateStart']">
+                                   <button type="button" class="btn btn-primary"
+                                           [(ngModel)]="startDateOn" btnCheckbox
+                                           btnCheckboxTrue="1" btnCheckboxFalse="0">
+                                     Single Toggle
+                                   </button>
+                            <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                            <div style="display:inline-block; min-height:290px;" [ngClass]="{'hidden': !startDateOn }">
+                              <datepicker
+                                [(ngModel)]="dt"
+                                [minDate]="today"
+                                [showWeeks]="true">
+                              </datepicker>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="">
+                        <label for="date-end" class="col-sm-4 control-label">End date</label>
+                        <div class="col-sm-8">
+                          <input type="text"
+                                 id="date-end"
+                                 class="form-control"
+                                 placeholder="YYYY-DD-MM"
+                                 [formControl]="dealForm.controls['dateEnd']">
+                          <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                          <div style="display:inline-block; min-height:290px;">
+                            <datepicker
+                               [(ngModel)]="dt"
+                               [minDate]="today"
+                               [showWeeks]="true">
+                            </datepicker>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="">
-                <label for="date-end" class="col-sm-4 control-label">End date</label>
-                <div class="col-sm-8">
-                  <input type="text"
-                         id="date-end"
-                         class="form-control"
-                         placeholder="YYYY-DD-MM"
-                         [formControl]="dealForm.controls['dateEnd']">
-                  <alert type="warning" dismissOnTimeout="55000">validator</alert>
-                  <div style="display:inline-block; min-height:290px;">
-                    <datepicker
-                       [(ngModel)]="dt"
-                       [minDate]="today"
-                       [showWeeks]="true">
-                    </datepicker>
+                  <div class="col-sm-6">
+                    <!-- <image-upload></image-upload> -->
+                    <alert type="warning" dismissOnTimeout="55000">validator</alert>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <!-- <image-upload></image-upload> -->
-            <alert type="warning" dismissOnTimeout="55000">validator</alert>
-          </div>
+          </tab-comp>
         </div>
-      </div>
-    </div>
+    </tabs-comp>
+
     <div class="panel-footer">
       <div class="pull-right">
         <button type="submit" (click)="onSubmit(dealForm.value)" class="btn btn-default">
           {{submitText}}
         </button>
-        <button type="submit"
-          [ngClass]="{'hidden': !isEdit }" (click)="remove($event)"
-          class="btn btn-default">
+        <button type="submit" [ngClass]="{'hidden': !isEdit }" (click)="remove($event)" class="btn btn-default">
             Remove
         </button>
       </div>
