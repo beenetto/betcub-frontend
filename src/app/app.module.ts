@@ -1,4 +1,5 @@
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { BsDropdownModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -104,6 +105,7 @@ import {TruncatePipe} from './pipes/truncate';
     imports: [
         AlertModule.forRoot(),
         BootstrapModalModule.forRoot({container:document.body}),
+        BsDropdownModule.forRoot(),
         ButtonsModule.forRoot(),
         BrowserModule,
         DatepickerModule.forRoot(),

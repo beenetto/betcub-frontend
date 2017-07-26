@@ -19,7 +19,7 @@ var BasicPageComponent = (function () {
         this.http = http;
         this.content = "";
         this.http.get(SharedService.SERVICE_ROOT +
-            activatedRoute.snapshot.url[0].path)
+            SharedService.ENDPOINT[activatedRoute.snapshot.url[0].path])
             .map(function (res) { return res.json().content; })
             .subscribe(function (content) { return _this.content = content; }, function (error) { return Observable.throw(error); });
     }

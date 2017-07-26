@@ -17,7 +17,7 @@ export class BasicPageComponent implements OnInit {
     constructor(private activatedRoute: ActivatedRoute, private http: Http) {
 
         this.http.get(SharedService.SERVICE_ROOT +
-                activatedRoute.snapshot.url[0].path)
+                SharedService.ENDPOINT[activatedRoute.snapshot.url[0].path])
             .map(res => res.json().content)
             .subscribe(
                 content => this.content = content,

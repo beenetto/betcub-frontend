@@ -14,7 +14,8 @@ import { SharedService } from '../services/shared.service';
 var DealService = (function () {
     function DealService(http) {
         this.http = http;
-        this.dealsUrl = SharedService.SERVICE_ROOT + "deals";
+        this.dealsUrl = SharedService.SERVICE_ROOT +
+            SharedService.ENDPOINT['deals'];
     }
     DealService.prototype.getRequestData = function () {
         var headers = new Headers({ 'Content-Type': 'application/json' });

@@ -9,7 +9,8 @@ import { SharedService } from '../services/shared.service';
 @Injectable()
 export class DealService {
 
-	private dealsUrl: string = SharedService.SERVICE_ROOT + "deals";
+	private dealsUrl: string = SharedService.SERVICE_ROOT +
+		SharedService.ENDPOINT['deals'];
 
 	constructor(private http: Http) {}
 

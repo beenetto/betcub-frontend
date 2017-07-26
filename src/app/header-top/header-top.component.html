@@ -7,7 +7,6 @@
 		<li class="nav-item"><a class="nav-link" (click)="set_filter('casino')">Casino</a></li>
 		<li class="nav-item"><a class="nav-link" (click)="set_filter('bingo')">Bingo</a></li>
 	</ul>
-
 	<div class="col-sm-4">
 		<div class="pull-right">
 			<a class="btn share-btn" [routerLink]="['/add-deal']">
@@ -15,9 +14,23 @@
 			</a>
 		</div>
 		<div class="pull-right">
-			<a class="btn login-btn" (click)="show_login()">
-				Register | Login
-			</a>
+			<div class="btn-group" dropdown>
+				<button type="button" (click)="show_login()" class="btn btn-danger">Register | Login</button>
+				<button type="button" dropdownToggle class="btn btn-danger dropdown-toggle dropdown-toggle-split">
+					<span class="caret"></span>
+					<span class="sr-only">Split button!</span>
+				</button>
+				<ul *dropdownMenu class="dropdown-menu" role="menu">
+					<li role="menuitem"><a class="dropdown-item" href="#">Your deals</a></li>
+					<li role="menuitem">
+						<a class="dropdown-item" href="#">Page settings</a>
+					</li>
+					<li role="menuitem"><a class="dropdown-item" href="#">Support</a></li>
+					<li class="divider dropdown-divider"></li>
+					<li role="menuitem"><a class="dropdown-item" href="#">Logout</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </nav>
