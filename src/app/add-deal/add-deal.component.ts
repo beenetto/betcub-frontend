@@ -23,14 +23,16 @@ import {
 
 export class AddDealComponent implements OnInit, OnDestroy {
 
-    public afterTomorrow: Date;
     public dt: Date = new Date();
     public events: any[];
     public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD',
                                 'DD.MM.YYYY', 'shortDate'];
     public format: string = this.formats[0];
+
     public today: Date = new Date();
-    public tomorrow: Date;
+    public start_date: Date = new Date();
+    public end_date: Date = new Date();
+
 
     linkSubscription: Subscription;
     deal: Deal;
@@ -44,7 +46,7 @@ export class AddDealComponent implements OnInit, OnDestroy {
     endDate: Date = new Date();
 
     constructor(
-        public fb: FormBuilder,
+        public formBuilder: FormBuilder,
         private collection: DealCollection,
         private activatedRoute: ActivatedRoute,
         private router: Router) {}
@@ -52,6 +54,18 @@ export class AddDealComponent implements OnInit, OnDestroy {
 
     setPage(page: string): void{
 
+    }
+
+    activeDateChange(date_type: string): void {
+        switch (date_type) {
+            case 'start_date':
+                console.log(this.start_date)
+            break;
+
+            case 'end_date':
+
+            break;
+        }
     }
 
     onSubmit(_deal: Deal): void {
@@ -98,7 +112,8 @@ export class AddDealComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.dealForm = this.fb.group({
+
+        this.dealForm = this.formBuilder.group({
             'content': '',
             'dateStart': '',
             'dateEnd': '',
@@ -106,6 +121,8 @@ export class AddDealComponent implements OnInit, OnDestroy {
             'link': '',
             'title': '',
         });
+
+        console.log(this.dealForm)
 
         this.linkSubscription = this.activatedRoute.params.subscribe(
             (params: any) => {
@@ -118,7 +135,7 @@ export class AddDealComponent implements OnInit, OnDestroy {
                         this.pageTitle = this.deal.title;
                         this.submitText = 'Save';
 
-                        this.dealForm = this.fb.group({
+                        this.dealForm = this.formBuilder.group({
                             'title': this.deal.title,
                             'link': this.deal.link,
                             'content': this.deal.content,

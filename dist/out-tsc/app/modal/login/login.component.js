@@ -13,12 +13,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
 var LoginComponent = (function (_super) {
     __extends(LoginComponent, _super);
-    function LoginComponent(dialogService) {
-        return _super.call(this, dialogService) || this;
+    function LoginComponent(dialogService, fb) {
+        var _this = _super.call(this, dialogService) || this;
+        _this.fb = fb;
+        return _this;
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        this.user = this.fb.group({
+            name: ['', [Validators.required, Validators.minLength(2)]],
+            account: this.fb.group({
+                email: ['', Validators.required],
+                confirm: ['', Validators.required]
+            })
+        });
+        this.user.patchValue({
+            name: 'YOYO'
+        });
+    };
+    LoginComponent.prototype.onSubmit = function () {
+        console.log(this.user.value, this.user.valid);
+    };
     LoginComponent.prototype.switchContent = function () {
     };
     LoginComponent.prototype.login = function () {
@@ -33,7 +51,7 @@ LoginComponent = __decorate([
         templateUrl: './login.component.html',
         styleUrls: ['./login.component.css']
     }),
-    __metadata("design:paramtypes", [DialogService])
+    __metadata("design:paramtypes", [DialogService, FormBuilder])
 ], LoginComponent);
 export { LoginComponent };
 //# sourceMappingURL=../../../../../src/app/modal/login/login.component.js.map

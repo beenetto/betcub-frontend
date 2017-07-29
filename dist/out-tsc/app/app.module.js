@@ -5,13 +5,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { AlertModule, BsDropdownModule, DatepickerModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
-import { AlertModule, ButtonsModule, DatepickerModule } from 'ng2-bootstrap';
+import { ButtonsModule } from 'ng2-bootstrap';
 import { LayoutService } from './services/layout.service';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';

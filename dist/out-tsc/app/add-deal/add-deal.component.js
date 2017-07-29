@@ -12,8 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DealCollection } from '../model/DealCollection';
 import { FormBuilder } from '@angular/forms';
 var AddDealComponent = (function () {
-    function AddDealComponent(fb, collection, activatedRoute, router) {
-        this.fb = fb;
+    function AddDealComponent(formBuilder, collection, activatedRoute, router) {
+        this.formBuilder = formBuilder;
         this.collection = collection;
         this.activatedRoute = activatedRoute;
         this.router = router;
@@ -22,6 +22,8 @@ var AddDealComponent = (function () {
             'DD.MM.YYYY', 'shortDate'];
         this.format = this.formats[0];
         this.today = new Date();
+        this.start_date = new Date();
+        this.end_date = new Date();
         this.isEdit = false;
         this.pageTitle = "Add new deal";
         this.submitText = "Add";
@@ -30,6 +32,15 @@ var AddDealComponent = (function () {
         this.endDate = new Date();
     }
     AddDealComponent.prototype.setPage = function (page) {
+    };
+    AddDealComponent.prototype.activeDateChange = function (date_type) {
+        switch (date_type) {
+            case 'start_date':
+                console.log(this.start_date);
+                break;
+            case 'end_date':
+                break;
+        }
     };
     AddDealComponent.prototype.onSubmit = function (_deal) {
         var _this = this;
@@ -63,7 +74,7 @@ var AddDealComponent = (function () {
     };
     AddDealComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.dealForm = this.fb.group({
+        this.dealForm = this.formBuilder.group({
             'content': '',
             'dateStart': '',
             'dateEnd': '',
@@ -71,6 +82,7 @@ var AddDealComponent = (function () {
             'link': '',
             'title': '',
         });
+        console.log(this.dealForm);
         this.linkSubscription = this.activatedRoute.params.subscribe(function (params) {
             console.log(params);
             _this.collection.stream.subscribe(function (value) {
@@ -79,7 +91,7 @@ var AddDealComponent = (function () {
                     _this.deal = _this.collection.getDealById(params['id']);
                     _this.pageTitle = _this.deal.title;
                     _this.submitText = 'Save';
-                    _this.dealForm = _this.fb.group({
+                    _this.dealForm = _this.formBuilder.group({
                         'title': _this.deal.title,
                         'link': _this.deal.link,
                         'content': _this.deal.content,

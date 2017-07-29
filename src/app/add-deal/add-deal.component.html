@@ -57,63 +57,19 @@
                     </div>
                 </div>
             </tab-comp>
+            <!-- STEP 3 -->
+            <input id="dateStart" [formControl]="dealForm.controls['dateStart']" formControlName="dateStart" type="hidden">
           </form>
-          <!-- STEP 3 -->
           <tab-comp tabText="Step 3" selected="true">
               <div tab-content>
-                <div class="col-sm-12">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <div class="">
-                        <div class="form-group">
-                          <label for="date-start" class="col-sm-4 control-label">Start date</label>
-                          <div class="col-sm-8">
-                            <input type="text"
-                                   id="date-start"
-                                   class="form-control"
-                                   placeholder="YYYY-DD-MM"
-                                   [formControl]="dealForm.controls['dateStart']">
-                                   <button type="button" class="btn btn-primary"
-                                           [(ngModel)]="startDateOn" btnCheckbox
-                                           btnCheckboxTrue="1" btnCheckboxFalse="0">
-                                     Single Toggle
-                                   </button>
-                            <alert type="warning" dismissOnTimeout="55000">validator</alert>
-                            <div style="display:inline-block; min-height:290px;" [ngClass]="{'hidden': !startDateOn }">
-                              <datepicker
-                                [(ngModel)]="dt"
-                                [minDate]="today"
-                                [showWeeks]="true">
-                              </datepicker>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="">
-                        <label for="date-end" class="col-sm-4 control-label">End date</label>
-                        <div class="col-sm-8">
-                          <input type="text"
-                                 id="date-end"
-                                 class="form-control"
-                                 placeholder="YYYY-DD-MM"
-                                 [formControl]="dealForm.controls['dateEnd']">
-                          <alert type="warning" dismissOnTimeout="55000">validator</alert>
-                          <div style="display:inline-block; min-height:290px;">
-                            <datepicker
-                               [(ngModel)]="dt"
-                               [minDate]="today"
-                               [showWeeks]="true">
-                            </datepicker>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-6">
-                    <!-- <image-upload></image-upload> -->
-                    <alert type="warning" dismissOnTimeout="55000">validator</alert>
-                  </div>
-                </div>
+                  <datepicker (activeDateChange)="activeDateChange('start_date')"
+                      [(ngModel)]="start_date"
+                      [minDate]="today"
+                      [showWeeks]="true"></datepicker>
+                  <datepicker (activeDateChange)="activeDateChange('end_date')" 
+                      [(ngModel)]="end_date"
+                      [minDate]="start_date"
+                      [showWeeks]="true"></datepicker>
               </div>
           </tab-comp>
         </div>

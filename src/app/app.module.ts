@@ -1,5 +1,5 @@
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { AlertModule, BsDropdownModule, DatepickerModule } from 'ngx-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -7,12 +7,7 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import './rxjs-operators';
 
 // UI
-import { AlertModule,
-         ButtonsModule,
-         DatepickerModule,
-         DropdownModule,
-         PaginationModule } from 'ng2-bootstrap';
-// import { ImageUploadModule } from 'angular2-image-upload';
+import { ButtonsModule } from 'ng2-bootstrap';
 import { LayoutService } from './services/layout.service';
 
 // ROUTING

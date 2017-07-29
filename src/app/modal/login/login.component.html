@@ -13,6 +13,59 @@
                     <tab-comp tabText="Register">
                         <div tab-content>REGISTER</div>
                     </tab-comp>
+                    <tab-comp tabText="User settings">
+                        <div tab-content>
+                            <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+                              <label>
+                                <span>Full name</span>
+                                <input
+                                  type="text"
+                                  name="name"
+                                  placeholder="Your full name"
+                                  formControlName='name'>
+                              </label>
+                              <div
+                                  class="error"
+                                  *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                                  Name is required
+                                </div>
+                                <div
+                                  class="error"
+                                  *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                                  Minimum of 2 characters
+                                </div>
+                              <div formGroupName="account">
+                                <label>
+                                  <span>Email address</span>
+                                  <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Your email address"
+                                    formControlName="email">
+                                </label>
+                                <div
+                                  class="error"
+                                  *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
+                                  Email is required
+                                </div>
+                                <label>
+                                  <span>Confirm address</span>
+                                  <input
+                                    type="email"
+                                    name="confirm"
+                                    placeholder="Confirm your email address"
+                                    formControlName="confirm">
+                                </label>
+                                <div
+                                  class="error"
+                                  *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
+                                  Confirming email is required
+                                </div>
+                              </div>
+                              <button type="submit" [disabled]="user.invalid">Sign up</button>
+                            </form>
+                        </div>
+                    </tab-comp>
                 </tabs-comp>
             </p>
         </div>
