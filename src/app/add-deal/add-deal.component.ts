@@ -1,71 +1,69 @@
 
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { Deal } from '../model/deal';
+import * as moment from 'moment';
 import { DealCollection } from '../model/DealCollection';
 import { TabsComponent } from '../tabs/tabs/tabs.component'
 import { TabComponent } from '../tabs/tab/tab.component'
-import { Subscription } from 'rxjs';
 
-import {
-    FormControl,
-    FormBuilder,
-    FormGroup,
-    FormsModule,
-    ReactiveFormsModule,
-    Validators
-} from '@angular/forms';
 
 @Component({
+	changeDetection: ChangeDetectionStrategy.OnPush,
 	selector: 'app-add-deal',
 	templateUrl: './add-deal.component.html',
 	styleUrls: ['./add-deal.component.css'] })
 
 export class AddDealComponent implements OnInit, OnDestroy {
 
-    public dt: Date = new Date();
-    public events: any[];
-    public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD',
-                                'DD.MM.YYYY', 'shortDate'];
-    public format: string = this.formats[0];
-
-    public today: Date = new Date();
-    public start_date: Date = new Date();
-    public end_date: Date = new Date();
-
-
-    linkSubscription: Subscription;
-    deal: Deal;
+    deal: Deal = new Deal({});
     dealForm: FormGroup;
     isEdit: Boolean = false;
-    pageTitle: String = "Add new deal";
-    submitText: String = "Add";
+    min_start_date;
+	min_end_date;
 
-    startDate: Date = new Date();
-    startDateOn: Number = 0;
-    endDate: Date = new Date();
+    constructor(public formBuilder: FormBuilder,
+                private collection: DealCollection,
+                private activatedRoute: ActivatedRoute,
+                private router: Router) {
+        this.isEdit = activatedRoute.snapshot
+            .url[0].path == 'edit-deal';
 
-    constructor(
-        public formBuilder: FormBuilder,
-        private collection: DealCollection,
-        private activatedRoute: ActivatedRoute,
-        private router: Router) {}
+		this.min_start_date = new Date();
+		this.min_end_date = moment(this.min_start_date)
+			.add(1, 'day').toDate();
+    }
 
+    ngOnInit() {
+
+        this.dealForm = this.formBuilder.group({
+            title: ['', [Validators.required, Validators.minLength(2)]],
+            content: ['', [Validators.required, Validators.minLength(2)]],
+            link: ['', [Validators.required, Validators.minLength(2)]]
+        });
+
+        if (this.isEdit) {
+            this.deal = this.collection.getDealById(
+                this.activatedRoute.snapshot.params['id']
+            );
+        }
+
+        this.dealForm.patchValue(this.deal);
+    }
 
     setPage(page: string): void{
 
     }
 
-    activeDateChange(date_type: string): void {
-        switch (date_type) {
-            case 'start_date':
-                console.log(this.start_date)
-            break;
-
-            case 'end_date':
-
-            break;
-        }
+    activeDateChange(): void {
+		let start = moment(this.deal.dateStart);
+		let offset_one = moment(start).add(1, 'day').toDate();
+		this.min_end_date = offset_one;
+		if (moment(this.deal.dateEnd).diff(start) < 86400000) {
+			this.deal.dateEnd = offset_one;
+		}
     }
 
     onSubmit(_deal: Deal): void {
@@ -111,61 +109,6 @@ export class AddDealComponent implements OnInit, OnDestroy {
         );
     }
 
-    ngOnInit() {
+    ngOnDestroy() {}
 
-        this.dealForm = this.formBuilder.group({
-            'content': '',
-            'dateStart': '',
-            'dateEnd': '',
-            'description': '',
-            'link': '',
-            'title': '',
-        });
-
-        console.log(this.dealForm)
-
-        this.linkSubscription = this.activatedRoute.params.subscribe(
-            (params: any) => {
-                console.log(params)
-                this.collection.stream.subscribe(
-                    value => {
-                    if (params['id']) {
-                        this.isEdit = true;
-                        this.deal = this.collection.getDealById(params['id']);
-                        this.pageTitle = this.deal.title;
-                        this.submitText = 'Save';
-
-                        this.dealForm = this.formBuilder.group({
-                            'title': this.deal.title,
-                            'link': this.deal.link,
-                            'content': this.deal.content,
-                            'dateStart': this.deal.dateStart,
-                            'dateEnd': this.deal.dateEnd,
-                            'temperature': this.deal.temperature,
-                        });
-                    }
-              },
-              error => {
-                  console.log(error);
-              });
-            }
-        );
-
-        if (this.collection.deals.length) {
-            this.collection.refresh();
-        }
-    }
-
-    onStartDateChange(value) {
-        console.log(value);
-    }
-
-    onEndDateChange(value) {
-        console.log(value);
-    }
-
-    ngOnDestroy() {
-    // prevent memory leak by unsubscribing
-        this.linkSubscription.unsubscribe();
-    }
 }

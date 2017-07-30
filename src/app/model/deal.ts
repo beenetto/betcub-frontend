@@ -1,8 +1,8 @@
 export class Deal{
 
 	public content: String;
-	public dateEnd: String;
-	public dateStart: String;
+	public dateEnd: Date;
+	public dateStart: Date;
 	public link: String;
 	public id: String;
 	public jRanking: String;

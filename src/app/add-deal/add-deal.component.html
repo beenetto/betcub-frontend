@@ -7,9 +7,7 @@
     </div>
     <tabs-comp (selected)="setPage($event.selectedTab)">
         <div class="panel-body ">
-          <form [formGroup]="dealForm"
-                (ngSubmit)="onSubmit(dealForm.value)"
-                class="form-horizontal">
+          <form [formGroup]="dealForm" (ngSubmit)="onSubmit()" class="form-horizontal">
             <!-- STEP 1     -->
             <tab-comp tabText="Step 1" selected="true">
                 <div tab-content>
@@ -18,11 +16,18 @@
                         <div class="col-sm-10">
                             <input type="text"
                                    class="form-control"
-                                   id="title"
                                    placeholder="title"
-                                   [formControl]="dealForm.controls['title']"
                                    formControlName="title">
-                        <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                            <alert type="warning"
+                                   *ngIf="dealForm.get('title').hasError('required') &&
+                                       dealForm.get('title').touched">
+                                Title is required
+                            </alert>
+                            <alert type="warning"
+                                   *ngIf="dealForm.get('title').hasError('minlength') &&
+                                       dealForm.get('title').touched">
+                                Minimum of 2 characters
+                            </alert>
                         </div>
                     </div>
 
@@ -30,12 +35,19 @@
                         <label for="description" class="col-sm-2 control-label">Content</label>
                         <div class="col-sm-10">
                             <textarea
-                                id="content"
                                 class="form-control content"
                                 placeholder="content"
-                                [formControl]="dealForm.controls['content']"
                                 formControlName="content"></textarea>
-                            <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                            <alert type="warning"
+                                   *ngIf="dealForm.get('content').hasError('required') &&
+                                       dealForm.get('content').touched">
+                                Content is required
+                            </alert>
+                            <alert type="warning"
+                                   *ngIf="dealForm.get('content').hasError('minlength') &&
+                                       dealForm.get('content').touched">
+                                Minimum of 2 characters
+                            </alert>
                         </div>
                     </div>
                 </div>
@@ -48,28 +60,27 @@
                         <div class="col-sm-10">
                             <input type="text"
                                    class="form-control"
-                                   id="link"
                                    placeholder="link"
-                                   [formControl]="dealForm.controls['link']"
                                    formControlName="link">
-                            <alert type="warning" dismissOnTimeout="55000">validator</alert>
+                            <alert type="warning"
+                                  *ngIf="dealForm.get('link').hasError('required') &&
+                                      dealForm.get('link').touched">
+                               Link is required
+                            </alert>
                         </div>
                     </div>
                 </div>
             </tab-comp>
-            <!-- STEP 3 -->
-            <input id="dateStart" [formControl]="dealForm.controls['dateStart']" formControlName="dateStart" type="hidden">
           </form>
           <tab-comp tabText="Step 3" selected="true">
               <div tab-content>
-                  <datepicker (activeDateChange)="activeDateChange('start_date')"
-                      [(ngModel)]="start_date"
-                      [minDate]="today"
+                  <datepicker (activeDateChange)="activeDateChange()"
+                      [(ngModel)]="deal.dateStart"
+                      [minDate]="min_start_date"
                       [showWeeks]="true"></datepicker>
-                  <datepicker (activeDateChange)="activeDateChange('end_date')" 
-                      [(ngModel)]="end_date"
-                      [minDate]="start_date"
-                      [showWeeks]="true"></datepicker>
+                  <datepicker (activeDateChange)="activeDateChange()"
+                      [(ngModel)]="deal.dateEnd"
+                      [(minDate)]="min_end_date"></datepicker>
               </div>
           </tab-comp>
         </div>
@@ -78,7 +89,7 @@
     <div class="panel-footer">
       <div class="pull-right">
         <button type="submit" (click)="onSubmit(dealForm.value)" class="btn btn-default">
-          {{submitText}}
+          Submit
         </button>
         <button type="submit" [ngClass]="{'hidden': !isEdit }" (click)="remove($event)" class="btn btn-default">
             Remove
