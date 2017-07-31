@@ -74,11 +74,12 @@
           </form>
           <tab-comp tabText="Step 3" selected="true">
               <div tab-content>
-                  <datepicker (activeDateChange)="activeDateChange()"
+                  <datepicker
+                      (activeDateChange)="activeDateChange()"
                       [(ngModel)]="deal.dateStart"
                       [minDate]="min_start_date"
                       [showWeeks]="true"></datepicker>
-                  <datepicker (activeDateChange)="activeDateChange()"
+                  <datepicker
                       [(ngModel)]="deal.dateEnd"
                       [(minDate)]="min_end_date"></datepicker>
               </div>

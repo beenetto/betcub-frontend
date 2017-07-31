@@ -7,15 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Deal } from '../model/deal';
 import * as moment from 'moment';
 import { DealCollection } from '../model/DealCollection';
 var AddDealComponent = (function () {
-    function AddDealComponent(formBuilder, collection, activatedRoute, router) {
+    function AddDealComponent(formBuilder, cdRef, collection, activatedRoute, router) {
         this.formBuilder = formBuilder;
+        this.cdRef = cdRef;
         this.collection = collection;
         this.activatedRoute = activatedRoute;
         this.router = router;
@@ -33,6 +34,8 @@ var AddDealComponent = (function () {
             content: ['', [Validators.required, Validators.minLength(2)]],
             link: ['', [Validators.required, Validators.minLength(2)]]
         });
+        this.deal.dateStart = this.min_start_date;
+        this.deal.dateEnd = this.min_end_date;
         if (this.isEdit) {
             this.deal = this.collection.getDealById(this.activatedRoute.snapshot.params['id']);
         }
@@ -47,6 +50,7 @@ var AddDealComponent = (function () {
         if (moment(this.deal.dateEnd).diff(start) < 86400000) {
             this.deal.dateEnd = offset_one;
         }
+        this.cdRef.detectChanges();
     };
     AddDealComponent.prototype.onSubmit = function (_deal) {
         var _this = this;
@@ -89,6 +93,7 @@ AddDealComponent = __decorate([
         styleUrls: ['./add-deal.component.css']
     }),
     __metadata("design:paramtypes", [FormBuilder,
+        ChangeDetectorRef,
         DealCollection,
         ActivatedRoute,
         Router])

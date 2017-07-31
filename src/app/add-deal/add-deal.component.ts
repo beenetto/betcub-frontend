@@ -1,5 +1,5 @@
 
-import { ChangeDetectionStrategy, Component, OnInit, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -21,10 +21,12 @@ export class AddDealComponent implements OnInit, OnDestroy {
     deal: Deal = new Deal({});
     dealForm: FormGroup;
     isEdit: Boolean = false;
-    min_start_date;
+
+	min_start_date;
 	min_end_date;
 
     constructor(public formBuilder: FormBuilder,
+				private cdRef: ChangeDetectorRef,
                 private collection: DealCollection,
                 private activatedRoute: ActivatedRoute,
                 private router: Router) {
@@ -44,6 +46,9 @@ export class AddDealComponent implements OnInit, OnDestroy {
             link: ['', [Validators.required, Validators.minLength(2)]]
         });
 
+		this.deal.dateStart = this.min_start_date;
+		this.deal.dateEnd = this.min_end_date;
+
         if (this.isEdit) {
             this.deal = this.collection.getDealById(
                 this.activatedRoute.snapshot.params['id']
@@ -61,9 +66,12 @@ export class AddDealComponent implements OnInit, OnDestroy {
 		let start = moment(this.deal.dateStart);
 		let offset_one = moment(start).add(1, 'day').toDate();
 		this.min_end_date = offset_one;
+
 		if (moment(this.deal.dateEnd).diff(start) < 86400000) {
 			this.deal.dateEnd = offset_one;
 		}
+
+		this.cdRef.detectChanges();
     }
 
     onSubmit(_deal: Deal): void {
