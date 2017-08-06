@@ -13,7 +13,7 @@
                     <tab-comp tabText="Register">
                         <div tab-content>REGISTER</div>
                     </tab-comp>
-                    <tab-comp tabText="User settings">
+                    <tab-comp *ngIf="sharedService.loggedIn" tabText="User settings">
                         <div tab-content>
                             <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
                               <label>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from "ng2-bootstrap-modal";
 import { LoginComponent } from '../modal/login/login.component';
+import { SharedService } from '../services/shared.service';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { LoginComponent } from '../modal/login/login.component';
   styleUrls: ['./header-top.component.css']
 })
 export class HeaderTopComponent implements OnInit {
+
+    sharedService = SharedService.INSTANCE;
 
     constructor(private dialogService:DialogService) { }
 

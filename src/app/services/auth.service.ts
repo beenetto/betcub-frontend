@@ -6,14 +6,14 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
 
-    private authManager_:BehaviorSubject<AuthState> = new BehaviorSubject(
+    private _authManager: BehaviorSubject<AuthState> = new BehaviorSubject(
         AuthState.LoggedOut);
-    private authState_: AuthState;
+    private _authState: AuthState;
 
     authChange: Observable<AuthState>;
 
     constructor() {
-        this.authChange = this.authManager_.asObservable();
+        this.authChange = this._authManager.asObservable();
     }
 
     login() {
@@ -21,15 +21,15 @@ export class AuthService {
     }
 
     logout() {
-        this.setAuthState_(AuthState.LoggedOut)
+        this.setAuthState_(AuthState.LoggedOut);
     }
 
     emmitAuthState() {
-        this.authManager_.next(this.authState_);
+        this._authManager.next(this._authState);
     }
 
     private setAuthState_(newAuthState:AuthState): void {
-        this.authState_ = newAuthState;
+        this._authState = newAuthState;
         this.emmitAuthState();
     }
 

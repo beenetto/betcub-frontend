@@ -28,6 +28,8 @@ export interface User {
 export class LoginComponent extends DialogComponent<LoginModel, boolean>
                             implements LoginModel, OnInit {
 
+    sharedService = SharedService.INSTANCE;
+
     title: string;
     message: string;
     user: FormGroup;

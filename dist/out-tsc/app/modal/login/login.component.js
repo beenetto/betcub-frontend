@@ -21,6 +21,7 @@ var LoginComponent = (function (_super) {
     function LoginComponent(fb, dialogService) {
         var _this = _super.call(this, dialogService) || this;
         _this.fb = fb;
+        _this.sharedService = SharedService.INSTANCE;
         return _this;
     }
     LoginComponent.prototype.ngOnInit = function () {

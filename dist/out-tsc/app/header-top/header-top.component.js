@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { DialogService } from "ng2-bootstrap-modal";
 import { LoginComponent } from '../modal/login/login.component';
+import { SharedService } from '../services/shared.service';
 var HeaderTopComponent = (function () {
     function HeaderTopComponent(dialogService) {
         this.dialogService = dialogService;
+        this.sharedService = SharedService.INSTANCE;
     }
     HeaderTopComponent.prototype.set_filter = function (filter_name) { console.log(filter_name); };
     HeaderTopComponent.prototype.show_login = function () {
