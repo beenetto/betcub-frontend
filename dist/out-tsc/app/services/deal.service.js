@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { SharedService } from '../services/shared.service';
+import { SharedService } from './shared.service';
 var DealService = (function () {
     function DealService(http) {
         this.http = http;

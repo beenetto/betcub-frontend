@@ -32,9 +32,12 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
   user: FormGroup;
 
 
-  constructor(dialogService: DialogService, private fb: FormBuilder) {
-    super(dialogService);
-  }
+    constructor(
+            private fb: FormBuilder,
+            dialogService: DialogService) {
+
+        super(dialogService);
+    }
 
   ngOnInit() {
     this.user = this.fb.group({

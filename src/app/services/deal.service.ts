@@ -3,7 +3,7 @@ import { DealComponent } from '../deal/deal.component'
 import { Injectable }     from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import { SharedService } from '../services/shared.service';
+import { SharedService } from './shared.service';
 
 
 @Injectable()
