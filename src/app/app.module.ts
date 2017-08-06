@@ -12,6 +12,7 @@ import { LayoutService } from './services/layout.service';
 
 // ROUTING
 import { routing }  from './app.routing';
+import { AddDealDeactivateGuard, AuthGuard } from './app.route.guards';
 
  // APP
 import { AppComponent } from './app.component';
@@ -114,10 +115,12 @@ import {TruncatePipe} from './pipes/truncate';
         LoginComponent
     ],
     providers: [
-          DealCollection,
-          DealService,
-          LayoutService,
-          SharedService
+        AddDealDeactivateGuard,
+        AuthGuard,
+        DealCollection,
+        DealService,
+        LayoutService,
+        SharedService
     ],
     bootstrap: [
         AppComponent

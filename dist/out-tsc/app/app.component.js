@@ -8,12 +8,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
+import { LoginComponent } from './modal/login/login.component';
+import { DialogService } from "ng2-bootstrap-modal";
 import { SharedService } from './services/shared.service';
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(dialogService) {
+        this.dialogService = dialogService;
         this._sharedServiceInitiator = SharedService.INSTANCE;
+        SharedService.INSTANCE.showLogin = this.showLogin;
     }
-    AppComponent.prototype.ngOnInit = function () { };
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        SharedService.INSTANCE.sharedMessage.subscribe(function (message) {
+            if (message === 0) {
+                _this.showLogin();
+            }
+        });
+    };
+    AppComponent.prototype.showLogin = function () {
+        var disposable = this.dialogService
+            .addDialog(LoginComponent, {
+            title: 'Login or register',
+            message: ''
+        })
+            .subscribe(function (isConfirmed) {
+            if (isConfirmed) {
+                console.log('accepted');
+            }
+            else {
+                console.log('declined');
+            }
+        });
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -22,7 +48,7 @@ AppComponent = __decorate([
         templateUrl: './app.component.html',
         styleUrls: ['./app.component.css']
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [DialogService])
 ], AppComponent);
 export { AppComponent };
 //# sourceMappingURL=../../../src/app/app.component.js.map

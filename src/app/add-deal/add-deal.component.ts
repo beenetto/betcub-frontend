@@ -117,6 +117,10 @@ export class AddDealComponent implements OnInit, OnDestroy {
         );
     }
 
+	hasChanges() {
+		return true;
+	}
+
     ngOnDestroy() {}
 
 }

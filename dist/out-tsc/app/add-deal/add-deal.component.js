@@ -82,6 +82,9 @@ var AddDealComponent = (function () {
         }, function (error) {
         });
     };
+    AddDealComponent.prototype.hasChanges = function () {
+        return true;
+    };
     AddDealComponent.prototype.ngOnDestroy = function () { };
     return AddDealComponent;
 }());

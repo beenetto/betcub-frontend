@@ -26,8 +26,9 @@
 						<a class="dropdown-item" href="#">Page settings</a>
 					</li>
 					<li role="menuitem"><a class="dropdown-item" href="#">Support</a></li>
-					<li class="divider dropdown-divider"></li>
-					<li role="menuitem"><a class="dropdown-item" href="#">Logout</a>
+					<li [hidden]="!sharedService.loggedIn" class="divider dropdown-divider"></li>
+					<li [hidden]="!sharedService.loggedIn" role="menuitem">
+						<a class="dropdown-item" href="#" (click)="sharedService.logout()">Logout</a>
 					</li>
 				</ul>
 			</div>

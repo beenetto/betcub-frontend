@@ -14,6 +14,7 @@ import './rxjs-operators';
 import { ButtonsModule } from 'ng2-bootstrap';
 import { LayoutService } from './services/layout.service';
 import { routing } from './app.routing';
+import { AddDealDeactivateGuard, AuthGuard } from './app.route.guards';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HeaderTopComponent } from './header-top/header-top.component';
@@ -97,6 +98,8 @@ AppModule = __decorate([
             LoginComponent
         ],
         providers: [
+            AddDealDeactivateGuard,
+            AuthGuard,
             DealCollection,
             DealService,
             LayoutService,

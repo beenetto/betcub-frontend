@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { AuthService, AuthState } from './auth.service';
-
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class SharedService {
@@ -12,10 +13,13 @@ export class SharedService {
     static SERVICE_ROOT_REMOTE: string = "https://betcubco20160823124853.azurewebsites.net/";
 
     private _authService: AuthService;
+    private _sharedMessageManager: BehaviorSubject<SharedMessages> = new BehaviorSubject(null);
+    sharedMessage: Observable<SharedMessages>;
     loggedIn: boolean;
-    testVar = 'lolo'
+    showLogin: Function;
 
     constructor() {
+        this.sharedMessage = this._sharedMessageManager.asObservable();
         this._authService = new AuthService();
         this._authService.authChange.subscribe(
             newAuthState => this.loggedIn = (newAuthState === AuthState.LoggedIn)
@@ -55,4 +59,11 @@ export class SharedService {
         this._authService.logout();
     }
 
+    openLogin(): void {
+        this._sharedMessageManager.next(SharedMessages.openLogin);
+    }
+}
+
+export const enum SharedMessages {
+    openLogin
 }

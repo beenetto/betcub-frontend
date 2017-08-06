@@ -8,29 +8,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { DialogService } from "ng2-bootstrap-modal";
-import { LoginComponent } from '../modal/login/login.component';
 import { SharedService } from '../services/shared.service';
 var HeaderTopComponent = (function () {
-    function HeaderTopComponent(dialogService) {
-        this.dialogService = dialogService;
+    function HeaderTopComponent() {
         this.sharedService = SharedService.INSTANCE;
     }
     HeaderTopComponent.prototype.set_filter = function (filter_name) { console.log(filter_name); };
     HeaderTopComponent.prototype.show_login = function () {
-        var disposable = this.dialogService
-            .addDialog(LoginComponent, {
-            title: 'Login or register',
-            message: ''
-        })
-            .subscribe(function (isConfirmed) {
-            if (isConfirmed) {
-                console.log('accepted');
-            }
-            else {
-                console.log('declined');
-            }
-        });
+        SharedService.INSTANCE.openLogin();
     };
     HeaderTopComponent.prototype.ngOnInit = function () { };
     return HeaderTopComponent;
@@ -41,7 +26,7 @@ HeaderTopComponent = __decorate([
         templateUrl: './header-top.component.html',
         styleUrls: ['./header-top.component.css']
     }),
-    __metadata("design:paramtypes", [DialogService])
+    __metadata("design:paramtypes", [])
 ], HeaderTopComponent);
 export { HeaderTopComponent };
 //# sourceMappingURL=../../../../src/app/header-top/header-top.component.js.map

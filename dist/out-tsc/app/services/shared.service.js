@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 var SharedService = SharedService_1 = (function () {
     function SharedService() {
         var _this = this;
-        this.testVar = 'lolo';
+        this._sharedMessageManager = new BehaviorSubject(null);
+        this.sharedMessage = this._sharedMessageManager.asObservable();
         this._authService = new AuthService();
         this._authService.authChange.subscribe(function (newAuthState) { return _this.loggedIn = (newAuthState === 0); });
     }
@@ -55,6 +57,9 @@ var SharedService = SharedService_1 = (function () {
     SharedService.prototype.logout = function () {
         this._authService.logout();
     };
+    SharedService.prototype.openLogin = function () {
+        this._sharedMessageManager.next(0);
+    };
     return SharedService;
 }());
 SharedService.IS_SERVICE_LOCAL = true;
@@ -65,5 +70,9 @@ SharedService = SharedService_1 = __decorate([
     __metadata("design:paramtypes", [])
 ], SharedService);
 export { SharedService };
+export var SharedMessages;
+(function (SharedMessages) {
+    SharedMessages[SharedMessages["openLogin"] = 0] = "openLogin";
+})(SharedMessages || (SharedMessages = {}));
 var SharedService_1;
 //# sourceMappingURL=../../../../src/app/services/shared.service.js.map
