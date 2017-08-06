@@ -13,8 +13,9 @@ export class SharedService {
 
     private _authService: AuthService;
     loggedIn: boolean;
+    testVar = 'lolo'
 
-    private constructor() {
+    constructor() {
         this._authService = new AuthService();
         this._authService.authChange.subscribe(
             newAuthState => this.loggedIn = (newAuthState === AuthState.LoggedIn)
@@ -44,6 +45,14 @@ export class SharedService {
                 'privacy-policy': 'api/privacy-policy',
                 'terms-and-conditions': 'api/terms-and-conditions',
             };
+    }
+
+    login(): void {
+        this._authService.login();
+    }
+
+    logout(): void {
+        this._authService.logout();
     }
 
 }

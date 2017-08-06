@@ -8,12 +8,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { LoginService } from './services/login.service';
+import { SharedService } from './services/shared.service';
 var AppComponent = (function () {
-    function AppComponent(loginService) {
-        this.loginService = loginService;
+    function AppComponent() {
+        this._sharedServiceInitiator = SharedService.INSTANCE;
     }
-    AppComponent.prototype.login = function () { };
     AppComponent.prototype.ngOnInit = function () { };
     return AppComponent;
 }());
@@ -21,10 +20,9 @@ AppComponent = __decorate([
     Component({
         selector: 'app-root',
         templateUrl: './app.component.html',
-        styleUrls: ['./app.component.css'],
-        providers: [LoginService]
+        styleUrls: ['./app.component.css']
     }),
-    __metadata("design:paramtypes", [LoginService])
+    __metadata("design:paramtypes", [])
 ], AppComponent);
 export { AppComponent };
 //# sourceMappingURL=../../../src/app/app.component.js.map

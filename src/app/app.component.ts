@@ -1,19 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './services/login.service'
+import { SharedService } from './services/shared.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [LoginService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
 
-	constructor ( private loginService: LoginService ) {
-        
-    }
+    private _sharedServiceInitiator: SharedService = SharedService.INSTANCE;
 
-	public login() {}
+	constructor () {}
 
 	ngOnInit() {}
 }

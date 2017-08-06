@@ -15,9 +15,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
+import { SharedService } from '../../services/shared.service';
 var LoginComponent = (function (_super) {
     __extends(LoginComponent, _super);
-    function LoginComponent(dialogService, fb) {
+    function LoginComponent(fb, dialogService) {
         var _this = _super.call(this, dialogService) || this;
         _this.fb = fb;
         return _this;
@@ -40,6 +41,7 @@ var LoginComponent = (function (_super) {
     LoginComponent.prototype.switchContent = function () {
     };
     LoginComponent.prototype.login = function () {
+        SharedService.INSTANCE.login();
         this.result = true;
         this.close();
     };
@@ -51,7 +53,8 @@ LoginComponent = __decorate([
         templateUrl: './login.component.html',
         styleUrls: ['./login.component.css']
     }),
-    __metadata("design:paramtypes", [DialogService, FormBuilder])
+    __metadata("design:paramtypes", [FormBuilder,
+        DialogService])
 ], LoginComponent);
 export { LoginComponent };
 //# sourceMappingURL=../../../../../src/app/modal/login/login.component.js.map
