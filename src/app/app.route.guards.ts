@@ -19,14 +19,15 @@ export class AuthGuard implements CanActivate {
 
     canActivate(
         route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot ): Observable<boolean> | boolean {
-
+            state: RouterStateSnapshot ): Observable<boolean> | boolean {
         if (!SharedService.INSTANCE.loggedIn) {
-
-            SharedService.INSTANCE.openLogin();
+                this.router.navigate(["home"]);
+                setTimeout(
+                    () => SharedService.INSTANCE.openLogin(),
+                    1000
+                );
             return false;
         }
-
         return SharedService.INSTANCE.loggedIn;
     }
 }

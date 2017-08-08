@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 import { LoginComponent } from './modal/login/login.component';
 import { DialogService } from "ng2-bootstrap-modal";
 import { SharedMessages, SharedService } from './services/shared.service';
+import { UserService } from './services/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -13,9 +16,11 @@ export class AppComponent implements OnInit {
     private _sharedServiceInitiator: SharedService = SharedService.INSTANCE;
 
 	constructor (
-        private dialogService: DialogService
+        private dialogService: DialogService,
+        private userService: UserService
     ) {
         SharedService.INSTANCE.showLogin = this.showLogin;
+        SharedService.INSTANCE.userService = this.userService;
     }
 
 	ngOnInit() {

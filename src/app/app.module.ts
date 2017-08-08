@@ -54,7 +54,6 @@ import { LoginComponent } from './modal/login/login.component'
 import { DealComponent } from './deal/deal.component';
 
 import { FeedbackComponent } from './feedback/feedback.component'; // MODAL COMPONENT
-import { RegisterComponent } from './register/register.component';
 
 // TabsComponent
 import { TabsComponent } from './tabs/tabs/tabs.component'
@@ -63,6 +62,7 @@ import { TabComponent } from './tabs/tab/tab.component'
 // Common models and collections
 import { DealService } from './services/deal.service';
 import { SharedService } from './services/shared.service';
+import { UserService } from './services/user.service';
 import { DealCollection } from './model/DealCollection';
 
 // PIPES
@@ -91,7 +91,6 @@ import {TruncatePipe} from './pipes/truncate';
         HottestDealsComponent,
         LoginComponent,
         PageNotFoundComponent,
-        RegisterComponent,
         UserSettingsComponent,
         TabComponent,
         TabsComponent,
@@ -120,7 +119,8 @@ import {TruncatePipe} from './pipes/truncate';
         DealCollection,
         DealService,
         LayoutService,
-        SharedService
+        SharedService,
+        UserService
     ],
     bootstrap: [
         AppComponent
