@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { AuthService, AuthState } from './auth.service';
 import { User } from '../model/user';
+import { DealCollection } from '../model/DealCollection';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from './user.service';
@@ -20,10 +21,9 @@ export class SharedService {
     private _sharedMessageManager: BehaviorSubject<SharedMessages> = new BehaviorSubject(null);
 
     loggedIn: boolean;
+    dealCollection: DealCollection;
     sharedMessage: Observable<SharedMessages>;
     showLogin: Function;
-    
-
 
     constructor() {
         this.sharedMessage = this._sharedMessageManager.asObservable();

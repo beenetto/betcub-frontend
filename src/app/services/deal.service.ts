@@ -1,8 +1,9 @@
 import { Deal } from '../model/deal';
 import { DealComponent } from '../deal/deal.component'
-import { Injectable }     from '@angular/core';
-import { Headers, Http, Response, RequestOptions } from '@angular/http';
-import { Observable }     from 'rxjs/Observable';
+import { Injectable } from '@angular/core';
+import { Headers, Http, Response, RequestOptions, URLSearchParams }
+	from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import { SharedService } from './shared.service';
 
 
@@ -21,8 +22,18 @@ export class DealService {
 		return { headers: headers, options: options	}
 	}
 
-	getDeals (): Observable<Deal[]> {
-		let response = this.http.get(this.dealsUrl)
+	getDeals (filter: string=""): Observable<Deal[]> {
+
+		let params: URLSearchParams = new URLSearchParams();
+
+		if (filter) {
+			params.set('filter', filter);
+		}
+
+		let requestOptions = new RequestOptions();
+		requestOptions.search = params;
+
+		let response = this.http.get(this.dealsUrl, requestOptions)
 			.map(this.extractData)
 			.catch(this.handleError);
 		return response;

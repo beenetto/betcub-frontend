@@ -14,11 +14,12 @@ export class DealCollection {
 
     constructor (private dealService: DealService) { this.getDeals(); }
 
-    getDeals() {
-		this.dealService.getDeals()
+    getDeals(filter: string="") {
+		this.dealService.getDeals(filter)
 			.subscribe(
 				dealStream => {
 					this.deals = dealStream;
+                    this.stream.next(this.deals);
 				},
 				error =>  {
 					this.errorMessage = <any>error
@@ -38,7 +39,7 @@ export class DealCollection {
 	}
 
 	refresh(): void {
-		this.stream.next(this.deals);
+		// this.stream.next(this.deals);
 	}
 
 	getDealById(id: String): Deal {
