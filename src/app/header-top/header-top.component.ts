@@ -12,6 +12,10 @@ export class HeaderTopComponent implements OnInit {
 
     constructor() {}
 
+    get username() {
+        return SharedService.USER.username;
+    }
+
     set_filter(filter_name: String) { console.log(filter_name); }
 
     show_login() {
