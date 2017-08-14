@@ -6,7 +6,7 @@ import { TabComponent } from '../../tabs/tab/tab.component';
 import { SharedService } from '../../services/shared.service';
 
 
-//  LOGIN MODAL
+//  LOGIN MODEL
 export interface LoginModel {
     title:string;
     message:string;
@@ -42,20 +42,16 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
     }
 
     ngOnInit() {
-    this.user = this.fb.group({
-        name: [
-            '',
-            [ Validators.required, Validators.minLength(2) ]
-        ],
-        account: this.fb.group({
-            email: ['', Validators.required],
-            confirm: ['', Validators.required]
-        })
-    });
-
-    this.user.patchValue({
-        name: 'YOYO'
-    });
+        this.user = this.fb.group({
+            name: [
+                '',
+                [ Validators.required, Validators.minLength(2) ]
+            ],
+            account: this.fb.group({
+                email: ['', Validators.required],
+                confirm: ['', Validators.required]
+            })
+        });
     }
 
     onSubmit() {

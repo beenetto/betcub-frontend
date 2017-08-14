@@ -5,7 +5,7 @@ import { AddDealDeactivateGuard, AuthGuard } from './app.route.guards';
 import { AddDealComponent } from './add-deal/add-deal.component';
 import { BasicPageComponent } from './basic-page/basic-page.component'
 import { ContactComponent } from './contact/contact.component';
-import { DealDetailComponent } from './deal-detail/deal-detail.component';
+// import { DealDetailComponent } from './modal/deal-detail/deal-detail.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -27,7 +27,7 @@ const appRoutes: Routes = [
   // DEAL
   { path: 'add-deal', component: AddDealComponent, canActivate: [AuthGuard], canDeactivate: [AddDealDeactivateGuard] },
   { path: 'edit-deal/:id', component: AddDealComponent, canActivate: [AuthGuard] },
-  { path: 'deal-detail/:id', component: DealDetailComponent, canActivate: [AuthGuard] },
+  // { path: 'deal-detail/:id', component: DealDetailComponent, canActivate: [AuthGuard] },
 
   // USER
   { path: 'user-settings/:id', component: UserSettingsComponent, canActivate: [AuthGuard] },

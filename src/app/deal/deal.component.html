@@ -16,7 +16,9 @@
 		</div>
 		<div class="col-sm-2 no-margin no-padding">
 			<img src="" class="deal-image">
-			<a class="btn btn-default get-deal" role="button">GET DEAL</a>
+			<a class="btn btn-default get-deal"
+			   role="button"
+			   (click)="sharedService.openDeal(id)">GET DEAL</a>
 		</div>
 	</div>
 	<div class="deal-footer rounded-5 rounded-no-top">

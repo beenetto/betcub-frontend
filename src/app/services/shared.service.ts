@@ -1,8 +1,9 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { Headers } from '@angular/http';
 import { AuthService, AuthState } from './auth.service';
-import { User } from '../model/user';
+import { Deal } from '../model/Deal';
 import { DealCollection } from '../model/DealCollection';
+import { User } from '../model/user';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { UserService } from './user.service';
@@ -23,6 +24,7 @@ export class SharedService {
     private _sharedMessageManager: BehaviorSubject<SharedMessages> = new BehaviorSubject(null);
 
     loggedIn: boolean;
+    currentDeal: Deal;
     dealCollection: DealCollection;
     sharedMessage: Observable<SharedMessages>;
     showLogin: Function;
@@ -86,8 +88,20 @@ export class SharedService {
     openLogin(): void {
         this._sharedMessageManager.next(SharedMessages.openLogin);
     }
+
+    openDeal(id: string): void {
+        this.dealCollection.getDeal(id).subscribe(
+            deal => {
+                console.log(deal);
+                this.currentDeal = deal;
+                this._sharedMessageManager.next(SharedMessages.openDeal);
+            }
+        );
+
+    }
 }
 
 export const enum SharedMessages {
+    openDeal,
     openLogin
 }

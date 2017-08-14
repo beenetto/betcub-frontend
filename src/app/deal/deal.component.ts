@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'deal',
@@ -8,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DealComponent implements OnInit {
 
 	@Input() data:Object;
+
+    sharedService = SharedService.INSTANCE;
 
 	id: string;
 	title: string;

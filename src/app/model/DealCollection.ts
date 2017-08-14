@@ -26,15 +26,15 @@ export class DealCollection {
 		});
 	}
 
-	addDeal (deal: Deal): Observable<DealComponent>{
+	addDeal (deal: Deal): Observable<DealComponent> {
 		return this.dealService.addDeal(deal);
 	}
 
-	saveDeal (deal: Deal): Observable<DealComponent>{
+	saveDeal (deal: Deal): Observable<DealComponent> {
 		return this.dealService.saveDeal(deal);
 	}
 
-	removeDeal (id: String): Observable<DealComponent>{
+	removeDeal (id: String): Observable<DealComponent> {
 		return this.dealService.removeDeal(id);
 	}
 

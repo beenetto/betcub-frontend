@@ -39,7 +39,7 @@ import { ContentComponent } from './content/content.component'; // MAIN TEMPLATE
 
    // DEALS
   import { DealListComponent } from './deal-list/deal-list.component'; // PAGE COMPONENT
-  import { DealDetailComponent } from './deal-detail/deal-detail.component'; // PAGE
+  import { DealDetailComponent } from './modal/deal-detail/deal-detail.component'; // PAGE
   import { AddDealComponent } from './add-deal/add-deal.component'; // PAGE
   import { HottestDealsComponent } from './hottest-deals/hottest-deals.component';
 
@@ -111,6 +111,7 @@ import {TruncatePipe} from './pipes/truncate';
         routing
     ],
     entryComponents: [
+        DealDetailComponent,
         LoginComponent
     ],
     providers: [
