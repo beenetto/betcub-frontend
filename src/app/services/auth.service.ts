@@ -13,7 +13,8 @@ export class AuthService {
     private _authState: AuthState;
 
     authChange: Observable<AuthState>;
-    endPoint: string;
+    loginEndPoint: string;
+    logoutEndPoint: string;
     user: User;
     userService: UserService;
 
@@ -24,7 +25,7 @@ export class AuthService {
 
     login(username: string,
           password: string): void {
-        this.userService.login(username, password, this.endPoint)
+        this.userService.login(username, password, this.loginEndPoint)
             .subscribe(
                 user => {
                     this.user = user;
@@ -35,7 +36,13 @@ export class AuthService {
     }
 
     logout(): void {
-        this.setAuthState_(AuthState.LoggedOut);
+        this.userService.logout(this.logoutEndPoint)
+            .subscribe(
+                response => {
+                    this.setAuthState_(AuthState.LoggedOut);
+                },
+                error => Observable.throw(error)
+            );
     }
 
     emmitAuthState(): void {

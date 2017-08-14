@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable, Output } from '@angular/core';
+import { Headers } from '@angular/http';
 import { AuthService, AuthState } from './auth.service';
 import { User } from '../model/user';
 import { DealCollection } from '../model/DealCollection';
@@ -13,6 +14,7 @@ export class SharedService {
     private static _instance: SharedService;
 
     static IS_SERVICE_LOCAL: boolean = true;
+    static HEADERS = new Headers({ 'Content-Type': 'application/json' });
     static SERVICE_ROOT_LOCAL: string = "http://localhost:3000/";
     static SERVICE_ROOT_REMOTE: string = "https://betcubco20160823124853.azurewebsites.net/";
     static USER: User;
@@ -37,12 +39,14 @@ export class SharedService {
     }
 
     set userService(_userService: UserService) {
-        this._authService.endPoint = SharedService.SERVICE_ROOT +
+        this._authService.loginEndPoint = SharedService.SERVICE_ROOT +
             SharedService.ENDPOINT['login'];
+        this._authService.logoutEndPoint = SharedService.SERVICE_ROOT +
+            SharedService.ENDPOINT['logout'];
         this._authService.userService = _userService;
     }
 
-    static get INSTANCE() {
+    static get INSTANCE(): SharedService {
         return this._instance || (this._instance = new this());
     }
 

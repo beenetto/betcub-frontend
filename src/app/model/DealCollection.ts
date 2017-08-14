@@ -14,7 +14,7 @@ export class DealCollection {
 
     constructor (private dealService: DealService) { this.getDeals(); }
 
-    getDeals(filter: string="") {
+    getDeals (filter: string="") {
 		this.dealService.getDeals(filter)
 			.subscribe(
 				dealStream => {
@@ -38,17 +38,17 @@ export class DealCollection {
 		return this.dealService.removeDeal(id);
 	}
 
-	refresh(): void {
-		// this.stream.next(this.deals);
-	}
-
-	getDealById(id: String): Deal {
+	getDealFromCache (id: String): Deal {
 		return this.deals
 			.filter(d => d.id === id)
 			.pop();
 	}
 
-	getAll(): Array<Deal> {
+    getDeal (id: string): Observable<Deal> {
+		return this.dealService.getDeal(id);
+	}
+
+	getAll (): Array<Deal> {
 		return this.deals;
 	}
 }

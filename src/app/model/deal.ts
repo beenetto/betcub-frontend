@@ -10,18 +10,4 @@ export class Deal{
 	public temperature: String;
 	public title: String;
 
-
-	constructor(public modelObject: Object) {
-
-		this.content = modelObject['content'];
-		this.dateEnd = modelObject['dateEnd'];
-		this.dateStart = modelObject['dateStart'];
-		this.link = modelObject['link'];
-		this.id = modelObject['id'];
-		this.jRanking = modelObject['jRanking'];
-		this.pending = modelObject['pending'];
-		this.temperature = modelObject['temperature'];
-		this.title = modelObject['title'];
-	}
-
 }

@@ -16,10 +16,13 @@ export class DealService {
 	constructor(private http: Http) {}
 
 	getRequestData () {
-		let headers = new Headers({ 'Content-Type': 'application/json' });
-		let options = new RequestOptions({ headers: headers });
+		return new RequestOptions({ headers: SharedService.HEADERS });
+	}
 
-		return { headers: headers, options: options	}
+	getDeal (id: string): Observable<Deal> {
+		return	this.http.get(this.dealsUrl + "/" + id, null)
+			.map(this.extractData)
+			.catch(this.handleError);
 	}
 
 	getDeals (filter: string=""): Observable<Deal[]> {
@@ -42,7 +45,7 @@ export class DealService {
 	addDeal (deal: Deal): Observable<DealComponent> {
 
 		return this.http
-			.post(this.dealsUrl, deal, this.getRequestData().options)
+			.post(this.dealsUrl, deal, this.getRequestData())
 			.map(this.extractData)
 			.catch(this.handleError);
 	}
@@ -52,7 +55,7 @@ export class DealService {
 		return this.http
 			.put(this.dealsUrl + '/' + deal.id,
 				 deal,
-				 this.getRequestData().options)
+				 this.getRequestData())
 			.map(this.extractData)
 			.catch(this.handleError);
 	}

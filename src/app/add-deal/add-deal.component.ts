@@ -18,7 +18,7 @@ import { TabComponent } from '../tabs/tab/tab.component'
 
 export class AddDealComponent implements OnInit, OnDestroy {
 
-    deal: Deal = new Deal({});
+    deal: Deal = new Deal();
     dealForm: FormGroup;
     isEdit: Boolean = false;
 
@@ -50,12 +50,18 @@ export class AddDealComponent implements OnInit, OnDestroy {
 		this.deal.dateEnd = this.min_end_date;
 
         if (this.isEdit) {
-            this.deal = this.collection.getDealById(
-                this.activatedRoute.snapshot.params['id']
-            );
-        }
-
-        this.dealForm.patchValue(this.deal);
+			this.collection
+				.getDeal(this.activatedRoute.snapshot.params['id'])
+				.map(deal => {
+					deal.dateStart = new Date(deal.dateStart);
+					deal.dateEnd = new Date(deal.dateEnd);
+					return deal;
+				})
+				.subscribe(deal => {
+					this.deal = deal;
+					this.dealForm.patchValue(this.deal);
+				});
+		}
     }
 
     setPage(page: string): void{

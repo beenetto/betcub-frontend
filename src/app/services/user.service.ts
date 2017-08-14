@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BaseRequestOptions, Headers, Http, Response, RequestOptions } from '@angular/http';
+import { BaseRequestOptions, Http, Response, RequestOptions } from '@angular/http';
 import { User } from '../model/user';
 import { Observable } from 'rxjs';
 
@@ -13,4 +13,9 @@ export class UserService {
             endPoint: string):Observable<User> {
       return this.http.get(endPoint).map(res => res.json());
   }
+
+  logout(endPoint: string):Observable<User> {
+      return this.http.get(endPoint).map(res => res.json());
+  }
+
 }
