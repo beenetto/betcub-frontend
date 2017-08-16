@@ -46,8 +46,8 @@ export class AppComponent implements OnInit {
     showLogin(): void {
         let disposable = this.dialogService
             .addDialog(LoginComponent, {
-                title:'Login or register',
-                message:''})
+                title: 'Login or register',
+                message: ''})
             .subscribe((isConfirmed) => {
                 if (isConfirmed) {
                     console.log('accepted');

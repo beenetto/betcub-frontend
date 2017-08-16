@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Deal } from '../model/deal';
 import * as moment from 'moment';
 import { DealCollection } from '../model/DealCollection';
+import { Observable } from 'rxjs/Observable';
 import { TabsComponent } from '../tabs/tabs/tabs.component'
 import { TabComponent } from '../tabs/tab/tab.component'
 
@@ -80,26 +81,24 @@ export class AddDealComponent implements OnInit, OnDestroy {
 		this.cdRef.detectChanges();
     }
 
-    onSubmit(_deal: Deal): void {
+    onSubmit(formData: Deal): void {
         // EDIT DEAL
         if (this.isEdit) {
-            _deal.id = this.deal.id;
-            this.collection.saveDeal(_deal).subscribe(
-                dealStream => {
-                    console.log("DEAL SAVED");
-                    for (let prop in _deal) {
-                        this.deal[prop] = _deal[prop];
-                    }
-                    this.router.navigate(["home"]);
+			for (let key in this.deal) {
+				!formData[key] ? formData[key] = this.deal[key] : null;
+			}
+            this.collection.saveDeal(formData).subscribe(
+                deal => {
+					this.deal = deal;
+                	this.router.navigate(["home"]);
                 },
                 error =>  {
                 // this.errorMessage = <any>error;
             });
         } else {
           // ADD DEAL
-            this.collection.addDeal(_deal).subscribe(
+            this.collection.addDeal(this.deal).subscribe(
                 dealStream => {
-                    console.log("DEAL ADDED");
                     this.router.navigate(["home"]);
                 },
                 error =>  {

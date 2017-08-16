@@ -1,5 +1,4 @@
 import { Deal } from '../model/deal';
-import { DealComponent } from '../deal/deal.component'
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response, RequestOptions, URLSearchParams }
 	from '@angular/http';
@@ -42,7 +41,7 @@ export class DealService {
 		return response;
 	}
 
-	addDeal (deal: Deal): Observable<DealComponent> {
+	addDeal (deal: Deal): Observable<Deal> {
 
 		return this.http
 			.post(this.dealsUrl, deal, this.getRequestData())
@@ -50,7 +49,7 @@ export class DealService {
 			.catch(this.handleError);
 	}
 
-	saveDeal (deal: Deal): Observable<DealComponent> {
+	saveDeal (deal: Deal): Observable<Deal> {
 
 		return this.http
 			.put(this.dealsUrl + '/' + deal.id,
@@ -60,7 +59,7 @@ export class DealService {
 			.catch(this.handleError);
 	}
 
-	removeDeal (id: String): Observable<DealComponent> {
+	removeDeal (id: String): Observable<Deal> {
 
 		return this.http.delete(this.dealsUrl + '/' + id,)
 			.map(this.extractData)
