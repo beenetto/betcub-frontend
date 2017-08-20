@@ -11,58 +11,117 @@
                         <div tab-content>LOGIN</div>
                     </tab-comp>
                     <tab-comp tabText="Register">
-                        <div tab-content>REGISTER</div>
-                    </tab-comp>
-                    <tab-comp *ngIf="sharedService.loggedIn" tabText="User settings">
-                        <div tab-content>
+                        <div class="form-goup" tab-content>
                             <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
-                              <label>
-                                <span>Full name</span>
-                                <input
-                                  type="text"
-                                  name="name"
-                                  placeholder="Your full name"
-                                  formControlName='name'>
-                              </label>
-                              <div
-                                  class="error"
-                                  *ngIf="user.get('name').hasError('required') && user.get('name').touched">
-                                  Name is required
-                                </div>
-                                <div
-                                  class="error"
-                                  *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                                <label for="name">Full name</label>
+                                <input type="text"
+                                       name="name"
+                                       class="form-control"
+                                       placeholder="Your full name"
+                                       formControlName='name'>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                                   Name is required
+                                </alert>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
                                   Minimum of 2 characters
+                                </alert>
+                                <div formGroupName="account">
+                                    <label for="email">Email address</label>
+                                    <input type="email"
+                                           name="email"
+                                           class="form-control"
+                                           placeholder="Your email address"
+                                           formControlName="email">
+                                    <alert type="warning"
+                                           class="error"
+                                           *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
+                                        Email is required
+                                    </alert>
+                                    <label>Confirm address</label>
+                                    <input type="email"
+                                           name="confirm"
+                                           class="form-control"
+                                           placeholder="Confirm your email address"
+                                           formControlName="confirm">
+                                    <alert type="warning"
+                                           class="error"
+                                           *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
+                                        Confirming email is required
+                                    </alert>
                                 </div>
-                              <div formGroupName="account">
-                                <label>
-                                  <span>Email address</span>
-                                  <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Your email address"
-                                    formControlName="email">
-                                </label>
-                                <div
-                                  class="error"
-                                  *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
-                                  Email is required
+                                <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button>
+                            </form>
+                        </div>
+                    </tab-comp>
+                    <tab-comp *ngIf="sharedService.loggedIn" tabText="User settings for {{USER.username}}">
+                        <div class="form-goup" tab-content>
+                            <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+                                <label for="name">Firstname: </label>
+                                <input type="text"
+                                       name="name"
+                                       class="form-control"
+                                       placeholder="Your full name"
+                                       formControlName='name'>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                                   Name is required
+                                </alert>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                                  Minimum of 2 characters
+                                </alert>
+                                <label for="name">Lastname: </label>
+                                <input type="text"
+                                       name="name"
+                                       class="form-control"
+                                       placeholder="Your full name"
+                                       formControlName='name'>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                                   Name is required
+                                </alert>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                                  Minimum of 2 characters
+                                </alert>
+                                <label for="name">Username: </label>
+                                <input type="text"
+                                       name="name"
+                                       class="form-control"
+                                       placeholder="Your full name"
+                                       formControlName='name'>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                                   Name is required
+                                </alert>
+                                <alert type="warning"
+                                       class="error"
+                                       *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                                  Minimum of 2 characters
+                                </alert>
+                                <div formGroupName="account">
+                                    <label for="email">Email address</label>
+                                    <input type="email"
+                                           name="email"
+                                           class="form-control"
+                                           placeholder="Your email address"
+                                           formControlName="email">
+                                    <alert type="warning"
+                                           class="error"
+                                           *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
+                                        Email is required
+                                    </alert>
                                 </div>
-                                <label>
-                                  <span>Confirm address</span>
-                                  <input
-                                    type="email"
-                                    name="confirm"
-                                    placeholder="Confirm your email address"
-                                    formControlName="confirm">
-                                </label>
-                                <div
-                                  class="error"
-                                  *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
-                                  Confirming email is required
-                                </div>
-                              </div>
-                              <button type="submit" [disabled]="user.invalid">Sign up</button>
+                                <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button>
                             </form>
                         </div>
                     </tab-comp>

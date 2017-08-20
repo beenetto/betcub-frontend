@@ -42,7 +42,6 @@ export class DealService {
 	}
 
 	addDeal (deal: Deal): Observable<Deal> {
-
 		return this.http
 			.post(this.dealsUrl, deal, this.getRequestData())
 			.map(this.extractData)
@@ -50,7 +49,6 @@ export class DealService {
 	}
 
 	saveDeal (deal: Deal): Observable<Deal> {
-
 		return this.http
 			.put(this.dealsUrl + '/' + deal.id,
 				 deal,
@@ -60,7 +58,6 @@ export class DealService {
 	}
 
 	removeDeal (id: String): Observable<Deal> {
-
 		return this.http.delete(this.dealsUrl + '/' + id,)
 			.map(this.extractData)
 			.catch(this.handleError);

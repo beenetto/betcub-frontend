@@ -92,7 +92,6 @@ export class SharedService {
     openDeal(id: string): void {
         this.dealCollection.getDeal(id).subscribe(
             deal => {
-                console.log(deal);
                 this.currentDeal = deal;
                 this._sharedMessageManager.next(SharedMessages.openDeal);
             }

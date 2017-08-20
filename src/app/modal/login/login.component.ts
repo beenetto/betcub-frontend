@@ -58,6 +58,10 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
         console.log(this.user.value, this.user.valid);
     }
 
+    get USER() {
+        return SharedService.USER;
+    }
+
     switchContent() {
 
     }
