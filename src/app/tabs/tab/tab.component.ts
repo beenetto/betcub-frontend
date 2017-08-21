@@ -4,6 +4,7 @@ import { TabsComponent } from '../tabs/tabs.component'
 
 export interface Tab {
   tabText: string,
+  name: string,
   selected: boolean
 }
 
@@ -14,7 +15,8 @@ export interface Tab {
 })
 export class TabComponent implements OnInit, Tab {
 
-    @Input() tabText;
+    @Input() name: string = '';
+    @Input() tabText: string = '';
     selected: boolean = false;
 
     constructor(private tabsComponent: TabsComponent) {}

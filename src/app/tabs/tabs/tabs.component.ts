@@ -11,21 +11,21 @@ import { Observable, Subscription } from 'rxjs';
 export class TabsComponent implements OnInit {
 
     tabs:Tab[] = [];
-    @Output() selected = new EventEmitter();
+    @Output() selected:EventEmitter<Tab> = new EventEmitter<Tab>();
 
-    addTab(tab:Tab) {
+    addTab(tab: Tab): void {
         if (!this.tabs.length) {
             tab.selected = true;
         }
         this.tabs.push(tab);
     }
 
-    selectTab(tab:Tab) {
+    selectTab(tab: Tab): void {
         this.tabs.map((tab) => {
             tab.selected = false;
         })
         tab.selected = true;
-        this.selected.emit({selectedTab: tab});
+        this.selected.emit(tab);
     }
 
     ngOnInit() {

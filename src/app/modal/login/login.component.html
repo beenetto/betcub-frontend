@@ -6,13 +6,48 @@
         </div>
         <div class="modal-body">
             <p>
-                <tabs-comp (selected)="switchContent($event.selectedTab)">
-                    <tab-comp tabText="Login" selected="true">
-                        <div tab-content>LOGIN</div>
+                <tabs-comp (selected)="switchContent($event)">
+                    <tab-comp tabText="Login" selected="true" name="login">
+                        <div tab-content>
+                            <div class="form-goup" tab-content>
+                                <form novalidate [formGroup]="login_user" (ngSubmit)="onSubmit()">
+                                    <label for="name">Full name</label>
+                                    <input type="text"
+                                           name="name"
+                                           class="form-control"
+                                           placeholder="Your full name"
+                                           formControlName='name'>
+                                    <alert type="warning"
+                                           class="error"
+                                           *ngIf="user.get('name').hasError('required') && user.get('name').touched">
+                                       Name is required
+                                    </alert>
+                                    <alert type="warning"
+                                           class="error"
+                                           *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
+                                      Minimum of 2 characters
+                                    </alert>
+                                    <div formGroupName="account">
+                                        <label for="email">Email address</label>
+                                        <input type="email"
+                                               name="email"
+                                               class="form-control"
+                                               placeholder="Your email address"
+                                               formControlName="email">
+                                        <alert type="warning"
+                                               class="error"
+                                               *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
+                                            Email is required
+                                        </alert>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button>
+                                </form>
+                            </div>
+                        </div>
                     </tab-comp>
-                    <tab-comp tabText="Register">
+                    <tab-comp tabText="Register" name="register">
                         <div class="form-goup" tab-content>
-                            <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+                            <form novalidate [formGroup]="new_user" (ngSubmit)="onSubmit()">
                                 <label for="name">Full name</label>
                                 <input type="text"
                                        name="name"
@@ -57,9 +92,9 @@
                             </form>
                         </div>
                     </tab-comp>
-                    <tab-comp *ngIf="sharedService.loggedIn" tabText="User settings for {{USER.username}}">
+                    <tab-comp *ngIf="sharedService.loggedIn" tabText="User settings for {{USER.username}}" name="user-settings">
                         <div class="form-goup" tab-content>
-                            <form novalidate [formGroup]="user" (ngSubmit)="onSubmit()">
+                            <form novalidate [formGroup]="logged_in_user" (ngSubmit)="onSubmit()">
                                 <label for="name">Firstname: </label>
                                 <input type="text"
                                        name="name"
