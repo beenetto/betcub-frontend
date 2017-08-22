@@ -40,7 +40,7 @@
                                             Email is required
                                         </alert>
                                     </div>
-                                    <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button>
+                                    <!-- <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button> -->
                                 </form>
                             </div>
                         </div>
@@ -88,11 +88,11 @@
                                         Confirming email is required
                                     </alert>
                                 </div>
-                                <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button>
+                                <!-- <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button> -->
                             </form>
                         </div>
                     </tab-comp>
-                    <tab-comp *ngIf="sharedService.loggedIn" tabText="User settings for {{USER.username}}" name="user-settings">
+                    <tab-comp *ngIf="sharedService.loggedIn" tabText="User settings for {{USER.username}}" name="save">
                         <div class="form-goup" tab-content>
                             <form novalidate [formGroup]="logged_in_user" (ngSubmit)="onSubmit()">
                                 <label for="name">Firstname: </label>
@@ -156,7 +156,7 @@
                                         Email is required
                                     </alert>
                                 </div>
-                                <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button>
+                                <!-- <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button> -->
                             </form>
                         </div>
                     </tab-comp>
@@ -164,7 +164,7 @@
             </p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="login()">OK</button>
+            <button type="button" class="btn btn-primary" [disabled]="!formValid" (click)="submitCurrentForm()">{{formMapping[currentPage].submitText}}</button>
             <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
         </div>
     </div>

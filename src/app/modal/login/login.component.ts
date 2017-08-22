@@ -22,8 +22,11 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
 
     sharedService = SharedService.INSTANCE;
 
-    title: string;
+    formValid: boolean = true;
     message: string;
+    title: string;
+    submitText: string = 'Login';
+    currentPage: string = 'login';
 
     user: FormGroup;
 
@@ -68,19 +71,24 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
     }
 
     switchContent(tab: Tab) {
-        switch(tab.name) {
-            case 'login':
+        this.currentPage = tab.name;
+    }
 
-            break;
-
-            case 'register':
-
-            break;
-            case 'user-settings':
-            break;
-            default:
-            break;
-        }
+    get formMapping(): Object {
+        return {
+            login: {
+                action: this.login,
+                submitText: 'Login'
+            },
+            register: {
+                action: this.register,
+                submitText: 'Register'
+            },
+            save: {
+                action: this.save,
+                submitText: 'Save'
+            }
+        };
     }
 
     login() {
@@ -88,4 +96,24 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
         this.result = true;
         this.close();
     }
+
+    register() {
+        console.log('register')
+        // SharedService.INSTANCE.login();
+        // this.result = true;
+        // this.close();
+    }
+
+    save() {
+        console.log('save')
+        // SharedService.INSTANCE.login();
+        // this.result = true;
+        // this.close();
+    }
+
+    submitCurrentForm(): void {
+        this.formMapping[this.currentPage].action.call(this);
+    }
+
+
 }
