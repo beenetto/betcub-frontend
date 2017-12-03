@@ -11,7 +11,11 @@ export class UserService {
   login(username: string,
         password: string,
             endPoint: string):Observable<User> {
-      return this.http.get(endPoint).map(res => res.json());
+      return this.http.post(endPoint, {
+        name: username,
+        password: password,
+        rememberMe: false
+      }).map(res => res.json());
   }
 
   logout(endPoint: string):Observable<User> {

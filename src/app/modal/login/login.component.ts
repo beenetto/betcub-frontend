@@ -50,7 +50,7 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
     }
 
     onSubmit() {
-        console.log(this.user.value, this.user.valid);
+        // console.log(this.user.value, this.user.valid);
     }
 
     makeUserForm(type: string): FormGroup {
@@ -58,6 +58,10 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
             name: [
                 '',
                 [ Validators.required, Validators.minLength(2) ]
+            ],
+            password: [
+                '',
+                [ Validators.required ]
             ],
             account: this.fb.group({
                 email: ['', Validators.required],
@@ -92,7 +96,9 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
     }
 
     login() {
-        SharedService.INSTANCE.login();
+        SharedService.INSTANCE.login(
+            this.login_user.value.name,
+            this.login_user.value.password);
         this.result = true;
         this.close();
     }

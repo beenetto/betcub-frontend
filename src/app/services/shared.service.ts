@@ -14,7 +14,7 @@ export class SharedService {
 
     private static _instance: SharedService;
 
-    static IS_SERVICE_LOCAL: boolean = true;
+    static IS_SERVICE_LOCAL: boolean = false;
     static HEADERS = new Headers({ 'Content-Type': 'application/json' });
     static SERVICE_ROOT_LOCAL: string = "http://localhost:3000/";
     static SERVICE_ROOT_REMOTE: string = "https://betcubco20160823124853.azurewebsites.net/";
@@ -70,15 +70,15 @@ export class SharedService {
             } : {
                 'about-us': 'api/about-us',
                 'deals': 'api/Deals/Deals',
-                'login': 'login',
-                'logout': 'logout',
+                'login': 'api/Members/Login',
+                'logout': 'api/Members/LogOff',
                 'privacy-policy': 'api/privacy-policy',
                 'terms-and-conditions': 'api/terms-and-conditions',
             };
     }
 
-    login(): void {
-        this._authService.login("", "");
+    login(username: string, password: string): void {
+        this._authService.login(username, password);
     }
 
     logout(): void {

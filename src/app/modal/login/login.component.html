@@ -11,11 +11,11 @@
                         <div tab-content>
                             <div class="form-goup" tab-content>
                                 <form novalidate [formGroup]="login_user" (ngSubmit)="onSubmit()">
-                                    <label for="name">Full name</label>
+                                    <label for="name">Username</label>
                                     <input type="text"
                                            name="name"
                                            class="form-control"
-                                           placeholder="Your full name"
+                                           placeholder="Your betcub username"
                                            formControlName='name'>
                                     <alert type="warning"
                                            class="error"
@@ -27,19 +27,19 @@
                                            *ngIf="user.get('name').hasError('minlength') && user.get('name').touched">
                                       Minimum of 2 characters
                                     </alert>
-                                    <div formGroupName="account">
-                                        <label for="email">Email address</label>
-                                        <input type="email"
-                                               name="email"
-                                               class="form-control"
-                                               placeholder="Your email address"
-                                               formControlName="email">
-                                        <alert type="warning"
-                                               class="error"
-                                               *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
-                                            Email is required
-                                        </alert>
-                                    </div>
+
+                                    <label for="email">Password</label>
+                                    <input type="password"
+                                           name="password"
+                                           class="form-control"
+                                           placeholder="Your password"
+                                           formControlName="password">
+                                    <alert type="warning"
+                                           class="error"
+                                           *ngIf="user.get('password').hasError('required') && user.get('password').touched">
+                                        Password is required
+                                    </alert>
+
                                     <!-- <button class="btn btn-primary" type="submit" [disabled]="user.invalid">Sign up</button> -->
                                 </form>
                             </div>
