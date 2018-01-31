@@ -11,14 +11,16 @@ export class DealCollection {
     public stream: Subject<Array<Deal>> = new Subject<Array<Deal>>();
     public errorMessage: String;
 
-    constructor (private dealService: DealService) { this.getDeals(); }
+  constructor(private dealService: DealService) {
+    this.getDeals();
+  }
 
     getDeals (filter: string="") {
 		this.dealService.getDeals(filter)
 			.subscribe(
 				dealStream => {
 					this.deals = dealStream;
-                    this.stream.next(this.deals);
+          this.stream.next(this.deals);
 				},
 				error =>  {
 					this.errorMessage = <any>error

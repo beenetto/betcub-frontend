@@ -1,7 +1,6 @@
 import { Deal } from '../model/deal';
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response, RequestOptions, URLSearchParams }
-	from '@angular/http';
+import { Headers, Http, Response, RequestOptions, URLSearchParams }	from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { SharedService } from './shared.service';
 
@@ -10,7 +9,7 @@ import { SharedService } from './shared.service';
 export class DealService {
 
 	private dealsUrl: string = SharedService.SERVICE_ROOT +
-		SharedService.ENDPOINT['deals'];
+    SharedService.ENDPOINT['deals'] + "?token=382e5f40-f456-4d8a-af36-399d8e915456";
 
 	constructor(private http: Http) {}
 
@@ -65,7 +64,7 @@ export class DealService {
 
 	private extractData(res: Response) {
 		let body = res.json();
-		return body || { };
+		return body.data || { };
 	}
 
 	private handleError (error: any) {

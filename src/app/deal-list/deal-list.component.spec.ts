@@ -5,7 +5,7 @@ import { DealListComponent } from './deal-list.component';
 
 describe('Component: DealList', () => {
   it('should create an instance', () => {
-    let component = new DealListComponent();
+    let component = new DealListComponent(null, null, null);
     expect(component).toBeTruthy();
   });
 });

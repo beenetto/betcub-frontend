@@ -1,6 +1,6 @@
 import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DialogComponent, DialogService } from "ng2-bootstrap-modal";
+import { DialogComponent, DialogService } from "ngx-bootstrap-modal";
 import { TabsComponent } from '../../tabs/tabs/tabs.component';
 import { Tab, TabComponent } from '../../tabs/tab/tab.component';
 import { SharedService } from '../../services/shared.service';
@@ -12,11 +12,12 @@ export interface LoginModel {
     message:string;
 }
 
-
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css'] })
+  styleUrls: ['./login.component.css']
+})
+
 export class LoginComponent extends DialogComponent<LoginModel, boolean>
                             implements LoginModel, OnInit {
 
@@ -103,11 +104,16 @@ export class LoginComponent extends DialogComponent<LoginModel, boolean>
         this.close();
     }
 
-    register() {
-        console.log('register')
-        // SharedService.INSTANCE.login();
-        // this.result = true;
-        // this.close();
+  register() {
+    SharedService.INSTANCE.register(
+        this.login_user.value.name,
+        this.login_user.value.password);
+      this.result = true;
+      this.close();
+      console.log('register')
+      // SharedService.INSTANCE.login();
+      // this.result = true;
+      // this.close();
     }
 
     save() {

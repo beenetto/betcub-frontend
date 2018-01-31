@@ -16,7 +16,7 @@ export class SharedService {
 
     static IS_SERVICE_LOCAL: boolean = false;
     static HEADERS = new Headers({ 'Content-Type': 'application/json' });
-    static SERVICE_ROOT_LOCAL: string = "http://localhost:3000/";
+    static SERVICE_ROOT_LOCAL: string = "http://localhost:4200/";
     static SERVICE_ROOT_REMOTE: string = "https://betcubco20160823124853.azurewebsites.net/";
     static USER: User;
 
@@ -43,6 +43,8 @@ export class SharedService {
     set userService(_userService: UserService) {
         this._authService.loginEndPoint = SharedService.SERVICE_ROOT +
             SharedService.ENDPOINT['login'];
+      this._authService.registerEndPoint = SharedService.SERVICE_ROOT +
+        SharedService.ENDPOINT['register'];
         this._authService.logoutEndPoint = SharedService.SERVICE_ROOT +
             SharedService.ENDPOINT['logout'];
         this._authService.userService = _userService;
@@ -57,29 +59,34 @@ export class SharedService {
             : SharedService.SERVICE_ROOT_REMOTE;
     }
 
-    static get ENDPOINT(): Object {
-        return SharedService.IS_SERVICE_LOCAL ?
-            {
-                'about-us': 'about-us',
-                'deals': 'deals',
-                'login': 'login',
-                'logout': 'logout',
-                'privacy-policy': 'privacy-policy',
-                'terms-and-conditions': 'terms-and-conditions',
+  static get ENDPOINT(): Object {
+    return SharedService.IS_SERVICE_LOCAL ?
+      {
+          'about-us': 'about-us',
+          'deals': 'deals',
+          'login': 'login',
+          'logout': 'logout',
+          'privacy-policy': 'privacy-policy',
+          'terms-and-conditions': 'terms-and-conditions',
 
-            } : {
-                'about-us': 'api/about-us',
-                'deals': 'api/Deals/Deals',
-                'login': 'api/Members/Login',
-                'logout': 'api/Members/LogOff',
-                'privacy-policy': 'api/privacy-policy',
-                'terms-and-conditions': 'api/terms-and-conditions',
-            };
-    }
+      } : {
+          'about-us': 'api/about-us',
+          'deals': 'api/Offers/Deals',
+          'login': 'api/Account/Login',
+        'register': 'api/Account/Register',
+          'logout': 'api/Account/LogOff',
+          'privacy-policy': 'api/privacy-policy',
+          'terms-and-conditions': 'api/terms-and-conditions',
+      };
+  }
 
     login(username: string, password: string): void {
         this._authService.login(username, password);
     }
+
+  register(username: string, emailaddress: string, password: string): void {
+    this._authService.register(username, password);
+  }
 
     logout(): void {
         this._authService.logout();

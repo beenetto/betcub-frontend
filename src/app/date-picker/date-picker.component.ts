@@ -6,7 +6,7 @@ import * as moment from 'moment';
   templateUrl: './date-picker.component.html',
   styleUrls: ['./date-picker.component.css']
 })
-export class DatepickerComponent {
+export class DatePickerComponent {
 
   public dt: Date = new Date();
   public minDate: Date = void 0;
@@ -14,8 +14,7 @@ export class DatepickerComponent {
   public tomorrow: Date;
   public afterTomorrow: Date;
   public dateDisabled: {date: Date, mode: string}[];
-  public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY',
-    'shortDate'];
+  public formats: string[] = ['DD-MM-YYYY', 'YYYY/MM/DD', 'DD.MM.YYYY', 'shortDate'];
   public format: string = this.formats[0];
   public dateOptions: any = {
     formatYear: 'YY',

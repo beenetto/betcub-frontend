@@ -14,6 +14,7 @@ export class AuthService {
 
     authChange: Observable<AuthState>;
     loginEndPoint: string;
+    registerEndPoint: string;
     logoutEndPoint: string;
     user: User;
     userService: UserService;
@@ -35,6 +36,19 @@ export class AuthService {
             );
     }
 
+  register(username: string,
+           emailaddress: string,
+           password: string): void {
+    this.userService.register(username, emailaddress, password, this.registerEndPoint)
+      .subscribe(
+      user => {
+        this.user = user;
+        this.setAuthState_(AuthState.LoggedIn);
+      },
+      error => Observable.throw(error)
+      );
+  }
+
     logout(): void {
         this.userService.logout(this.logoutEndPoint)
             .subscribe(
@@ -53,7 +67,6 @@ export class AuthService {
         this._authState = newAuthState;
         this.emmitAuthState();
     }
-
 }
 
 export const enum AuthState {

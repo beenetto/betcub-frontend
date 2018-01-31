@@ -18,6 +18,21 @@ export class UserService {
       }).map(res => res.json());
   }
 
+  register(username: string,
+           emailaddress: string,
+           password: string,
+           endPoint: string): Observable<User> {
+    return this.http.post(endPoint, {
+      userName: username,
+      email: emailaddress,
+      givenName: 'testgiven',
+      surName: 'testsur',
+      password: password,
+      confirmPassword: password,
+      returnUrl: ''
+    }).map(res => res.json());
+  }
+
   logout(endPoint: string):Observable<User> {
       return this.http.get(endPoint).map(res => res.json());
   }
